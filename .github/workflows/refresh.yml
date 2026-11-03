@@ -1,0 +1,36 @@
+name: Refresh data
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"   # every Monday 03:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["data/catalog.yaml", "scripts/**"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Fetch GitHub data and rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/refresh.py && python3 scripts/build.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || (git commit -m "chore: refresh data" && git pull --rebase origin main && git push)
