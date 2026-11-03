@@ -9,7 +9,9 @@
    "inactive": "last activity 730 or more days ago",
    "archived": "repository is archived on GitHub"
   },
-  "rank": "within a category, entries with status active or slowing that are not add-ons (addon_of) are sorted by stars, highest first; rank 1 is the top pick. Categories with ranked=false are not ranked."
+  "rank": "within a category, entries with status active or slowing that are not add-ons (addon_of) are sorted by stars, highest first; rank 1 is the top pick. Categories with ranked=false (provider-specific SDKs) are not ranked.",
+  "package_swift": "min_ios, swift_tools and products are read from Package.swift at the latest release tag; if that tag is not a version number, at the highest version tag among the latest 100 tags; otherwise at the default branch. package_swift_at names the ref used.",
+  "kind": "library = can be added as an app dependency; tool = developer tool or build plugin, never an app library dependency"
  },
  "sections": [
   {
@@ -26,6 +28,7 @@
       "zh": "HTTP 客户端"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "URLSession async/await",
@@ -57,7 +60,9 @@
         "Alamofire",
         "AlamofireDynamic"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.4",
        "package_swift_at": "5.12.2",
        "license": "MIT",
@@ -87,7 +92,9 @@
         "ReactiveMoya",
         "RxMoya"
        ],
+       "products_source": null,
        "min_ios": 10.0,
+       "ios_platform": "declared",
        "swift_tools": "5.3",
        "package_swift_at": "15.0.3",
        "license": "MIT",
@@ -114,7 +121,9 @@
        "products": [
         "Get"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "5.5",
        "package_swift_at": "2.2.1",
        "license": "MIT",
@@ -129,6 +138,7 @@
       "zh": "OpenAPI 客户端生成"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -139,7 +149,11 @@
         "en": "Generates a Swift client and server from an OpenAPI document at build time.",
         "zh": "构建时根据 OpenAPI 文档生成 Swift 客户端和服务端代码。"
        },
-       "note": null,
+       "note": {
+        "en": "README: a Swift package plugin and CLI. Generated code uses apple/swift-openapi-runtime and a ClientTransport such as apple/swift-openapi-urlsession.",
+        "zh": "README：这是 Swift 包插件和命令行工具。生成的代码依赖 apple/swift-openapi-runtime，以及一个 ClientTransport 实现，例如 apple/swift-openapi-urlsession。",
+        "source": "https://github.com/apple/swift-openapi-generator#package-ecosystem"
+       },
        "addon_of": null,
        "stars": 1994,
        "status": "active",
@@ -149,10 +163,10 @@
        "last_commit": "2026-10-26",
        "spm": true,
        "spm_version": "1.14.3",
-       "products": [
-        "_OpenAPIGeneratorCore"
-       ],
+       "products": [],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "6.2",
        "package_swift_at": "1.14.3",
        "license": "Apache-2.0",
@@ -167,6 +181,7 @@
       "zh": "WebSocket"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "URLSessionWebSocketTask",
@@ -197,7 +212,9 @@
        "products": [
         "Starscream"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "5.3",
        "package_swift_at": "4.0.8",
        "license": "Apache-2.0",
@@ -212,6 +229,7 @@
       "zh": "网络状态监测"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "NWPathMonitor (Network framework)",
@@ -242,7 +260,9 @@
        "products": [
         "Reachability"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "5.3",
        "package_swift_at": "v5.2.4",
        "license": "MIT",
@@ -257,6 +277,7 @@
       "zh": "图片加载与缓存"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "AsyncImage",
@@ -288,7 +309,9 @@
         "SDWebImage",
         "SDWebImageMapKit"
        ],
+       "products_source": null,
        "min_ios": 9.0,
+       "ios_platform": "declared",
        "swift_tools": "5.3",
        "package_swift_at": "5.21.7",
        "license": "MIT",
@@ -315,7 +338,9 @@
        "products": [
         "Kingfisher"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.2",
        "package_swift_at": "8.15.0",
        "license": "MIT",
@@ -345,7 +370,9 @@
         "NukeUI",
         "NukeVideo"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "13.2.1",
        "license": "MIT",
@@ -372,7 +399,9 @@
        "products": [
         "SDWebImageSwiftUI"
        ],
+       "products_source": null,
        "min_ios": 14.0,
+       "ios_platform": "declared",
        "swift_tools": "5.3",
        "package_swift_at": "3.1.4",
        "license": "MIT",
@@ -387,6 +416,7 @@
       "zh": "本地数据库"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "SwiftData",
@@ -428,7 +458,9 @@
         "Realm",
         "RealmSwift"
        ],
+       "products_source": null,
        "min_ios": 12.0,
+       "ios_platform": "declared",
        "swift_tools": "6.2.1",
        "package_swift_at": "v20.0.6",
        "license": "Apache-2.0",
@@ -439,12 +471,12 @@
        "name": "SQLite.swift",
        "url": "https://github.com/stephencelis/SQLite.swift",
        "does": {
-        "en": "Type-safe Swift layer over SQLite3.",
-        "zh": "SQLite3 的类型安全 Swift 封装。"
+        "en": "Swift layer over SQLite3 with typed query expressions.",
+        "zh": "SQLite3 的 Swift 封装，用类型化表达式写查询。"
        },
        "note": null,
        "addon_of": null,
-       "stars": 10186,
+       "stars": 10187,
        "status": "active",
        "last_activity": "2026-10-20",
        "latest_release": "0.17.0",
@@ -456,7 +488,9 @@
         "SQLite",
         "SQLite-Dynamic"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.1",
        "package_swift_at": "0.17.0",
        "license": "MIT",
@@ -485,7 +519,9 @@
         "GRDB-dynamic",
         "GRDBSQLite"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "6.1",
        "package_swift_at": "v7.12.0",
        "license": "MIT",
@@ -513,7 +549,9 @@
         "SQLiteData",
         "SQLiteDataTestSupport"
        ],
+       "products_source": null,
        "min_ios": 16.0,
+       "ios_platform": "declared",
        "swift_tools": "6.4",
        "package_swift_at": "1.12.1",
        "license": "MIT",
@@ -528,6 +566,7 @@
       "zh": "钥匙串"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "Keychain Services (Security framework)",
@@ -558,7 +597,9 @@
        "products": [
         "Valet"
        ],
+       "products_source": null,
        "min_ios": 12.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "5.1.1",
        "license": "Apache-2.0",
@@ -585,7 +626,9 @@
        "products": [
         "SimpleKeychain"
        ],
+       "products_source": null,
        "min_ios": 14.0,
+       "ios_platform": "declared",
        "swift_tools": "5.9",
        "package_swift_at": "1.3.0",
        "license": "MIT",
@@ -612,7 +655,9 @@
        "products": [
         "KeychainAccess"
        ],
+       "products_source": null,
        "min_ios": 8.0,
+       "ios_platform": "declared",
        "swift_tools": "5.0",
        "package_swift_at": "v4.2.2",
        "license": "MIT",
@@ -639,7 +684,9 @@
        "products": [
         "KeychainSwift"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "5.7.1",
        "package_swift_at": "24.0.0",
        "license": "MIT",
@@ -654,6 +701,7 @@
       "zh": "偏好设置（UserDefaults）"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "UserDefaults",
@@ -691,7 +739,9 @@
         "Defaults",
         "DefaultsMacros"
        ],
+       "products_source": null,
        "min_ios": 14.0,
+       "ios_platform": "declared",
        "swift_tools": "6.2",
        "package_swift_at": "9.0.9",
        "license": "MIT",
@@ -715,6 +765,7 @@
       "zh": "依赖注入"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -738,7 +789,9 @@
        "products": [
         "Swinject"
        ],
+       "products_source": null,
        "min_ios": 12.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0.0",
        "package_swift_at": "2.10.0",
        "license": "MIT",
@@ -767,7 +820,9 @@
         "FactoryKitDynamic",
         "FactoryTesting"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.1",
        "package_swift_at": "3.5.2",
        "license": "MIT",
@@ -797,7 +852,9 @@
         "DependenciesTestObserver",
         "DependenciesTestSupport"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.4",
        "package_swift_at": "1.17.2",
        "license": "MIT",
@@ -812,6 +869,7 @@
       "zh": "应用架构框架"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "Observation (@Observable)",
@@ -842,7 +900,9 @@
        "products": [
         "ComposableArchitecture"
        ],
+       "products_source": null,
        "min_ios": 16.0,
+       "ios_platform": "declared",
        "swift_tools": "6.4",
        "package_swift_at": "1.26.2",
        "license": "MIT",
@@ -857,6 +917,7 @@
       "zh": "导航"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "NavigationStack",
@@ -890,7 +951,9 @@
         "SwiftUINavigation",
         "UIKitNavigation"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.4",
        "package_swift_at": "2.11.2",
        "license": "MIT",
@@ -914,6 +977,7 @@
       "zh": "日志"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "os.Logger",
@@ -946,7 +1010,9 @@
         "CocoaLumberjackSwift",
         "CocoaLumberjackSwiftLogBackend"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.4",
        "package_swift_at": "3.10.0",
        "license": "BSD-3-Clause",
@@ -973,7 +1039,9 @@
        "products": [
         "SwiftyBeaver"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "5.0",
        "package_swift_at": "2.1.1",
        "license": "MIT",
@@ -1001,7 +1069,9 @@
         "InMemoryLogging",
         "Logging"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "6.2",
        "package_swift_at": "1.16.2",
        "license": "Apache-2.0",
@@ -1016,6 +1086,7 @@
       "zh": "网络与日志查看器"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -1041,7 +1112,9 @@
         "PulseProxy",
         "PulseUI"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "5.10",
        "package_swift_at": "5.2.3",
        "license": "MIT",
@@ -1055,7 +1128,8 @@
       "en": "Crash reporting",
       "zh": "崩溃监控"
      },
-     "ranked": true,
+     "ranked": false,
+     "kind": "library",
      "native": [
       {
        "api": "MetricKit MXCrashDiagnostic",
@@ -1113,11 +1187,13 @@
         "FirebaseStorage",
         "FirebaseStorageCombine-Community"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.2",
        "package_swift_at": "13.1.1",
        "license": "Apache-2.0",
-       "rank": 1
+       "rank": null
       },
       {
        "repo": "getsentry/sentry-cocoa",
@@ -1150,11 +1226,13 @@
         "SentrySPM",
         "SentrySwiftUI"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "9.32.0",
        "license": "MIT",
-       "rank": 2
+       "rank": null
       }
      ]
     },
@@ -1164,7 +1242,8 @@
       "en": "Product analytics",
       "zh": "产品数据分析"
      },
-     "ranked": true,
+     "ranked": false,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -1209,11 +1288,13 @@
         "FirebaseStorage",
         "FirebaseStorageCombine-Community"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.2",
        "package_swift_at": "13.1.1",
        "license": "Apache-2.0",
-       "rank": 1
+       "rank": null
       },
       {
        "repo": "TelemetryDeck/SwiftSDK",
@@ -1237,11 +1318,13 @@
         "TelemetryClient",
         "TelemetryDeck"
        ],
+       "products_source": null,
        "min_ios": 12.0,
+       "ios_platform": "declared",
        "swift_tools": "5.9",
        "package_swift_at": "2.14.2",
        "license": "NOASSERTION",
-       "rank": 2
+       "rank": null
       },
       {
        "repo": "PostHog/posthog-ios",
@@ -1264,11 +1347,13 @@
        "products": [
         "PostHog"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "5.3",
        "package_swift_at": "3.93.3",
        "license": "NOASSERTION",
-       "rank": 3
+       "rank": null
       }
      ]
     }
@@ -1287,7 +1372,8 @@
       "en": "In-app purchases & subscriptions",
       "zh": "应用内购买与订阅"
      },
-     "ranked": true,
+     "ranked": false,
+     "kind": "library",
      "native": [
       {
        "api": "StoreKit 2",
@@ -1321,11 +1407,13 @@
         "RevenueCatUI",
         "RevenueCat_CustomEntitlementComputation"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "5.9",
        "package_swift_at": "5.101.0",
        "license": "MIT",
-       "rank": 1
+       "rank": null
       },
       {
        "repo": "adaptyteam/AdaptySDK-iOS",
@@ -1339,12 +1427,12 @@
        "addon_of": null,
        "stars": 490,
        "status": "active",
-       "last_activity": "2026-10-23",
-       "latest_release": "4.3.1",
-       "released": "2026-10-23",
-       "last_commit": "2026-10-23",
+       "last_activity": "2026-11-03",
+       "latest_release": "4.3.2",
+       "released": "2026-11-03",
+       "last_commit": "2026-11-03",
        "spm": true,
-       "spm_version": "4.3.1",
+       "spm_version": "4.3.2",
        "products": [
         "Adapty",
         "AdaptyCodable",
@@ -1354,11 +1442,13 @@
         "AdaptyUI",
         "AdaptyUIBuilder"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.2",
-       "package_swift_at": "4.3.1",
+       "package_swift_at": "4.3.2",
        "license": "MIT",
-       "rank": 2
+       "rank": null
       }
      ]
     },
@@ -1369,6 +1459,7 @@
       "zh": "第三方登录"
      },
      "ranked": false,
+     "kind": "library",
      "native": [
       {
        "api": "Sign in with Apple (AuthenticationServices)",
@@ -1406,7 +1497,9 @@
         "GoogleSignIn",
         "GoogleSignInSwift"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "10.1.0",
        "license": "Apache-2.0",
@@ -1433,7 +1526,9 @@
        "products": [
         "Auth0"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "3.2.0",
        "license": "MIT",
@@ -1447,7 +1542,8 @@
       "en": "Backend as a service",
       "zh": "后端即服务"
      },
-     "ranked": true,
+     "ranked": false,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -1492,11 +1588,13 @@
         "FirebaseStorage",
         "FirebaseStorageCombine-Community"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.2",
        "package_swift_at": "13.1.1",
        "license": "Apache-2.0",
-       "rank": 1
+       "rank": null
       },
       {
        "repo": "supabase/supabase-swift",
@@ -1524,11 +1622,13 @@
         "Storage",
         "Supabase"
        ],
+       "products_source": null,
        "min_ios": 16.0,
+       "ios_platform": "declared",
        "swift_tools": "6.1",
        "package_swift_at": "v2.55.6",
        "license": "MIT",
-       "rank": 2
+       "rank": null
       }
      ]
     }
@@ -1548,6 +1648,7 @@
       "zh": "UIKit 自动布局 DSL"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "NSLayoutAnchor",
@@ -1579,7 +1680,9 @@
         "SnapKit",
         "SnapKit-Dynamic"
        ],
+       "products_source": null,
        "min_ios": 14.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "6.0.0",
        "license": "MIT",
@@ -1594,6 +1697,7 @@
       "zh": "SwiftUI 组件合集"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -1617,7 +1721,9 @@
        "products": [
         "SwiftUIX"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "5.10",
        "package_swift_at": "0.3.2",
        "license": "MIT",
@@ -1632,6 +1738,7 @@
       "zh": "SwiftUI 底层视图访问"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -1655,7 +1762,9 @@
        "products": [
         "SwiftUIIntrospect"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "6.2",
        "package_swift_at": "27.1.0",
        "license": "MIT",
@@ -1670,10 +1779,11 @@
       "zh": "弹窗与 Toast"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
-       "api": "sheet / fullScreenCover / alert",
-       "ios": 13.0,
+       "api": "fullScreenCover",
+       "ios": 14.0,
        "xcode": null,
        "source": null
       }
@@ -1700,7 +1810,9 @@
        "products": [
         "PopupView"
        ],
+       "products_source": null,
        "min_ios": 17.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "5.0.9",
        "license": "MIT",
@@ -1715,6 +1827,7 @@
       "zh": "动画播放"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "PhaseAnimator / KeyframeAnimator",
@@ -1746,7 +1859,9 @@
         "Lottie",
         "Lottie-Dynamic"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "4.6.1",
        "license": "Apache-2.0",
@@ -1773,7 +1888,9 @@
        "products": [
         "RiveRuntime"
        ],
+       "products_source": null,
        "min_ios": 14.0,
+       "ios_platform": "declared",
        "swift_tools": "5.10",
        "package_swift_at": "6.29.0",
        "license": "MIT",
@@ -1788,6 +1905,7 @@
       "zh": "图表"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "Swift Charts",
@@ -1819,7 +1937,9 @@
         "DGCharts",
         "DGChartsDynamic"
        ],
+       "products_source": null,
        "min_ios": 12.0,
+       "ios_platform": "declared",
        "swift_tools": "5.3",
        "package_swift_at": "5.1.0",
        "license": "Apache-2.0",
@@ -1834,6 +1954,7 @@
       "zh": "Markdown 渲染"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "AttributedString(markdown:)",
@@ -1864,7 +1985,9 @@
        "products": [
         "Textual"
        ],
+       "products_source": null,
        "min_ios": 18.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "0.5.0",
        "license": "MIT",
@@ -1895,7 +2018,9 @@
        "products": [
         "MarkdownUI"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "5.6",
        "package_swift_at": "2.4.1",
        "license": "MIT",
@@ -1910,6 +2035,7 @@
       "zh": "HTML 解析"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -1933,7 +2059,9 @@
        "products": [
         "SwiftSoup"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "2.14.3",
        "license": "MIT",
@@ -1948,6 +2076,7 @@
       "zh": "Markdown 解析"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -1971,7 +2100,9 @@
        "products": [
         "Markdown"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "6.2",
        "package_swift_at": "0.9.0",
        "license": "Apache-2.0",
@@ -1995,6 +2126,7 @@
       "zh": "响应式框架"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "Combine",
@@ -2034,7 +2166,9 @@
         "RxTest",
         "RxTest-Dynamic"
        ],
+       "products_source": null,
        "min_ios": 9.0,
+       "ios_platform": "declared",
        "swift_tools": "5.5",
        "package_swift_at": "6.10.2",
        "license": "MIT",
@@ -2049,6 +2183,7 @@
       "zh": "AsyncSequence 操作符"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "AsyncSequence / AsyncStream (back-deployed to iOS 13 with Xcode 13.2+)",
@@ -2080,7 +2215,9 @@
         "AsyncAlgorithms",
         "AsyncStreaming"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "6.2",
        "package_swift_at": "1.1.7",
        "license": "Apache-2.0",
@@ -2095,6 +2232,7 @@
       "zh": "数据结构"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -2115,8 +2253,12 @@
        "last_commit": "2026-10-27",
        "spm": true,
        "spm_version": "1.7.5",
-       "products": [],
+       "products": [
+        "Collections"
+       ],
+       "products_source": "https://github.com/apple/swift-collections#readme",
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "6.4",
        "package_swift_at": "1.7.5",
        "license": "Apache-2.0",
@@ -2131,6 +2273,7 @@
       "zh": "序列算法"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -2154,7 +2297,9 @@
        "products": [
         "Algorithms"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "5.7",
        "package_swift_at": "1.2.1",
        "license": "Apache-2.0",
@@ -2169,6 +2314,7 @@
       "zh": "JSON"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "Codable + JSONDecoder (Swift 4)",
@@ -2199,7 +2345,9 @@
        "products": [
         "SwiftyJSON"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "5.3",
        "package_swift_at": "5.0.2",
        "license": "MIT",
@@ -2214,6 +2362,7 @@
       "zh": "加密"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "CryptoKit",
@@ -2244,7 +2393,9 @@
        "products": [
         "CryptoSwift"
        ],
+       "products_source": null,
        "min_ios": 11.0,
+       "ios_platform": "declared",
        "swift_tools": "5.6",
        "package_swift_at": "1.10.0",
        "license": "NOASSERTION",
@@ -2269,12 +2420,12 @@
        "spm": true,
        "spm_version": "5.1.0",
        "products": [
-        "CCryptoBoringSSL",
         "Crypto",
-        "CryptoExtras",
-        "_CryptoExtras"
+        "CryptoExtras"
        ],
+       "products_source": "https://github.com/apple/swift-crypto#readme",
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "6.2",
        "package_swift_at": "5.1.0",
        "license": "Apache-2.0",
@@ -2289,6 +2440,7 @@
       "zh": "Protocol Buffers"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -2313,7 +2465,9 @@
         "SwiftProtobuf",
         "SwiftProtobufPluginLibrary"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "6.2",
        "package_swift_at": "1.39.0",
        "license": "Apache-2.0",
@@ -2337,6 +2491,7 @@
       "zh": "BDD 测试框架"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "Swift Testing",
@@ -2373,7 +2528,9 @@
        "products": [
         "Quick"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "5.7",
        "package_swift_at": "v7.6.2",
        "license": "Apache-2.0",
@@ -2388,6 +2545,7 @@
       "zh": "测试断言库"
      },
      "ranked": true,
+     "kind": "library",
      "native": [
       {
        "api": "Swift Testing #expect / #require",
@@ -2418,7 +2576,9 @@
        "products": [
         "Nimble"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "v14.0.0",
        "license": "Apache-2.0",
@@ -2433,6 +2593,7 @@
       "zh": "快照测试"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -2458,7 +2619,9 @@
         "SnapshotTesting",
         "SnapshotTestingCustomDump"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "1.19.7",
        "license": "MIT",
@@ -2473,6 +2636,7 @@
       "zh": "数据输出与差异对比"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -2496,7 +2660,9 @@
        "products": [
         "CustomDump"
        ],
+       "products_source": null,
        "min_ios": 15.0,
+       "ios_platform": "declared",
        "swift_tools": "6.4",
        "package_swift_at": "1.7.3",
        "license": "MIT",
@@ -2511,6 +2677,7 @@
       "zh": "并发代码测试"
      },
      "ranked": true,
+     "kind": "library",
      "native": [],
      "libs": [
       {
@@ -2535,7 +2702,9 @@
         "ConcurrencyExtras",
         "ConcurrencyExtrasTestSupport"
        ],
+       "products_source": null,
        "min_ios": 13.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "1.4.3",
        "license": "MIT",
@@ -2559,6 +2728,7 @@
       "zh": "代码检查"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -2582,7 +2752,9 @@
        "products": [
         "SwiftLintFramework"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "ios-not-listed",
        "swift_tools": "5.9",
        "package_swift_at": "0.65.1",
        "license": "MIT",
@@ -2597,6 +2769,7 @@
       "zh": "代码格式化"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [
       {
        "api": "xcrun swift-format (bundled with Xcode)",
@@ -2627,7 +2800,9 @@
        "products": [
         "SwiftFormat"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "5.7",
        "package_swift_at": "0.64.5",
        "license": "MIT",
@@ -2654,7 +2829,9 @@
        "products": [
         "SwiftFormat"
        ],
+       "products_source": null,
        "min_ios": 16.0,
+       "ios_platform": "declared",
        "swift_tools": "6.0",
        "package_swift_at": "604.0.0",
        "license": "Apache-2.0",
@@ -2669,6 +2846,7 @@
       "zh": "工程生成"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -2693,7 +2871,9 @@
         "ProjectSpec",
         "XcodeGenKit"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "ios-not-listed",
        "swift_tools": "5.9",
        "package_swift_at": "2.46.0",
        "license": "MIT",
@@ -2738,7 +2918,9 @@
         "TuistTesting",
         "TuistXCActivityLog"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "ios-not-listed",
        "swift_tools": "6.1",
        "package_swift_at": "HEAD",
        "license": "NOASSERTION",
@@ -2753,6 +2935,7 @@
       "zh": "构建日志格式化"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -2776,7 +2959,9 @@
        "products": [
         "XcbeautifyLib"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "ios-not-listed",
        "swift_tools": "6.1",
        "package_swift_at": "3.2.1",
        "license": "MIT",
@@ -2791,6 +2976,7 @@
       "zh": "资源代码生成"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [
       {
        "api": "Generated asset symbols (ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS)",
@@ -2827,7 +3013,9 @@
        "products": [
         "RswiftLibrary"
        ],
+       "products_source": null,
        "min_ios": 11.0,
+       "ios_platform": "declared",
        "swift_tools": "5.6",
        "package_swift_at": "7.8.0",
        "license": "MIT",
@@ -2855,7 +3043,9 @@
         "SwiftGenCLI",
         "SwiftGenKit"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "ios-not-listed",
        "swift_tools": "5.6",
        "package_swift_at": "6.6.3",
        "license": "MIT",
@@ -2870,6 +3060,7 @@
       "zh": "发布与 App Store Connect"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [
       {
        "api": "xcodebuild archive / -exportArchive",
@@ -2906,7 +3097,9 @@
        "products": [
         "Fastlane"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "not-declared",
        "swift_tools": "4.0",
        "package_swift_at": "2.241.2",
        "license": "MIT",
@@ -2924,14 +3117,16 @@
        "addon_of": null,
        "stars": 8225,
        "status": "active",
-       "last_activity": "2026-10-31",
-       "latest_release": "6.3.0",
-       "released": "2026-10-31",
+       "last_activity": "2026-11-03",
+       "latest_release": "6.4.0",
+       "released": "2026-11-03",
        "last_commit": "2026-11-03",
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -2955,6 +3150,7 @@
       "zh": "编译运行 MCP"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [
       {
        "api": "xcrun mcpbridge (Xcode MCP server)",
@@ -2983,7 +3179,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -2998,6 +3196,7 @@
       "zh": "模拟器与真机界面自动化"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -3010,7 +3209,7 @@
        },
        "note": null,
        "addon_of": null,
-       "stars": 10253,
+       "stars": 10254,
        "status": "active",
        "last_activity": "2026-11-02",
        "latest_release": "1.0.16",
@@ -3019,7 +3218,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "Apache-2.0",
@@ -3046,7 +3247,9 @@
        "products": [
         "AXeCore"
        ],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": "ios-not-listed",
        "swift_tools": "5.10",
        "package_swift_at": "v1.8.0",
        "license": "MIT",
@@ -3071,7 +3274,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -3086,6 +3291,7 @@
       "zh": "给 agent 读的 Apple 文档"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -3107,7 +3313,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -3132,7 +3340,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -3147,6 +3357,7 @@
       "zh": "SwiftUI skills"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -3168,7 +3379,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -3193,7 +3406,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -3208,6 +3423,7 @@
       "zh": "Swift Concurrency skills"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -3229,7 +3445,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -3244,6 +3462,7 @@
       "zh": "模拟器 skills"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -3265,7 +3484,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -3280,6 +3501,7 @@
       "zh": "发布 skills"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -3301,7 +3523,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -3316,6 +3540,7 @@
       "zh": "Skill 索引"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -3337,7 +3562,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
@@ -3352,6 +3579,7 @@
       "zh": "AGENTS.md 模板"
      },
      "ranked": true,
+     "kind": "tool",
      "native": [],
      "libs": [
       {
@@ -3373,7 +3601,9 @@
        "spm": false,
        "spm_version": null,
        "products": [],
+       "products_source": null,
        "min_ios": null,
+       "ios_platform": null,
        "swift_tools": null,
        "package_swift_at": null,
        "license": null,

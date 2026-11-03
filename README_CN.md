@@ -20,8 +20,8 @@ agent 也可以直接读取数据：[`catalog.json`](catalog.json) · [`llms.txt
 
 - **状态按发版计算**：取最近一次 GitHub Release 的日期。只有从未发布过 GitHub Release 的仓库，才改用默认分支最近一次提交的日期。表格里两个日期都会显示。
 - **状态**：🟢 活跃（< 1 年）· 🟡 放缓（1–2 年）· ⚪ 不活跃（≥ 2 年）· 🗄 已归档。
-- **🏆 首选** = 分类中 star 最多的 🟢/🟡 条目。依附于其他库的扩展不参与排名。标为“不排名”的分类里是各家服务商自己的 SDK。
-- **最低 iOS** 和 **Swift tools** 读取自最新 Release 标签下的 `Package.swift`。
+- **🏆 首选** = 分类中 star 最多的 🟢/🟡 条目。依附于其他库的扩展不参与排名。服务商 SDK 的分类（后端、付费、数据分析、崩溃监控、第三方登录）*不排名*，按服务本身选择。
+- **最低 iOS** 和 **Swift tools** 读取自最新 Release 标签下的 `Package.swift`（Release 标签不是版本号时，用最高的版本号标签；都没有时用默认分支）。
 - **Apple 原生** 列出能完成同样工作的系统 API 及其最低系统版本。
 - 分类和描述是人工编写的，只说明项目做什么；备注引用来源原文。状态和排名由 [`scripts/build.py`](scripts/build.py) 计算。
 
@@ -66,6 +66,8 @@ Apple 原生: `URLSession async/await` (iOS 15)
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[swift-openapi-generator](https://github.com/apple/swift-openapi-generator)** | 2.0k | 2026-10 | 2026-10 | 13 | 6.2 | 构建时根据 OpenAPI 文档生成 Swift 客户端和服务端代码。 |
 
+> **备注** · swift-openapi-generator: README：这是 Swift 包插件和命令行工具。生成的代码依赖 apple/swift-openapi-runtime，以及一个 ClientTransport 实现，例如 apple/swift-openapi-urlsession。 ([来源](https://github.com/apple/swift-openapi-generator#package-ecosystem))
+
 ### WebSocket
 
 Apple 原生: `URLSessionWebSocketTask` (iOS 13)
@@ -100,7 +102,7 @@ Apple 原生: `SwiftData` (iOS 17) · `Core Data` (iOS 3)
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[realm-swift](https://github.com/realm/realm-swift)** | 16.6k | 2026-09 | 2026-09 | 12 | 6.2.1 | 面向移动端的对象数据库。 |
-| 🟢 | [SQLite.swift](https://github.com/stephencelis/SQLite.swift) | 10.2k | 2026-10 | 2026-10 | 15 | 6.1 | SQLite3 的类型安全 Swift 封装。 |
+| 🟢 | [SQLite.swift](https://github.com/stephencelis/SQLite.swift) | 10.2k | 2026-10 | 2026-10 | 15 | 6.1 | SQLite3 的 Swift 封装，用类型化表达式写查询。 |
 | 🟢 | [GRDB.swift](https://github.com/groue/GRDB.swift) | 8.7k | 2026-11 | 2026-11 | 13 | 6.1 | SQLite 工具集，提供迁移、记录类型和数据库变化监听。 |
 | 🟢 | [sqlite-data](https://github.com/pointfreeco/sqlite-data) | 2.0k | 2026-10 | 2026-11 | 16 | 6.4 | 在 SQLite（GRDB）上提供类似 SwiftData 的模型和查询，支持 CloudKit 同步。 |
 
@@ -173,16 +175,20 @@ Apple 原生: `os.Logger` (iOS 14)
 
 Apple 原生: `MetricKit MXCrashDiagnostic` (iOS 14) · `Xcode Organizer crash reports`
 
+*不排名：服务商 SDK，按服务本身选择。*
+
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk)** | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK，包含 Crashlytics。 |
+| 🟢 | [firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk) | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK，包含 Crashlytics。 |
 | 🟢 | [sentry-cocoa](https://github.com/getsentry/sentry-cocoa) | 1.1k | 2026-10 | 2026-11 | 15 | 6.0 | Sentry SDK：崩溃上报、错误追踪和性能追踪。 |
 
 ### 产品数据分析
 
+*不排名：服务商 SDK，按服务本身选择。*
+
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk)** | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK，包含 Google Analytics for Firebase。 |
+| 🟢 | [firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk) | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK，包含 Google Analytics for Firebase。 |
 | 🟢 | [SwiftSDK](https://github.com/TelemetryDeck/SwiftSDK) | 229 | 2026-08 | 2026-08 | 12 | 5.9 | TelemetryDeck 数据分析 SDK。 |
 | 🟢 | [posthog-ios](https://github.com/PostHog/posthog-ios) | 120 | 2026-11 | 2026-11 | 13 | 5.3 | PostHog SDK：产品分析、功能开关和会话回放。 |
 
@@ -192,16 +198,18 @@ Apple 原生: `MetricKit MXCrashDiagnostic` (iOS 14) · `Xcode Organizer crash r
 
 Apple 原生: `StoreKit 2` (iOS 15)
 
+*不排名：服务商 SDK，按服务本身选择。*
+
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[purchases-ios](https://github.com/RevenueCat/purchases-ios)** | 3.1k | 2026-11 | 2026-11 | 13 | 5.9 | RevenueCat SDK：购买与订阅，提供服务端收据校验和付费墙。 |
-| 🟢 | [AdaptySDK-iOS](https://github.com/adaptyteam/AdaptySDK-iOS) | 490 | 2026-10 | 2026-10 | 15 | 6.2 | Adapty SDK：购买与订阅，提供付费墙 A/B 测试。 |
+| 🟢 | [purchases-ios](https://github.com/RevenueCat/purchases-ios) | 3.1k | 2026-11 | 2026-11 | 13 | 5.9 | RevenueCat SDK：购买与订阅，提供服务端收据校验和付费墙。 |
+| 🟢 | [AdaptySDK-iOS](https://github.com/adaptyteam/AdaptySDK-iOS) | 490 | 2026-11 | 2026-11 | 15 | 6.2 | Adapty SDK：购买与订阅，提供付费墙 A/B 测试。 |
 
 ### 第三方登录
 
 Apple 原生: `Sign in with Apple (AuthenticationServices)` (iOS 13) · `Passkeys (AuthenticationServices)` (iOS 16)
 
-*不排名：各家服务商自己的 SDK。*
+*不排名：服务商 SDK，按服务本身选择。*
 
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
@@ -210,9 +218,11 @@ Apple 原生: `Sign in with Apple (AuthenticationServices)` (iOS 13) · `Passkey
 
 ### 后端即服务
 
+*不排名：服务商 SDK，按服务本身选择。*
+
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk)** | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK：Firestore、Auth、Storage、Functions 等。 |
+| 🟢 | [firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk) | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK：Firestore、Auth、Storage、Functions 等。 |
 | 🟢 | [supabase-swift](https://github.com/supabase/supabase-swift) | 1.3k | 2026-10 | 2026-11 | 16 | 6.1 | Supabase SDK：Postgres 数据库、登录、存储和实时订阅。 |
 
 ## 界面
@@ -239,7 +249,7 @@ Apple 原生: `NSLayoutAnchor` (iOS 9)
 
 ### 弹窗与 Toast
 
-Apple 原生: `sheet / fullScreenCover / alert` (iOS 13)
+Apple 原生: `fullScreenCover` (iOS 14)
 
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
@@ -420,7 +430,7 @@ Apple 原生: `xcodebuild archive / -exportArchive` · `Xcode Cloud`
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[fastlane](https://github.com/fastlane/fastlane)** | 42.3k | 2026-10 | 2026-11 | — | 4.0 | 自动化签名、截图、构建和发布。 |
-| 🟢 | [App-Store-Connect-CLI](https://github.com/rorkai/App-Store-Connect-CLI) | 8.2k | 2026-10 | 2026-11 | — | — | App Store Connect 命令行：构建、TestFlight、元数据、提交审核。 |
+| 🟢 | [App-Store-Connect-CLI](https://github.com/rorkai/App-Store-Connect-CLI) | 8.2k | 2026-11 | 2026-11 | — | — | App Store Connect 命令行：构建、TestFlight、元数据、提交审核。 |
 
 ## AI agent 工具
 

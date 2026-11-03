@@ -27,7 +27,12 @@ RULES = {
         "archived": "repository is archived on GitHub",
     },
     "rank": ("within a category, entries with status active or slowing that are not add-ons (addon_of) "
-             "are sorted by stars, highest first; rank 1 is the top pick. Categories with ranked=false are not ranked."),
+             "are sorted by stars, highest first; rank 1 is the top pick. Categories with ranked=false "
+             "(provider-specific SDKs) are not ranked."),
+    "package_swift": ("min_ios, swift_tools and products are read from Package.swift at the latest release tag; "
+                      "if that tag is not a version number, at the highest version tag among the latest 100 tags; "
+                      "otherwise at the default branch. package_swift_at names the ref used."),
+    "kind": "library = can be added as an app dependency; tool = developer tool or build plugin, never an app library dependency",
 }
 
 
@@ -67,6 +72,7 @@ def load():
         s = {"id": sec["id"], "title": sec["title"], "categories": []}
         for cat in sec["categories"]:
             ranked_cat = cat.get("ranked", True)
+            kind = cat.get("kind", sec.get("kind", "library"))
             libs = []
             for lib in cat["libs"]:
                 if lib["repo"] not in stats["repos"]:
@@ -79,8 +85,11 @@ def load():
                     "stars": st["stars"], "status": status, "last_activity": last,
                     "latest_release": st.get("release_tag"), "released": st.get("released"),
                     "last_commit": st.get("last_commit"),
-                    "spm": st["spm"], "spm_version": st.get("spm_version"), "products": st.get("products", []),
-                    "min_ios": version_number(st["min_ios"]), "swift_tools": st["swift_tools"],
+                    "spm": st["spm"], "spm_version": st.get("spm_version"),
+                    "products": lib.get("products") or st.get("products", []),
+                    "products_source": lib.get("products_source"),
+                    "min_ios": version_number(st["min_ios"]), "ios_platform": st.get("ios_platform"),
+                    "swift_tools": st["swift_tools"],
                     "package_swift_at": st.get("package_swift_at"),
                     "license": st["license"], "rank": None,
                 })
@@ -96,7 +105,7 @@ def load():
             libs.sort(key=lambda l: (l["rank"] is None, l["rank"] or 0, -l["stars"]))
             native = [{"api": n["api"], "ios": version_number(n.get("ios")),
                        "xcode": n.get("xcode"), "source": n.get("source")} for n in cat.get("native", [])]
-            s["categories"].append({"id": cat["id"], "title": cat["title"], "ranked": ranked_cat,
+            s["categories"].append({"id": cat["id"], "title": cat["title"], "ranked": ranked_cat, "kind": kind,
                                     "native": native, "libs": libs})
         out["sections"].append(s)
     return out
@@ -119,8 +128,8 @@ T = {
         rules=[
             "**Status is based on releases**: the date of the latest GitHub release. Only repos that have never published a GitHub release use their last commit date instead. Both dates are shown in the tables.",
             "**Status**: 🟢 active (< 1 year) · 🟡 slowing (1–2 years) · ⚪ inactive (≥ 2 years) · 🗄 archived.",
-            "**🏆 Top pick** = the most-starred 🟢/🟡 entry in its category. Add-ons of another entry are not ranked. Categories marked *not ranked* list provider-specific SDKs.",
-            "**Min iOS** and **Swift tools** are read from `Package.swift` at the latest release tag.",
+            "**🏆 Top pick** = the most-starred 🟢/🟡 entry in its category. Add-ons of another entry are not ranked. Categories of provider SDKs (backend, payments, analytics, crash reporting, sign-in) are *not ranked*: pick by service.",
+            "**Min iOS** and **Swift tools** come from `Package.swift` at the latest release tag (or the highest version tag when the release tag is not a version number; otherwise the default branch).",
             "**Apple native** lists the system API for the same job and its minimum OS.",
             "Categories and descriptions are written by hand and only say what a project does. Notes quote a source. Status and rank are computed by [`scripts/build.py`](scripts/build.py).",
         ],
@@ -135,7 +144,7 @@ T = {
         ],
         contents_h="Contents",
         native="Apple native",
-        not_ranked="*Not ranked: provider-specific SDKs.*",
+        not_ranked="*Not ranked: provider SDKs, pick by service.*",
         cols="| | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |",
         note="Note", source="source",
         contrib_h="Contributing",
@@ -156,8 +165,8 @@ T = {
         rules=[
             "**状态按发版计算**：取最近一次 GitHub Release 的日期。只有从未发布过 GitHub Release 的仓库，才改用默认分支最近一次提交的日期。表格里两个日期都会显示。",
             "**状态**：🟢 活跃（< 1 年）· 🟡 放缓（1–2 年）· ⚪ 不活跃（≥ 2 年）· 🗄 已归档。",
-            "**🏆 首选** = 分类中 star 最多的 🟢/🟡 条目。依附于其他库的扩展不参与排名。标为“不排名”的分类里是各家服务商自己的 SDK。",
-            "**最低 iOS** 和 **Swift tools** 读取自最新 Release 标签下的 `Package.swift`。",
+            "**🏆 首选** = 分类中 star 最多的 🟢/🟡 条目。依附于其他库的扩展不参与排名。服务商 SDK 的分类（后端、付费、数据分析、崩溃监控、第三方登录）*不排名*，按服务本身选择。",
+            "**最低 iOS** 和 **Swift tools** 读取自最新 Release 标签下的 `Package.swift`（Release 标签不是版本号时，用最高的版本号标签；都没有时用默认分支）。",
             "**Apple 原生** 列出能完成同样工作的系统 API 及其最低系统版本。",
             "分类和描述是人工编写的，只说明项目做什么；备注引用来源原文。状态和排名由 [`scripts/build.py`](scripts/build.py) 计算。",
         ],
@@ -172,7 +181,7 @@ T = {
         ],
         contents_h="目录",
         native="Apple 原生",
-        not_ranked="*不排名：各家服务商自己的 SDK。*",
+        not_ranked="*不排名：服务商 SDK，按服务本身选择。*",
         cols="| | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |",
         note="备注", source="来源",
         contrib_h="参与贡献",
@@ -258,13 +267,14 @@ def llms(data):
          "Swift tools version) and a computed top pick per category.", "",
          f"Data date: {data['generated']}. Machine-readable data: {REPO_URL}/raw/main/catalog.json", "",
          f"Rules: last activity = {RULES['last_activity']}. Status: active < {ACTIVE_DAYS} days, "
-         f"slowing < {INACTIVE_DAYS} days, inactive otherwise, or archived. Rank: {RULES['rank']}", "",
+         f"slowing < {INACTIVE_DAYS} days, inactive otherwise, or archived. Rank: {RULES['rank']} "
+         f"Package.swift: {RULES['package_swift']} Kind: {RULES['kind']}", "",
          "## Recipes", ""]
     for slug in ("xcodegen", "tuist", "mobilebuildmcp", "xcode-mcp", "verify"):
         L.append(f"- [{slug}]({REPO_URL}/blob/main/skills/ios-starter/recipes/{slug}.md)")
     for s in data["sections"]:
         for c in s["categories"]:
-            L += ["", f"## {c['title']['en']}" + ("" if c["ranked"] else " (not ranked)")]
+            L += ["", f"## {c['title']['en']}" + ("" if c["ranked"] else " (not ranked)") + (" [tool]" if c["kind"] == "tool" else "")]
             if c["native"]:
                 L.append("Native: " + "; ".join(
                     n["api"] + (f" (iOS {n['ios']:g})" if n["ios"] is not None else (f" (Xcode {n['xcode']})" if n["xcode"] else ""))

@@ -20,8 +20,8 @@ Agents can also read the data directly: [`catalog.json`](catalog.json) · [`llms
 
 - **Status is based on releases**: the date of the latest GitHub release. Only repos that have never published a GitHub release use their last commit date instead. Both dates are shown in the tables.
 - **Status**: 🟢 active (< 1 year) · 🟡 slowing (1–2 years) · ⚪ inactive (≥ 2 years) · 🗄 archived.
-- **🏆 Top pick** = the most-starred 🟢/🟡 entry in its category. Add-ons of another entry are not ranked. Categories marked *not ranked* list provider-specific SDKs.
-- **Min iOS** and **Swift tools** are read from `Package.swift` at the latest release tag.
+- **🏆 Top pick** = the most-starred 🟢/🟡 entry in its category. Add-ons of another entry are not ranked. Categories of provider SDKs (backend, payments, analytics, crash reporting, sign-in) are *not ranked*: pick by service.
+- **Min iOS** and **Swift tools** come from `Package.swift` at the latest release tag (or the highest version tag when the release tag is not a version number; otherwise the default branch).
 - **Apple native** lists the system API for the same job and its minimum OS.
 - Categories and descriptions are written by hand and only say what a project does. Notes quote a source. Status and rank are computed by [`scripts/build.py`](scripts/build.py).
 
@@ -66,6 +66,8 @@ Apple native: `URLSession async/await` (iOS 15)
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[swift-openapi-generator](https://github.com/apple/swift-openapi-generator)** | 2.0k | 2026-10 | 2026-10 | 13 | 6.2 | Generates a Swift client and server from an OpenAPI document at build time. |
 
+> **Note** · swift-openapi-generator: README: a Swift package plugin and CLI. Generated code uses apple/swift-openapi-runtime and a ClientTransport such as apple/swift-openapi-urlsession. ([source](https://github.com/apple/swift-openapi-generator#package-ecosystem))
+
 ### WebSocket
 
 Apple native: `URLSessionWebSocketTask` (iOS 13)
@@ -100,7 +102,7 @@ Apple native: `SwiftData` (iOS 17) · `Core Data` (iOS 3)
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[realm-swift](https://github.com/realm/realm-swift)** | 16.6k | 2026-09 | 2026-09 | 12 | 6.2.1 | Object database for mobile. |
-| 🟢 | [SQLite.swift](https://github.com/stephencelis/SQLite.swift) | 10.2k | 2026-10 | 2026-10 | 15 | 6.1 | Type-safe Swift layer over SQLite3. |
+| 🟢 | [SQLite.swift](https://github.com/stephencelis/SQLite.swift) | 10.2k | 2026-10 | 2026-10 | 15 | 6.1 | Swift layer over SQLite3 with typed query expressions. |
 | 🟢 | [GRDB.swift](https://github.com/groue/GRDB.swift) | 8.7k | 2026-11 | 2026-11 | 13 | 6.1 | SQLite toolkit with migrations, record types and database observation. |
 | 🟢 | [sqlite-data](https://github.com/pointfreeco/sqlite-data) | 2.0k | 2026-10 | 2026-11 | 16 | 6.4 | SwiftData-style models and queries on SQLite (GRDB), with CloudKit synchronization. |
 
@@ -173,16 +175,20 @@ Apple native: `os.Logger` (iOS 14)
 
 Apple native: `MetricKit MXCrashDiagnostic` (iOS 14) · `Xcode Organizer crash reports`
 
+*Not ranked: provider SDKs, pick by service.*
+
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk)** | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK; includes Crashlytics. |
+| 🟢 | [firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk) | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK; includes Crashlytics. |
 | 🟢 | [sentry-cocoa](https://github.com/getsentry/sentry-cocoa) | 1.1k | 2026-10 | 2026-11 | 15 | 6.0 | Sentry SDK: crash reporting, error tracking and performance tracing. |
 
 ### Product analytics
 
+*Not ranked: provider SDKs, pick by service.*
+
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk)** | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK; includes Google Analytics for Firebase. |
+| 🟢 | [firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk) | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK; includes Google Analytics for Firebase. |
 | 🟢 | [SwiftSDK](https://github.com/TelemetryDeck/SwiftSDK) | 229 | 2026-08 | 2026-08 | 12 | 5.9 | TelemetryDeck analytics SDK. |
 | 🟢 | [posthog-ios](https://github.com/PostHog/posthog-ios) | 120 | 2026-11 | 2026-11 | 13 | 5.3 | PostHog SDK: product analytics, feature flags and session replay. |
 
@@ -192,16 +198,18 @@ Apple native: `MetricKit MXCrashDiagnostic` (iOS 14) · `Xcode Organizer crash r
 
 Apple native: `StoreKit 2` (iOS 15)
 
+*Not ranked: provider SDKs, pick by service.*
+
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[purchases-ios](https://github.com/RevenueCat/purchases-ios)** | 3.1k | 2026-11 | 2026-11 | 13 | 5.9 | RevenueCat SDK: purchases and subscriptions with server-side receipt validation and paywalls. |
-| 🟢 | [AdaptySDK-iOS](https://github.com/adaptyteam/AdaptySDK-iOS) | 490 | 2026-10 | 2026-10 | 15 | 6.2 | Adapty SDK: purchases and subscriptions with paywall A/B testing. |
+| 🟢 | [purchases-ios](https://github.com/RevenueCat/purchases-ios) | 3.1k | 2026-11 | 2026-11 | 13 | 5.9 | RevenueCat SDK: purchases and subscriptions with server-side receipt validation and paywalls. |
+| 🟢 | [AdaptySDK-iOS](https://github.com/adaptyteam/AdaptySDK-iOS) | 490 | 2026-11 | 2026-11 | 15 | 6.2 | Adapty SDK: purchases and subscriptions with paywall A/B testing. |
 
 ### Third-party sign-in
 
 Apple native: `Sign in with Apple (AuthenticationServices)` (iOS 13) · `Passkeys (AuthenticationServices)` (iOS 16)
 
-*Not ranked: provider-specific SDKs.*
+*Not ranked: provider SDKs, pick by service.*
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
@@ -210,9 +218,11 @@ Apple native: `Sign in with Apple (AuthenticationServices)` (iOS 13) · `Passkey
 
 ### Backend as a service
 
+*Not ranked: provider SDKs, pick by service.*
+
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk)** | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK: Firestore, Auth, Storage, Functions and more. |
+| 🟢 | [firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk) | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | Firebase SDK: Firestore, Auth, Storage, Functions and more. |
 | 🟢 | [supabase-swift](https://github.com/supabase/supabase-swift) | 1.3k | 2026-10 | 2026-11 | 16 | 6.1 | Supabase SDK: Postgres database, auth, storage and realtime. |
 
 ## User interface
@@ -239,7 +249,7 @@ Apple native: `NSLayoutAnchor` (iOS 9)
 
 ### Popups & toasts
 
-Apple native: `sheet / fullScreenCover / alert` (iOS 13)
+Apple native: `fullScreenCover` (iOS 14)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
@@ -420,7 +430,7 @@ Apple native: `xcodebuild archive / -exportArchive` · `Xcode Cloud`
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[fastlane](https://github.com/fastlane/fastlane)** | 42.3k | 2026-10 | 2026-11 | — | 4.0 | Automates signing, screenshots, builds and releases. |
-| 🟢 | [App-Store-Connect-CLI](https://github.com/rorkai/App-Store-Connect-CLI) | 8.2k | 2026-10 | 2026-11 | — | — | CLI for App Store Connect: builds, TestFlight, metadata, submissions. |
+| 🟢 | [App-Store-Connect-CLI](https://github.com/rorkai/App-Store-Connect-CLI) | 8.2k | 2026-11 | 2026-11 | — | — | CLI for App Store Connect: builds, TestFlight, metadata, submissions. |
 
 ## AI agent tooling
 
