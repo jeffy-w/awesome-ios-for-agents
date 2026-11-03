@@ -6,7 +6,11 @@
 #   note      an objective fact WITH a source link
 #   native    Apple APIs for the same job: api, plus ios: / xcode: minimum, optional source
 #   addon_of  the entry extends another entry; it is listed but not ranked
-#   ranked    false = entries are provider-specific and not interchangeable; no ranking
+#   ranked    false = provider-specific SDKs (choose by service, not by stars); no ranking
+#   kind      tool = developer tool or build plugin, never added as an app library dependency
+#             (set on a section, or on a category to override)
+#   products  override the SPM library products when Package.swift builds them dynamically;
+#             products_source must link to where the names are documented
 # Stars, release, last commit, min iOS, swift-tools-version and products are fetched by
 # scripts/refresh.py. Status and rank are computed by scripts/build.py.
 # One category = one purpose, so star counts inside a category are comparable.
@@ -32,9 +36,14 @@ sections:
 
       - id: openapi
         title: { en: OpenAPI client generation, zh: OpenAPI 客户端生成 }
+        kind: tool
         libs:
           - repo: apple/swift-openapi-generator
             does: { en: "Generates a Swift client and server from an OpenAPI document at build time.", zh: "构建时根据 OpenAPI 文档生成 Swift 客户端和服务端代码。" }
+            note:
+              en: "README: a Swift package plugin and CLI. Generated code uses apple/swift-openapi-runtime and a ClientTransport such as apple/swift-openapi-urlsession."
+              zh: "README：这是 Swift 包插件和命令行工具。生成的代码依赖 apple/swift-openapi-runtime，以及一个 ClientTransport 实现，例如 apple/swift-openapi-urlsession。"
+              source: https://github.com/apple/swift-openapi-generator#package-ecosystem
 
       - id: websocket
         title: { en: WebSocket, zh: WebSocket }
@@ -80,7 +89,7 @@ sections:
               zh: "MongoDB：Atlas Device SDKs 已于 2025-09-30 终止并下线；设备端数据库继续作为开源项目存在。"
               source: https://www.mongodb.com/docs/device-sdks-deprecation/
           - repo: stephencelis/SQLite.swift
-            does: { en: "Type-safe Swift layer over SQLite3.", zh: "SQLite3 的类型安全 Swift 封装。" }
+            does: { en: "Swift layer over SQLite3 with typed query expressions.", zh: "SQLite3 的 Swift 封装，用类型化表达式写查询。" }
           - repo: groue/GRDB.swift
             does: { en: "SQLite toolkit with migrations, record types and database observation.", zh: "SQLite 工具集，提供迁移、记录类型和数据库变化监听。" }
           - repo: pointfreeco/sqlite-data
@@ -163,6 +172,7 @@ sections:
 
       - id: crash-reporting
         title: { en: Crash reporting, zh: 崩溃监控 }
+        ranked: false
         native:
           - { api: "MetricKit MXCrashDiagnostic", ios: "14" }
           - { api: "Xcode Organizer crash reports" }
@@ -174,6 +184,7 @@ sections:
 
       - id: analytics
         title: { en: Product analytics, zh: 产品数据分析 }
+        ranked: false
         libs:
           - repo: firebase/firebase-ios-sdk
             does: { en: "Firebase SDK; includes Google Analytics for Firebase.", zh: "Firebase SDK，包含 Google Analytics for Firebase。" }
@@ -188,6 +199,7 @@ sections:
 
       - id: in-app-purchase
         title: { en: In-app purchases & subscriptions, zh: 应用内购买与订阅 }
+        ranked: false
         native:
           - { api: "StoreKit 2", ios: "15" }
         libs:
@@ -210,6 +222,7 @@ sections:
 
       - id: backend
         title: { en: Backend as a service, zh: 后端即服务 }
+        ranked: false
         libs:
           - repo: firebase/firebase-ios-sdk
             does: { en: "Firebase SDK: Firestore, Auth, Storage, Functions and more.", zh: "Firebase SDK：Firestore、Auth、Storage、Functions 等。" }
@@ -243,7 +256,7 @@ sections:
       - id: popups
         title: { en: Popups & toasts, zh: 弹窗与 Toast }
         native:
-          - { api: "sheet / fullScreenCover / alert", ios: "13" }
+          - { api: "fullScreenCover", ios: "14" }
         libs:
           - repo: exyte/PopupView
             does: { en: "Toasts, popups and floating sheets for SwiftUI.", zh: "SwiftUI 的 Toast、弹窗和浮动面板。" }
@@ -316,6 +329,8 @@ sections:
         title: { en: Data structures, zh: 数据结构 }
         libs:
           - repo: apple/swift-collections
+            products: [Collections]
+            products_source: https://github.com/apple/swift-collections#readme
             does: { en: "Deque, OrderedSet, OrderedDictionary, Heap and more.", zh: "Deque、OrderedSet、OrderedDictionary、Heap 等数据结构。" }
 
       - id: algorithms
@@ -340,6 +355,8 @@ sections:
           - repo: krzyzanowskim/CryptoSwift
             does: { en: "Crypto algorithms implemented in Swift.", zh: "用 Swift 实现的加密算法。" }
           - repo: apple/swift-crypto
+            products: [Crypto, CryptoExtras]
+            products_source: https://github.com/apple/swift-crypto#readme
             does: { en: "Open-source implementation of the CryptoKit API, including Linux.", zh: "CryptoKit 接口的开源实现，也支持 Linux。" }
 
       - id: protobuf
@@ -389,6 +406,7 @@ sections:
 
   - id: tooling
     title: { en: Tooling, zh: 工具链 }
+    kind: tool
     categories:
 
       - id: lint
@@ -445,6 +463,7 @@ sections:
 
   - id: agents
     title: { en: AI agent tooling, zh: AI agent 工具 }
+    kind: tool
     categories:
 
       - id: build-mcp
