@@ -1,0 +1,237 @@
+# Awesome iOS for Agents
+
+> Catalog of iOS open-source libraries with objective data (stars, release, last commit, min iOS, Swift tools version) and a computed top pick per category.
+
+Data date: 2026-11-03. Machine-readable data: https://github.com/jeffy-w/awesome-ios-for-agents/raw/main/catalog.json
+
+Rules: last activity = latest GitHub release date; for repos with no GitHub release, the last commit date on the default branch. Status: active < 365 days, slowing < 730 days, inactive otherwise, or archived. Rank: within a category, entries with status active or slowing that are not add-ons (addon_of) are sorted by stars, highest first; rank 1 is the top pick. Categories with ranked=false are not ranked.
+
+## Recipes
+
+- [xcodegen](https://github.com/jeffy-w/awesome-ios-for-agents/blob/main/skills/ios-starter/recipes/xcodegen.md)
+- [tuist](https://github.com/jeffy-w/awesome-ios-for-agents/blob/main/skills/ios-starter/recipes/tuist.md)
+- [mobilebuildmcp](https://github.com/jeffy-w/awesome-ios-for-agents/blob/main/skills/ios-starter/recipes/mobilebuildmcp.md)
+- [xcode-mcp](https://github.com/jeffy-w/awesome-ios-for-agents/blob/main/skills/ios-starter/recipes/xcode-mcp.md)
+- [verify](https://github.com/jeffy-w/awesome-ios-for-agents/blob/main/skills/ios-starter/recipes/verify.md)
+
+## HTTP client
+Native: URLSession async/await (iOS 15)
+- Alamofire/Alamofire [active TOP] stars=42396 last_activity=2026-09-10 min_ios=15 spm_version=5.12.2 — HTTP client with request interceptors, retry, multipart upload and progress.
+- Moya/Moya [inactive] stars=15354 last_activity=2022-08-12 min_ios=10 spm_version=15.0.3 — Network abstraction layer built on Alamofire.
+- kean/Get [inactive] stars=989 last_activity=2024-10-15 min_ios=13 spm_version=2.2.1 — Typed API client built on URLSession.
+
+## OpenAPI client generation
+- apple/swift-openapi-generator [active TOP] stars=1994 last_activity=2026-10-26 min_ios=13 spm_version=1.14.3 — Generates a Swift client and server from an OpenAPI document at build time.
+
+## WebSocket
+Native: URLSessionWebSocketTask (iOS 13)
+- daltoniam/Starscream [inactive] stars=8638 last_activity=2024-03-07 min_ios=unknown spm_version=4.0.8 — WebSocket client.
+
+## Network reachability
+Native: NWPathMonitor (Network framework) (iOS 12)
+- ashleymills/Reachability.swift [inactive] stars=7959 last_activity=2024-10-03 min_ios=unknown spm_version=5.2.4 — Network reachability notifications.
+
+## Image loading & caching
+Native: AsyncImage (iOS 15)
+- SDWebImage/SDWebImage [active TOP] stars=25611 last_activity=2026-02-26 min_ios=9 spm_version=5.21.7 — Image downloader and cache, with coders for animated WebP, AVIF and HEIC.
+- onevcat/Kingfisher [active] stars=24406 last_activity=2026-11-03 min_ios=15 spm_version=8.15.0 — Downloads and caches remote images for UIKit and SwiftUI.
+- kean/Nuke [active] stars=8691 last_activity=2026-11-02 min_ios=15 spm_version=13.2.1 — Image loading pipeline with caching, prefetching and progressive decoding.
+- SDWebImage/SDWebImageSwiftUI [slowing] stars=2563 last_activity=2025-11-03 min_ios=14 spm_version=3.1.4 — SwiftUI views for SDWebImage.
+
+## Local database
+Native: SwiftData (iOS 17); Core Data (iOS 3)
+- realm/realm-swift [active TOP] stars=16600 last_activity=2026-09-27 min_ios=12 spm_version=20.0.6 — Object database for mobile.
+- stephencelis/SQLite.swift [active] stars=10186 last_activity=2026-10-20 min_ios=15 spm_version=0.17.0 — Type-safe Swift layer over SQLite3.
+- groue/GRDB.swift [active] stars=8721 last_activity=2026-11-01 min_ios=13 spm_version=7.12.0 — SQLite toolkit with migrations, record types and database observation.
+- pointfreeco/sqlite-data [active] stars=1955 last_activity=2026-10-09 min_ios=16 spm_version=1.12.1 — SwiftData-style models and queries on SQLite (GRDB), with CloudKit synchronization.
+
+## Keychain
+Native: Keychain Services (Security framework) (iOS 2)
+- square/Valet [active TOP] stars=4173 last_activity=2026-09-09 min_ios=12 spm_version=5.1.1 — Keychain wrapper with iCloud keychain and Secure Enclave support.
+- auth0/SimpleKeychain [slowing] stars=728 last_activity=2025-03-31 min_ios=14 spm_version=1.3.0 — Keychain wrapper.
+- kishikawakatsumi/KeychainAccess [inactive] stars=8258 last_activity=2021-03-01 min_ios=8 spm_version=4.2.2 — Keychain wrapper.
+- evgenyneu/keychain-swift [inactive] stars=3013 last_activity=2024-04-26 min_ios=unknown spm_version=24.0.0 — Keychain wrapper.
+
+## Preferences (UserDefaults)
+Native: UserDefaults (iOS 2); @AppStorage (iOS 14)
+- sindresorhus/Defaults [active TOP] stars=2508 last_activity=2026-06-23 min_ios=14 spm_version=9.0.9 — Typed, observable UserDefaults keys with Codable support.
+
+## Dependency injection
+- Swinject/Swinject [slowing TOP] stars=6706 last_activity=2025-09-01 min_ios=12 spm_version=2.10.0 — Dependency injection container.
+- hmlongco/Factory [active] stars=2926 last_activity=2026-10-28 min_ios=15 spm_version=3.5.2 — Container-based dependency injection.
+- pointfreeco/swift-dependencies [active] stars=2200 last_activity=2026-10-30 min_ios=15 spm_version=1.17.2 — Dependency management modelled on SwiftUI's environment.
+
+## App architecture frameworks
+Native: Observation (@Observable) (iOS 17)
+- pointfreeco/swift-composable-architecture [active TOP] stars=15003 last_activity=2026-08-28 min_ios=16 spm_version=1.26.2 — Unidirectional architecture for state, actions, effects and testing.
+
+## Navigation
+Native: NavigationStack (iOS 16)
+- pointfreeco/swift-navigation [active TOP] stars=2294 last_activity=2026-08-31 min_ios=15 spm_version=2.11.2 — State-driven navigation tools for SwiftUI, UIKit and AppKit.
+
+## Logging
+Native: os.Logger (iOS 14)
+- CocoaLumberjack/CocoaLumberjack [active TOP] stars=13320 last_activity=2026-09-21 min_ios=15 spm_version=3.10.0 — Logging framework with file logging and rotation.
+- SwiftyBeaver/SwiftyBeaver [slowing] stars=6045 last_activity=2024-11-26 min_ios=unknown spm_version=2.1.1 — Logging with console, file and cloud destinations.
+- apple/swift-log [active] stars=4056 last_activity=2026-10-22 min_ios=unknown spm_version=1.16.2 — Logging API package for Swift on all platforms.
+
+## Network & log inspector
+- kean/Pulse [active TOP] stars=7252 last_activity=2026-06-10 min_ios=15 spm_version=5.2.3 — In-app viewer for network requests and logs.
+
+## Crash reporting
+Native: MetricKit MXCrashDiagnostic (iOS 14); Xcode Organizer crash reports
+- firebase/firebase-ios-sdk [active TOP] stars=6979 last_activity=2026-10-22 min_ios=15 spm_version=13.1.1 — Firebase SDK; includes Crashlytics.
+- getsentry/sentry-cocoa [active] stars=1138 last_activity=2026-10-29 min_ios=15 spm_version=9.32.0 — Sentry SDK: crash reporting, error tracking and performance tracing.
+
+## Product analytics
+- firebase/firebase-ios-sdk [active TOP] stars=6979 last_activity=2026-10-22 min_ios=15 spm_version=13.1.1 — Firebase SDK; includes Google Analytics for Firebase.
+- TelemetryDeck/SwiftSDK [active] stars=229 last_activity=2026-08-01 min_ios=12 spm_version=2.14.2 — TelemetryDeck analytics SDK.
+- PostHog/posthog-ios [active] stars=120 last_activity=2026-11-02 min_ios=13 spm_version=3.93.3 — PostHog SDK: product analytics, feature flags and session replay.
+
+## In-app purchases & subscriptions
+Native: StoreKit 2 (iOS 15)
+- RevenueCat/purchases-ios [active TOP] stars=3091 last_activity=2026-11-02 min_ios=13 spm_version=5.101.0 — RevenueCat SDK: purchases and subscriptions with server-side receipt validation and paywalls.
+- adaptyteam/AdaptySDK-iOS [active] stars=490 last_activity=2026-10-23 min_ios=15 spm_version=4.3.1 — Adapty SDK: purchases and subscriptions with paywall A/B testing.
+
+## Third-party sign-in (not ranked)
+Native: Sign in with Apple (AuthenticationServices) (iOS 13); Passkeys (AuthenticationServices) (iOS 16)
+- google/GoogleSignIn-iOS [active] stars=758 last_activity=2026-10-23 min_ios=15 spm_version=10.1.0 — Sign in with Google.
+- auth0/Auth0.swift [active] stars=468 last_activity=2026-10-22 min_ios=15 spm_version=3.2.0 — Auth0 authentication SDK.
+
+## Backend as a service
+- firebase/firebase-ios-sdk [active TOP] stars=6979 last_activity=2026-10-22 min_ios=15 spm_version=13.1.1 — Firebase SDK: Firestore, Auth, Storage, Functions and more.
+- supabase/supabase-swift [active] stars=1309 last_activity=2026-10-30 min_ios=16 spm_version=2.55.6 — Supabase SDK: Postgres database, auth, storage and realtime.
+
+## UIKit Auto Layout DSL
+Native: NSLayoutAnchor (iOS 9)
+- SnapKit/SnapKit [active TOP] stars=20344 last_activity=2026-05-31 min_ios=14 spm_version=6.0.0 — DSL for Auto Layout constraints in code.
+
+## SwiftUI component collections
+- SwiftUIX/SwiftUIX [active TOP] stars=8198 last_activity=2026-09-18 min_ios=13 spm_version=0.3.2 — Collection of additional SwiftUI views and modifiers.
+
+## SwiftUI introspection
+- siteline/swiftui-introspect [active TOP] stars=6573 last_activity=2026-10-07 min_ios=13 spm_version=27.1.0 — Access the UIKit/AppKit view underneath a SwiftUI view.
+
+## Popups & toasts
+Native: sheet / fullScreenCover / alert (iOS 13)
+- exyte/PopupView [active TOP] stars=4063 last_activity=2026-11-02 min_ios=17 spm_version=5.0.9 — Toasts, popups and floating sheets for SwiftUI.
+
+## Animation playback
+Native: PhaseAnimator / KeyframeAnimator (iOS 17)
+- airbnb/lottie-ios [active TOP] stars=26927 last_activity=2026-06-13 min_ios=13 spm_version=4.6.1 — Plays Lottie (After Effects) animations.
+- rive-app/rive-ios [active] stars=857 last_activity=2026-10-30 min_ios=14 spm_version=6.29.0 — Plays Rive animations with state machines.
+
+## Charts
+Native: Swift Charts (iOS 16)
+- ChartsOrg/Charts [inactive] stars=27972 last_activity=2024-02-16 min_ios=12 spm_version=5.1.0 — Chart library for UIKit (DGCharts).
+
+## Markdown rendering
+Native: AttributedString(markdown:) (iOS 15)
+- gonzalezreal/textual [active TOP] stars=916 last_activity=2026-06-15 min_ios=18 spm_version=0.5.0 — Renders Markdown and rich text in SwiftUI.
+- gonzalezreal/swift-markdown-ui [inactive] stars=3936 last_activity=2024-10-13 min_ios=15 spm_version=2.4.1 — Renders Markdown in SwiftUI.
+
+## HTML parsing
+- scinfu/SwiftSoup [active TOP] stars=5133 last_activity=2026-10-16 min_ios=13 spm_version=2.14.3 — Parses and cleans HTML.
+
+## Markdown parsing
+- swiftlang/swift-markdown [active TOP] stars=3451 last_activity=2026-09-21 min_ios=unknown spm_version=0.9.0 — Parses Markdown into a syntax tree.
+
+## Reactive frameworks
+Native: Combine (iOS 13)
+- ReactiveX/RxSwift [active TOP] stars=24632 last_activity=2026-03-02 min_ios=9 spm_version=6.10.2 — Reactive programming with observables.
+
+## AsyncSequence operators
+Native: AsyncSequence / AsyncStream (back-deployed to iOS 13 with Xcode 13.2+) (iOS 13)
+- apple/swift-async-algorithms [active TOP] stars=3713 last_activity=2026-09-30 min_ios=unknown spm_version=1.1.7 — Operators for AsyncSequence: debounce, throttle, merge, zip and more.
+
+## Data structures
+- apple/swift-collections [active TOP] stars=4530 last_activity=2026-10-27 min_ios=unknown spm_version=1.7.5 — Deque, OrderedSet, OrderedDictionary, Heap and more.
+
+## Sequence algorithms
+- apple/swift-algorithms [slowing TOP] stars=6340 last_activity=2025-02-10 min_ios=unknown spm_version=1.2.1 — Sequence and collection algorithms (chunks, windows, uniqued, ...).
+
+## JSON
+Native: Codable + JSONDecoder (Swift 4)
+- SwiftyJSON/SwiftyJSON [inactive] stars=22924 last_activity=2024-03-27 min_ios=unknown spm_version=5.0.2 — JSON access with subscripts.
+
+## Cryptography
+Native: CryptoKit (iOS 13)
+- krzyzanowskim/CryptoSwift [active TOP] stars=10578 last_activity=2026-04-22 min_ios=11 spm_version=1.10.0 — Crypto algorithms implemented in Swift.
+- apple/swift-crypto [active] stars=1739 last_activity=2026-11-02 min_ios=unknown spm_version=5.1.0 — Open-source implementation of the CryptoKit API, including Linux.
+
+## Protocol Buffers
+- apple/swift-protobuf [active TOP] stars=4970 last_activity=2026-10-12 min_ios=unknown spm_version=1.39.0 — Protocol Buffers runtime and code generator for Swift.
+
+## BDD test frameworks
+Native: Swift Testing (Xcode 16); XCTest
+- Quick/Quick [inactive] stars=9819 last_activity=2024-07-23 min_ios=13 spm_version=7.6.2 — BDD-style test framework.
+
+## Test matchers
+Native: Swift Testing #expect / #require (Xcode 16)
+- Quick/Nimble [active TOP] stars=4833 last_activity=2025-11-28 min_ios=13 spm_version=14.0.0 — Matcher library for tests.
+
+## Snapshot testing
+- pointfreeco/swift-snapshot-testing [active TOP] stars=4388 last_activity=2026-10-21 min_ios=13 spm_version=1.19.7 — Snapshot testing for views and values.
+
+## Value dumps & diffs
+- pointfreeco/swift-custom-dump [active TOP] stars=894 last_activity=2026-08-28 min_ios=15 spm_version=1.7.3 — Dumps and diffs Swift values, for test failure messages.
+
+## Concurrency testing
+- pointfreeco/swift-concurrency-extras [active TOP] stars=490 last_activity=2026-10-14 min_ios=13 spm_version=1.4.3 — Utilities for testing Swift concurrency code.
+
+## Linting
+- realm/SwiftLint [active TOP] stars=19779 last_activity=2026-08-21 min_ios=unknown spm_version=0.65.1 — Enforces Swift style and conventions.
+
+## Formatting
+Native: xcrun swift-format (bundled with Xcode) (Xcode 16)
+- nicklockwood/SwiftFormat [active TOP] stars=8954 last_activity=2026-10-31 min_ios=unknown spm_version=0.64.5 — Swift code formatter.
+- swiftlang/swift-format [active] stars=2966 last_activity=2026-09-16 min_ios=16 spm_version=604.0.0 — Swift code formatter from the Swift project.
+
+## Project generation
+- yonaskolb/XcodeGen [active TOP] stars=8921 last_activity=2026-07-16 min_ios=unknown spm_version=2.46.0 — Generates an Xcode project from project.yml.
+- tuist/tuist [active] stars=5860 last_activity=2026-11-02 min_ios=unknown spm_version=unknown — Generates Xcode projects from Project.swift; also caching and build insights.
+
+## Build log formatting
+- cpisciotta/xcbeautify [active TOP] stars=1554 last_activity=2026-04-04 min_ios=unknown spm_version=3.2.1 — Formatter for xcodebuild output.
+
+## Resource code generation
+Native: Generated asset symbols (ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS) (Xcode 15); String Catalog symbols (STRING_CATALOG_GENERATE_SYMBOLS) (Xcode 26)
+- mac-cain13/R.swift [slowing TOP] stars=9548 last_activity=2024-11-05 min_ios=11 spm_version=7.8.0 — Generates typed resource accessors.
+- SwiftGen/SwiftGen [inactive] stars=9540 last_activity=2024-03-02 min_ios=unknown spm_version=6.6.3 — Generates Swift code for strings, images, fonts and other resources.
+
+## Release & App Store Connect
+Native: xcodebuild archive / -exportArchive; Xcode Cloud
+- fastlane/fastlane [active TOP] stars=42346 last_activity=2026-10-26 min_ios=unknown spm_version=2.241.2 — Automates signing, screenshots, builds and releases.
+- rorkai/App-Store-Connect-CLI [active] stars=8225 last_activity=2026-10-31 min_ios=unknown spm_version=unknown — CLI for App Store Connect: builds, TestFlight, metadata, submissions.
+
+## Build & run MCP servers
+Native: xcrun mcpbridge (Xcode MCP server) (Xcode 26.3)
+- getsentry/MobileBuildMCP [active TOP] stars=6534 last_activity=2026-09-23 min_ios=unknown spm_version=unknown — MCP server and CLI to build, run, test, debug and scaffold iOS/macOS projects (formerly XcodeBuildMCP).
+
+## Simulator & device UI automation
+- mobile-next/mobile-mcp [active TOP] stars=10253 last_activity=2026-11-02 min_ios=unknown spm_version=unknown — MCP server to drive iOS and Android simulators and devices.
+- cameroncooke/AXe [active] stars=2310 last_activity=2026-07-20 min_ios=unknown spm_version=1.8.0 — CLI for Simulator UI automation through accessibility APIs.
+- joshuayoes/ios-simulator-mcp [active] stars=2206 last_activity=2026-10-27 min_ios=unknown spm_version=unknown — MCP server to tap, type and inspect UI in the iOS Simulator.
+
+## Apple docs for agents
+- kimsungwhee/apple-docs-mcp [slowing TOP] stars=1382 last_activity=2025-09-15 min_ios=unknown spm_version=unknown — MCP server to search Apple developer documentation.
+- NSHipster/sosumi.ai [active] stars=482 last_activity=2026-09-10 min_ios=unknown spm_version=unknown — Serves Apple developer docs as Markdown for AI tools.
+
+## SwiftUI skills
+- twostraws/SwiftUI-Agent-Skill [active TOP] stars=6448 last_activity=2026-10-09 min_ios=unknown spm_version=unknown — SwiftUI agent skill.
+- AvdLee/SwiftUI-Agent-Skill [active] stars=3817 last_activity=2026-10-02 min_ios=unknown spm_version=unknown — SwiftUI agent skill.
+
+## Swift Concurrency skills
+- AvdLee/Swift-Concurrency-Agent-Skill [active TOP] stars=1702 last_activity=2026-08-12 min_ios=unknown spm_version=unknown — Swift Concurrency agent skill.
+
+## Simulator skills
+- conorluddy/ios-simulator-skill [active TOP] stars=1311 last_activity=2026-10-19 min_ios=unknown spm_version=unknown — Agent skill for building, running and inspecting apps in the Simulator.
+
+## Release skills
+- rorkai/app-store-connect-cli-skills [active TOP] stars=1122 last_activity=2026-10-26 min_ios=unknown spm_version=unknown — Agent skills for releasing with the asc CLI.
+
+## Skill indexes
+- twostraws/Swift-Agent-Skills [active TOP] stars=2974 last_activity=2026-09-04 min_ios=unknown spm_version=unknown — Index of Swift agent skills, grouped by framework.
+
+## AGENTS.md templates
+- twostraws/SwiftAgents [active TOP] stars=1478 last_activity=2026-03-05 min_ios=unknown spm_version=unknown — AGENTS.md file for Swift and SwiftUI projects.

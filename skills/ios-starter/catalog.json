@@ -1,0 +1,3387 @@
+{
+ "generated": "2026-11-03",
+ "source": "https://github.com/jeffy-w/awesome-ios-for-agents",
+ "rules": {
+  "last_activity": "latest GitHub release date; for repos with no GitHub release, the last commit date on the default branch",
+  "status": {
+   "active": "last activity less than 365 days ago",
+   "slowing": "last activity 365-729 days ago",
+   "inactive": "last activity 730 or more days ago",
+   "archived": "repository is archived on GitHub"
+  },
+  "rank": "within a category, entries with status active or slowing that are not add-ons (addon_of) are sorted by stars, highest first; rank 1 is the top pick. Categories with ranked=false are not ranked."
+ },
+ "sections": [
+  {
+   "id": "foundation",
+   "title": {
+    "en": "Foundation",
+    "zh": "基础能力"
+   },
+   "categories": [
+    {
+     "id": "networking",
+     "title": {
+      "en": "HTTP client",
+      "zh": "HTTP 客户端"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "URLSession async/await",
+       "ios": 15.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "Alamofire/Alamofire",
+       "name": "Alamofire",
+       "url": "https://github.com/Alamofire/Alamofire",
+       "does": {
+        "en": "HTTP client with request interceptors, retry, multipart upload and progress.",
+        "zh": "HTTP 客户端，支持请求拦截、重试、multipart 上传和进度回调。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 42396,
+       "status": "active",
+       "last_activity": "2026-09-10",
+       "latest_release": "5.12.2",
+       "released": "2026-09-10",
+       "last_commit": "2026-10-30",
+       "spm": true,
+       "spm_version": "5.12.2",
+       "products": [
+        "Alamofire",
+        "AlamofireDynamic"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.4",
+       "package_swift_at": "5.12.2",
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "Moya/Moya",
+       "name": "Moya",
+       "url": "https://github.com/Moya/Moya",
+       "does": {
+        "en": "Network abstraction layer built on Alamofire.",
+        "zh": "构建在 Alamofire 之上的网络抽象层。"
+       },
+       "note": null,
+       "addon_of": "Alamofire/Alamofire",
+       "stars": 15354,
+       "status": "inactive",
+       "last_activity": "2022-08-12",
+       "latest_release": "15.0.3",
+       "released": "2022-08-12",
+       "last_commit": "2026-07-14",
+       "spm": true,
+       "spm_version": "15.0.3",
+       "products": [
+        "CombineMoya",
+        "Moya",
+        "ReactiveMoya",
+        "RxMoya"
+       ],
+       "min_ios": 10.0,
+       "swift_tools": "5.3",
+       "package_swift_at": "15.0.3",
+       "license": "MIT",
+       "rank": null
+      },
+      {
+       "repo": "kean/Get",
+       "name": "Get",
+       "url": "https://github.com/kean/Get",
+       "does": {
+        "en": "Typed API client built on URLSession.",
+        "zh": "基于 URLSession 的强类型 API 客户端。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 989,
+       "status": "inactive",
+       "last_activity": "2024-10-15",
+       "latest_release": "2.2.1",
+       "released": "2024-10-15",
+       "last_commit": "2024-10-15",
+       "spm": true,
+       "spm_version": "2.2.1",
+       "products": [
+        "Get"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "5.5",
+       "package_swift_at": "2.2.1",
+       "license": "MIT",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "openapi",
+     "title": {
+      "en": "OpenAPI client generation",
+      "zh": "OpenAPI 客户端生成"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "apple/swift-openapi-generator",
+       "name": "swift-openapi-generator",
+       "url": "https://github.com/apple/swift-openapi-generator",
+       "does": {
+        "en": "Generates a Swift client and server from an OpenAPI document at build time.",
+        "zh": "构建时根据 OpenAPI 文档生成 Swift 客户端和服务端代码。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1994,
+       "status": "active",
+       "last_activity": "2026-10-26",
+       "latest_release": "1.14.3",
+       "released": "2026-10-26",
+       "last_commit": "2026-10-26",
+       "spm": true,
+       "spm_version": "1.14.3",
+       "products": [
+        "_OpenAPIGeneratorCore"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "6.2",
+       "package_swift_at": "1.14.3",
+       "license": "Apache-2.0",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "websocket",
+     "title": {
+      "en": "WebSocket",
+      "zh": "WebSocket"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "URLSessionWebSocketTask",
+       "ios": 13.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "daltoniam/Starscream",
+       "name": "Starscream",
+       "url": "https://github.com/daltoniam/Starscream",
+       "does": {
+        "en": "WebSocket client.",
+        "zh": "WebSocket 客户端。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 8638,
+       "status": "inactive",
+       "last_activity": "2024-03-07",
+       "latest_release": "4.0.8",
+       "released": "2024-03-07",
+       "last_commit": "2024-03-07",
+       "spm": true,
+       "spm_version": "4.0.8",
+       "products": [
+        "Starscream"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.3",
+       "package_swift_at": "4.0.8",
+       "license": "Apache-2.0",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "reachability",
+     "title": {
+      "en": "Network reachability",
+      "zh": "网络状态监测"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "NWPathMonitor (Network framework)",
+       "ios": 12.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "ashleymills/Reachability.swift",
+       "name": "Reachability.swift",
+       "url": "https://github.com/ashleymills/Reachability.swift",
+       "does": {
+        "en": "Network reachability notifications.",
+        "zh": "网络可达性变化通知。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 7959,
+       "status": "inactive",
+       "last_activity": "2024-10-03",
+       "latest_release": "v5.2.4",
+       "released": "2024-10-03",
+       "last_commit": "2024-10-03",
+       "spm": true,
+       "spm_version": "5.2.4",
+       "products": [
+        "Reachability"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.3",
+       "package_swift_at": "v5.2.4",
+       "license": "MIT",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "images",
+     "title": {
+      "en": "Image loading & caching",
+      "zh": "图片加载与缓存"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "AsyncImage",
+       "ios": 15.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "SDWebImage/SDWebImage",
+       "name": "SDWebImage",
+       "url": "https://github.com/SDWebImage/SDWebImage",
+       "does": {
+        "en": "Image downloader and cache, with coders for animated WebP, AVIF and HEIC.",
+        "zh": "图片下载与缓存，带动图 WebP、AVIF、HEIC 解码器。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 25611,
+       "status": "active",
+       "last_activity": "2026-02-26",
+       "latest_release": "5.21.7",
+       "released": "2026-02-26",
+       "last_commit": "2026-04-15",
+       "spm": true,
+       "spm_version": "5.21.7",
+       "products": [
+        "SDWebImage",
+        "SDWebImageMapKit"
+       ],
+       "min_ios": 9.0,
+       "swift_tools": "5.3",
+       "package_swift_at": "5.21.7",
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "onevcat/Kingfisher",
+       "name": "Kingfisher",
+       "url": "https://github.com/onevcat/Kingfisher",
+       "does": {
+        "en": "Downloads and caches remote images for UIKit and SwiftUI.",
+        "zh": "下载并缓存网络图片，支持 UIKit 和 SwiftUI。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 24406,
+       "status": "active",
+       "last_activity": "2026-11-03",
+       "latest_release": "8.15.0",
+       "released": "2026-11-03",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "8.15.0",
+       "products": [
+        "Kingfisher"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.2",
+       "package_swift_at": "8.15.0",
+       "license": "MIT",
+       "rank": 2
+      },
+      {
+       "repo": "kean/Nuke",
+       "name": "Nuke",
+       "url": "https://github.com/kean/Nuke",
+       "does": {
+        "en": "Image loading pipeline with caching, prefetching and progressive decoding.",
+        "zh": "图片加载管线，支持缓存、预加载和渐进式解码。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 8691,
+       "status": "active",
+       "last_activity": "2026-11-02",
+       "latest_release": "13.2.1",
+       "released": "2026-11-02",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "13.2.1",
+       "products": [
+        "Nuke",
+        "NukeExtensions",
+        "NukeUI",
+        "NukeVideo"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "13.2.1",
+       "license": "MIT",
+       "rank": 3
+      },
+      {
+       "repo": "SDWebImage/SDWebImageSwiftUI",
+       "name": "SDWebImageSwiftUI",
+       "url": "https://github.com/SDWebImage/SDWebImageSwiftUI",
+       "does": {
+        "en": "SwiftUI views for SDWebImage.",
+        "zh": "SDWebImage 的 SwiftUI 视图组件。"
+       },
+       "note": null,
+       "addon_of": "SDWebImage/SDWebImage",
+       "stars": 2563,
+       "status": "slowing",
+       "last_activity": "2025-11-03",
+       "latest_release": "3.1.4",
+       "released": "2025-11-03",
+       "last_commit": "2026-02-25",
+       "spm": true,
+       "spm_version": "3.1.4",
+       "products": [
+        "SDWebImageSwiftUI"
+       ],
+       "min_ios": 14.0,
+       "swift_tools": "5.3",
+       "package_swift_at": "3.1.4",
+       "license": "MIT",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "database",
+     "title": {
+      "en": "Local database",
+      "zh": "本地数据库"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "SwiftData",
+       "ios": 17.0,
+       "xcode": null,
+       "source": null
+      },
+      {
+       "api": "Core Data",
+       "ios": 3.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "realm/realm-swift",
+       "name": "realm-swift",
+       "url": "https://github.com/realm/realm-swift",
+       "does": {
+        "en": "Object database for mobile.",
+        "zh": "面向移动端的对象数据库。"
+       },
+       "note": {
+        "en": "MongoDB: Atlas Device SDKs reached end-of-life and were removed on 2025-09-30; the on-device database continues to exist as an open source project.",
+        "zh": "MongoDB：Atlas Device SDKs 已于 2025-09-30 终止并下线；设备端数据库继续作为开源项目存在。",
+        "source": "https://www.mongodb.com/docs/device-sdks-deprecation/"
+       },
+       "addon_of": null,
+       "stars": 16600,
+       "status": "active",
+       "last_activity": "2026-09-27",
+       "latest_release": "v20.0.6",
+       "released": "2026-09-27",
+       "last_commit": "2026-09-26",
+       "spm": true,
+       "spm_version": "20.0.6",
+       "products": [
+        "Realm",
+        "RealmSwift"
+       ],
+       "min_ios": 12.0,
+       "swift_tools": "6.2.1",
+       "package_swift_at": "v20.0.6",
+       "license": "Apache-2.0",
+       "rank": 1
+      },
+      {
+       "repo": "stephencelis/SQLite.swift",
+       "name": "SQLite.swift",
+       "url": "https://github.com/stephencelis/SQLite.swift",
+       "does": {
+        "en": "Type-safe Swift layer over SQLite3.",
+        "zh": "SQLite3 的类型安全 Swift 封装。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 10186,
+       "status": "active",
+       "last_activity": "2026-10-20",
+       "latest_release": "0.17.0",
+       "released": "2026-10-20",
+       "last_commit": "2026-10-25",
+       "spm": true,
+       "spm_version": "0.17.0",
+       "products": [
+        "SQLite",
+        "SQLite-Dynamic"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.1",
+       "package_swift_at": "0.17.0",
+       "license": "MIT",
+       "rank": 2
+      },
+      {
+       "repo": "groue/GRDB.swift",
+       "name": "GRDB.swift",
+       "url": "https://github.com/groue/GRDB.swift",
+       "does": {
+        "en": "SQLite toolkit with migrations, record types and database observation.",
+        "zh": "SQLite 工具集，提供迁移、记录类型和数据库变化监听。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 8721,
+       "status": "active",
+       "last_activity": "2026-11-01",
+       "latest_release": "v7.12.0",
+       "released": "2026-11-01",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "7.12.0",
+       "products": [
+        "GRDB",
+        "GRDB-dynamic",
+        "GRDBSQLite"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "6.1",
+       "package_swift_at": "v7.12.0",
+       "license": "MIT",
+       "rank": 3
+      },
+      {
+       "repo": "pointfreeco/sqlite-data",
+       "name": "sqlite-data",
+       "url": "https://github.com/pointfreeco/sqlite-data",
+       "does": {
+        "en": "SwiftData-style models and queries on SQLite (GRDB), with CloudKit synchronization.",
+        "zh": "在 SQLite（GRDB）上提供类似 SwiftData 的模型和查询，支持 CloudKit 同步。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1955,
+       "status": "active",
+       "last_activity": "2026-10-09",
+       "latest_release": "1.12.1",
+       "released": "2026-10-09",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "1.12.1",
+       "products": [
+        "SQLiteData",
+        "SQLiteDataTestSupport"
+       ],
+       "min_ios": 16.0,
+       "swift_tools": "6.4",
+       "package_swift_at": "1.12.1",
+       "license": "MIT",
+       "rank": 4
+      }
+     ]
+    },
+    {
+     "id": "keychain",
+     "title": {
+      "en": "Keychain",
+      "zh": "钥匙串"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "Keychain Services (Security framework)",
+       "ios": 2.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "square/Valet",
+       "name": "Valet",
+       "url": "https://github.com/square/Valet",
+       "does": {
+        "en": "Keychain wrapper with iCloud keychain and Secure Enclave support.",
+        "zh": "钥匙串封装，支持 iCloud 钥匙串和 Secure Enclave。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 4173,
+       "status": "active",
+       "last_activity": "2026-09-09",
+       "latest_release": "5.1.1",
+       "released": "2026-09-09",
+       "last_commit": "2026-07-12",
+       "spm": true,
+       "spm_version": "5.1.1",
+       "products": [
+        "Valet"
+       ],
+       "min_ios": 12.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "5.1.1",
+       "license": "Apache-2.0",
+       "rank": 1
+      },
+      {
+       "repo": "auth0/SimpleKeychain",
+       "name": "SimpleKeychain",
+       "url": "https://github.com/auth0/SimpleKeychain",
+       "does": {
+        "en": "Keychain wrapper.",
+        "zh": "钥匙串封装。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 728,
+       "status": "slowing",
+       "last_activity": "2025-03-31",
+       "latest_release": "1.3.0",
+       "released": "2025-03-31",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "1.3.0",
+       "products": [
+        "SimpleKeychain"
+       ],
+       "min_ios": 14.0,
+       "swift_tools": "5.9",
+       "package_swift_at": "1.3.0",
+       "license": "MIT",
+       "rank": 2
+      },
+      {
+       "repo": "kishikawakatsumi/KeychainAccess",
+       "name": "KeychainAccess",
+       "url": "https://github.com/kishikawakatsumi/KeychainAccess",
+       "does": {
+        "en": "Keychain wrapper.",
+        "zh": "钥匙串封装。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 8258,
+       "status": "inactive",
+       "last_activity": "2021-03-01",
+       "latest_release": "v4.2.2",
+       "released": "2021-03-01",
+       "last_commit": "2023-11-12",
+       "spm": true,
+       "spm_version": "4.2.2",
+       "products": [
+        "KeychainAccess"
+       ],
+       "min_ios": 8.0,
+       "swift_tools": "5.0",
+       "package_swift_at": "v4.2.2",
+       "license": "MIT",
+       "rank": null
+      },
+      {
+       "repo": "evgenyneu/keychain-swift",
+       "name": "keychain-swift",
+       "url": "https://github.com/evgenyneu/keychain-swift",
+       "does": {
+        "en": "Keychain wrapper.",
+        "zh": "钥匙串封装。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 3013,
+       "status": "inactive",
+       "last_activity": "2024-04-26",
+       "latest_release": null,
+       "released": null,
+       "last_commit": "2024-04-26",
+       "spm": true,
+       "spm_version": "24.0.0",
+       "products": [
+        "KeychainSwift"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.7.1",
+       "package_swift_at": "24.0.0",
+       "license": "MIT",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "preferences",
+     "title": {
+      "en": "Preferences (UserDefaults)",
+      "zh": "偏好设置（UserDefaults）"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "UserDefaults",
+       "ios": 2.0,
+       "xcode": null,
+       "source": null
+      },
+      {
+       "api": "@AppStorage",
+       "ios": 14.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "sindresorhus/Defaults",
+       "name": "Defaults",
+       "url": "https://github.com/sindresorhus/Defaults",
+       "does": {
+        "en": "Typed, observable UserDefaults keys with Codable support.",
+        "zh": "强类型、可监听的 UserDefaults，支持 Codable。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 2508,
+       "status": "active",
+       "last_activity": "2026-06-23",
+       "latest_release": "9.0.9",
+       "released": "2026-06-23",
+       "last_commit": "2026-06-23",
+       "spm": true,
+       "spm_version": "9.0.9",
+       "products": [
+        "Defaults",
+        "DefaultsMacros"
+       ],
+       "min_ios": 14.0,
+       "swift_tools": "6.2",
+       "package_swift_at": "9.0.9",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "architecture",
+   "title": {
+    "en": "Architecture",
+    "zh": "架构"
+   },
+   "categories": [
+    {
+     "id": "dependency-injection",
+     "title": {
+      "en": "Dependency injection",
+      "zh": "依赖注入"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "Swinject/Swinject",
+       "name": "Swinject",
+       "url": "https://github.com/Swinject/Swinject",
+       "does": {
+        "en": "Dependency injection container.",
+        "zh": "依赖注入容器。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 6706,
+       "status": "slowing",
+       "last_activity": "2025-09-01",
+       "latest_release": "2.10.0",
+       "released": "2025-09-01",
+       "last_commit": "2025-09-01",
+       "spm": true,
+       "spm_version": "2.10.0",
+       "products": [
+        "Swinject"
+       ],
+       "min_ios": 12.0,
+       "swift_tools": "6.0.0",
+       "package_swift_at": "2.10.0",
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "hmlongco/Factory",
+       "name": "Factory",
+       "url": "https://github.com/hmlongco/Factory",
+       "does": {
+        "en": "Container-based dependency injection.",
+        "zh": "基于容器的依赖注入。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 2926,
+       "status": "active",
+       "last_activity": "2026-10-28",
+       "latest_release": "3.5.2",
+       "released": "2026-10-28",
+       "last_commit": "2026-10-28",
+       "spm": true,
+       "spm_version": "3.5.2",
+       "products": [
+        "FactoryKit",
+        "FactoryKitDynamic",
+        "FactoryTesting"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.1",
+       "package_swift_at": "3.5.2",
+       "license": "MIT",
+       "rank": 2
+      },
+      {
+       "repo": "pointfreeco/swift-dependencies",
+       "name": "swift-dependencies",
+       "url": "https://github.com/pointfreeco/swift-dependencies",
+       "does": {
+        "en": "Dependency management modelled on SwiftUI's environment.",
+        "zh": "参照 SwiftUI Environment 设计的依赖管理。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 2200,
+       "status": "active",
+       "last_activity": "2026-10-30",
+       "latest_release": "1.17.2",
+       "released": "2026-10-30",
+       "last_commit": "2026-10-30",
+       "spm": true,
+       "spm_version": "1.17.2",
+       "products": [
+        "Dependencies",
+        "DependenciesMacros",
+        "DependenciesTestObserver",
+        "DependenciesTestSupport"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.4",
+       "package_swift_at": "1.17.2",
+       "license": "MIT",
+       "rank": 3
+      }
+     ]
+    },
+    {
+     "id": "app-architecture",
+     "title": {
+      "en": "App architecture frameworks",
+      "zh": "应用架构框架"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "Observation (@Observable)",
+       "ios": 17.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "pointfreeco/swift-composable-architecture",
+       "name": "swift-composable-architecture",
+       "url": "https://github.com/pointfreeco/swift-composable-architecture",
+       "does": {
+        "en": "Unidirectional architecture for state, actions, effects and testing.",
+        "zh": "单向数据流架构，管理状态、动作、副作用和测试。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 15003,
+       "status": "active",
+       "last_activity": "2026-08-28",
+       "latest_release": "1.26.2",
+       "released": "2026-08-28",
+       "last_commit": "2026-10-27",
+       "spm": true,
+       "spm_version": "1.26.2",
+       "products": [
+        "ComposableArchitecture"
+       ],
+       "min_ios": 16.0,
+       "swift_tools": "6.4",
+       "package_swift_at": "1.26.2",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "navigation",
+     "title": {
+      "en": "Navigation",
+      "zh": "导航"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "NavigationStack",
+       "ios": 16.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "pointfreeco/swift-navigation",
+       "name": "swift-navigation",
+       "url": "https://github.com/pointfreeco/swift-navigation",
+       "does": {
+        "en": "State-driven navigation tools for SwiftUI, UIKit and AppKit.",
+        "zh": "由状态驱动的导航工具，支持 SwiftUI、UIKit、AppKit。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 2294,
+       "status": "active",
+       "last_activity": "2026-08-31",
+       "latest_release": "2.11.2",
+       "released": "2026-08-31",
+       "last_commit": "2026-08-31",
+       "spm": true,
+       "spm_version": "2.11.2",
+       "products": [
+        "AppKitNavigation",
+        "SwiftNavigation",
+        "SwiftUINavigation",
+        "UIKitNavigation"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.4",
+       "package_swift_at": "2.11.2",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "observability",
+   "title": {
+    "en": "Observability",
+    "zh": "日志与监控"
+   },
+   "categories": [
+    {
+     "id": "logging",
+     "title": {
+      "en": "Logging",
+      "zh": "日志"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "os.Logger",
+       "ios": 14.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "CocoaLumberjack/CocoaLumberjack",
+       "name": "CocoaLumberjack",
+       "url": "https://github.com/CocoaLumberjack/CocoaLumberjack",
+       "does": {
+        "en": "Logging framework with file logging and rotation.",
+        "zh": "日志框架，支持写文件和日志轮转。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 13320,
+       "status": "active",
+       "last_activity": "2026-09-21",
+       "latest_release": "3.10.0",
+       "released": "2026-09-21",
+       "last_commit": "2026-10-28",
+       "spm": true,
+       "spm_version": "3.10.0",
+       "products": [
+        "CocoaLumberjack",
+        "CocoaLumberjackSwift",
+        "CocoaLumberjackSwiftLogBackend"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.4",
+       "package_swift_at": "3.10.0",
+       "license": "BSD-3-Clause",
+       "rank": 1
+      },
+      {
+       "repo": "SwiftyBeaver/SwiftyBeaver",
+       "name": "SwiftyBeaver",
+       "url": "https://github.com/SwiftyBeaver/SwiftyBeaver",
+       "does": {
+        "en": "Logging with console, file and cloud destinations.",
+        "zh": "日志库，可输出到控制台、文件和云端。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 6045,
+       "status": "slowing",
+       "last_activity": "2024-11-26",
+       "latest_release": null,
+       "released": null,
+       "last_commit": "2024-11-26",
+       "spm": true,
+       "spm_version": "2.1.1",
+       "products": [
+        "SwiftyBeaver"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.0",
+       "package_swift_at": "2.1.1",
+       "license": "MIT",
+       "rank": 2
+      },
+      {
+       "repo": "apple/swift-log",
+       "name": "swift-log",
+       "url": "https://github.com/apple/swift-log",
+       "does": {
+        "en": "Logging API package for Swift on all platforms.",
+        "zh": "跨平台的 Swift 日志接口包。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 4056,
+       "status": "active",
+       "last_activity": "2026-10-22",
+       "latest_release": "1.16.2",
+       "released": "2026-10-22",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "1.16.2",
+       "products": [
+        "InMemoryLogging",
+        "Logging"
+       ],
+       "min_ios": null,
+       "swift_tools": "6.2",
+       "package_swift_at": "1.16.2",
+       "license": "Apache-2.0",
+       "rank": 3
+      }
+     ]
+    },
+    {
+     "id": "network-debugging",
+     "title": {
+      "en": "Network & log inspector",
+      "zh": "网络与日志查看器"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "kean/Pulse",
+       "name": "Pulse",
+       "url": "https://github.com/kean/Pulse",
+       "does": {
+        "en": "In-app viewer for network requests and logs.",
+        "zh": "在 App 内查看网络请求和日志。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 7252,
+       "status": "active",
+       "last_activity": "2026-06-10",
+       "latest_release": "5.2.3",
+       "released": "2026-06-10",
+       "last_commit": "2026-10-11",
+       "spm": true,
+       "spm_version": "5.2.3",
+       "products": [
+        "Pulse",
+        "PulseProxy",
+        "PulseUI"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "5.10",
+       "package_swift_at": "5.2.3",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "crash-reporting",
+     "title": {
+      "en": "Crash reporting",
+      "zh": "崩溃监控"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "MetricKit MXCrashDiagnostic",
+       "ios": 14.0,
+       "xcode": null,
+       "source": null
+      },
+      {
+       "api": "Xcode Organizer crash reports",
+       "ios": null,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "firebase/firebase-ios-sdk",
+       "name": "firebase-ios-sdk",
+       "url": "https://github.com/firebase/firebase-ios-sdk",
+       "does": {
+        "en": "Firebase SDK; includes Crashlytics.",
+        "zh": "Firebase SDK，包含 Crashlytics。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 6979,
+       "status": "active",
+       "last_activity": "2026-10-22",
+       "latest_release": "13.1.1",
+       "released": "2026-10-22",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "13.1.1",
+       "products": [
+        "FirebaseAILogic",
+        "FirebaseAnalytics",
+        "FirebaseAnalyticsCore",
+        "FirebaseAnalyticsIdentitySupport",
+        "FirebaseAppCheck",
+        "FirebaseAppDistribution-Beta",
+        "FirebaseAuth",
+        "FirebaseAuthCombine-Community",
+        "FirebaseCore",
+        "FirebaseCrashlytics",
+        "FirebaseDatabase",
+        "FirebaseFirestore",
+        "FirebaseFirestoreCombine-Community",
+        "FirebaseFunctions",
+        "FirebaseFunctionsCombine-Community",
+        "FirebaseInAppMessaging-Beta",
+        "FirebaseInstallations",
+        "FirebaseMessaging",
+        "FirebasePerformance",
+        "FirebaseRemoteConfig",
+        "FirebaseStorage",
+        "FirebaseStorageCombine-Community"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.2",
+       "package_swift_at": "13.1.1",
+       "license": "Apache-2.0",
+       "rank": 1
+      },
+      {
+       "repo": "getsentry/sentry-cocoa",
+       "name": "sentry-cocoa",
+       "url": "https://github.com/getsentry/sentry-cocoa",
+       "does": {
+        "en": "Sentry SDK: crash reporting, error tracking and performance tracing.",
+        "zh": "Sentry SDK：崩溃上报、错误追踪和性能追踪。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1138,
+       "status": "active",
+       "last_activity": "2026-10-29",
+       "latest_release": "9.32.0",
+       "released": "2026-10-29",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "9.32.0",
+       "products": [
+        "Sentry",
+        "Sentry-Dynamic",
+        "Sentry-Dynamic-WithARM64e",
+        "Sentry-WithoutUIKitOrAppKit",
+        "Sentry-WithoutUIKitOrAppKit-WithARM64e",
+        "SentryDistribution",
+        "SentryObjC",
+        "SentryObjC-Dynamic",
+        "SentryObjC-Static",
+        "SentrySPM",
+        "SentrySwiftUI"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "9.32.0",
+       "license": "MIT",
+       "rank": 2
+      }
+     ]
+    },
+    {
+     "id": "analytics",
+     "title": {
+      "en": "Product analytics",
+      "zh": "产品数据分析"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "firebase/firebase-ios-sdk",
+       "name": "firebase-ios-sdk",
+       "url": "https://github.com/firebase/firebase-ios-sdk",
+       "does": {
+        "en": "Firebase SDK; includes Google Analytics for Firebase.",
+        "zh": "Firebase SDK，包含 Google Analytics for Firebase。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 6979,
+       "status": "active",
+       "last_activity": "2026-10-22",
+       "latest_release": "13.1.1",
+       "released": "2026-10-22",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "13.1.1",
+       "products": [
+        "FirebaseAILogic",
+        "FirebaseAnalytics",
+        "FirebaseAnalyticsCore",
+        "FirebaseAnalyticsIdentitySupport",
+        "FirebaseAppCheck",
+        "FirebaseAppDistribution-Beta",
+        "FirebaseAuth",
+        "FirebaseAuthCombine-Community",
+        "FirebaseCore",
+        "FirebaseCrashlytics",
+        "FirebaseDatabase",
+        "FirebaseFirestore",
+        "FirebaseFirestoreCombine-Community",
+        "FirebaseFunctions",
+        "FirebaseFunctionsCombine-Community",
+        "FirebaseInAppMessaging-Beta",
+        "FirebaseInstallations",
+        "FirebaseMessaging",
+        "FirebasePerformance",
+        "FirebaseRemoteConfig",
+        "FirebaseStorage",
+        "FirebaseStorageCombine-Community"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.2",
+       "package_swift_at": "13.1.1",
+       "license": "Apache-2.0",
+       "rank": 1
+      },
+      {
+       "repo": "TelemetryDeck/SwiftSDK",
+       "name": "SwiftSDK",
+       "url": "https://github.com/TelemetryDeck/SwiftSDK",
+       "does": {
+        "en": "TelemetryDeck analytics SDK.",
+        "zh": "TelemetryDeck 数据分析 SDK。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 229,
+       "status": "active",
+       "last_activity": "2026-08-01",
+       "latest_release": "2.14.2",
+       "released": "2026-08-01",
+       "last_commit": "2026-08-01",
+       "spm": true,
+       "spm_version": "2.14.2",
+       "products": [
+        "TelemetryClient",
+        "TelemetryDeck"
+       ],
+       "min_ios": 12.0,
+       "swift_tools": "5.9",
+       "package_swift_at": "2.14.2",
+       "license": "NOASSERTION",
+       "rank": 2
+      },
+      {
+       "repo": "PostHog/posthog-ios",
+       "name": "posthog-ios",
+       "url": "https://github.com/PostHog/posthog-ios",
+       "does": {
+        "en": "PostHog SDK: product analytics, feature flags and session replay.",
+        "zh": "PostHog SDK：产品分析、功能开关和会话回放。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 120,
+       "status": "active",
+       "last_activity": "2026-11-02",
+       "latest_release": "3.93.3",
+       "released": "2026-11-02",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "3.93.3",
+       "products": [
+        "PostHog"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "5.3",
+       "package_swift_at": "3.93.3",
+       "license": "NOASSERTION",
+       "rank": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "business",
+   "title": {
+    "en": "Accounts & payments",
+    "zh": "账号与付费"
+   },
+   "categories": [
+    {
+     "id": "in-app-purchase",
+     "title": {
+      "en": "In-app purchases & subscriptions",
+      "zh": "应用内购买与订阅"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "StoreKit 2",
+       "ios": 15.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "RevenueCat/purchases-ios",
+       "name": "purchases-ios",
+       "url": "https://github.com/RevenueCat/purchases-ios",
+       "does": {
+        "en": "RevenueCat SDK: purchases and subscriptions with server-side receipt validation and paywalls.",
+        "zh": "RevenueCat SDK：购买与订阅，提供服务端收据校验和付费墙。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 3091,
+       "status": "active",
+       "last_activity": "2026-11-02",
+       "latest_release": "5.101.0",
+       "released": "2026-11-02",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "5.101.0",
+       "products": [
+        "ReceiptParser",
+        "RevenueCat",
+        "RevenueCatUI",
+        "RevenueCat_CustomEntitlementComputation"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "5.9",
+       "package_swift_at": "5.101.0",
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "adaptyteam/AdaptySDK-iOS",
+       "name": "AdaptySDK-iOS",
+       "url": "https://github.com/adaptyteam/AdaptySDK-iOS",
+       "does": {
+        "en": "Adapty SDK: purchases and subscriptions with paywall A/B testing.",
+        "zh": "Adapty SDK：购买与订阅，提供付费墙 A/B 测试。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 490,
+       "status": "active",
+       "last_activity": "2026-10-23",
+       "latest_release": "4.3.1",
+       "released": "2026-10-23",
+       "last_commit": "2026-10-23",
+       "spm": true,
+       "spm_version": "4.3.1",
+       "products": [
+        "Adapty",
+        "AdaptyCodable",
+        "AdaptyDeveloperTools",
+        "AdaptyLogger",
+        "AdaptyPlugin",
+        "AdaptyUI",
+        "AdaptyUIBuilder"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.2",
+       "package_swift_at": "4.3.1",
+       "license": "MIT",
+       "rank": 2
+      }
+     ]
+    },
+    {
+     "id": "sign-in",
+     "title": {
+      "en": "Third-party sign-in",
+      "zh": "第三方登录"
+     },
+     "ranked": false,
+     "native": [
+      {
+       "api": "Sign in with Apple (AuthenticationServices)",
+       "ios": 13.0,
+       "xcode": null,
+       "source": null
+      },
+      {
+       "api": "Passkeys (AuthenticationServices)",
+       "ios": 16.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "google/GoogleSignIn-iOS",
+       "name": "GoogleSignIn-iOS",
+       "url": "https://github.com/google/GoogleSignIn-iOS",
+       "does": {
+        "en": "Sign in with Google.",
+        "zh": "Google 账号登录。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 758,
+       "status": "active",
+       "last_activity": "2026-10-23",
+       "latest_release": "10.1.0",
+       "released": "2026-10-23",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "10.1.0",
+       "products": [
+        "GoogleSignIn",
+        "GoogleSignInSwift"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "10.1.0",
+       "license": "Apache-2.0",
+       "rank": null
+      },
+      {
+       "repo": "auth0/Auth0.swift",
+       "name": "Auth0.swift",
+       "url": "https://github.com/auth0/Auth0.swift",
+       "does": {
+        "en": "Auth0 authentication SDK.",
+        "zh": "Auth0 身份认证 SDK。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 468,
+       "status": "active",
+       "last_activity": "2026-10-22",
+       "latest_release": "3.2.0",
+       "released": "2026-10-22",
+       "last_commit": "2026-10-22",
+       "spm": true,
+       "spm_version": "3.2.0",
+       "products": [
+        "Auth0"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "3.2.0",
+       "license": "MIT",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "backend",
+     "title": {
+      "en": "Backend as a service",
+      "zh": "后端即服务"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "firebase/firebase-ios-sdk",
+       "name": "firebase-ios-sdk",
+       "url": "https://github.com/firebase/firebase-ios-sdk",
+       "does": {
+        "en": "Firebase SDK: Firestore, Auth, Storage, Functions and more.",
+        "zh": "Firebase SDK：Firestore、Auth、Storage、Functions 等。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 6979,
+       "status": "active",
+       "last_activity": "2026-10-22",
+       "latest_release": "13.1.1",
+       "released": "2026-10-22",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "13.1.1",
+       "products": [
+        "FirebaseAILogic",
+        "FirebaseAnalytics",
+        "FirebaseAnalyticsCore",
+        "FirebaseAnalyticsIdentitySupport",
+        "FirebaseAppCheck",
+        "FirebaseAppDistribution-Beta",
+        "FirebaseAuth",
+        "FirebaseAuthCombine-Community",
+        "FirebaseCore",
+        "FirebaseCrashlytics",
+        "FirebaseDatabase",
+        "FirebaseFirestore",
+        "FirebaseFirestoreCombine-Community",
+        "FirebaseFunctions",
+        "FirebaseFunctionsCombine-Community",
+        "FirebaseInAppMessaging-Beta",
+        "FirebaseInstallations",
+        "FirebaseMessaging",
+        "FirebasePerformance",
+        "FirebaseRemoteConfig",
+        "FirebaseStorage",
+        "FirebaseStorageCombine-Community"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.2",
+       "package_swift_at": "13.1.1",
+       "license": "Apache-2.0",
+       "rank": 1
+      },
+      {
+       "repo": "supabase/supabase-swift",
+       "name": "supabase-swift",
+       "url": "https://github.com/supabase/supabase-swift",
+       "does": {
+        "en": "Supabase SDK: Postgres database, auth, storage and realtime.",
+        "zh": "Supabase SDK：Postgres 数据库、登录、存储和实时订阅。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1309,
+       "status": "active",
+       "last_activity": "2026-10-30",
+       "latest_release": "v2.55.6",
+       "released": "2026-10-30",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "2.55.6",
+       "products": [
+        "Auth",
+        "Functions",
+        "PostgREST",
+        "Realtime",
+        "Storage",
+        "Supabase"
+       ],
+       "min_ios": 16.0,
+       "swift_tools": "6.1",
+       "package_swift_at": "v2.55.6",
+       "license": "MIT",
+       "rank": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ui",
+   "title": {
+    "en": "User interface",
+    "zh": "界面"
+   },
+   "categories": [
+    {
+     "id": "uikit-layout",
+     "title": {
+      "en": "UIKit Auto Layout DSL",
+      "zh": "UIKit 自动布局 DSL"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "NSLayoutAnchor",
+       "ios": 9.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "SnapKit/SnapKit",
+       "name": "SnapKit",
+       "url": "https://github.com/SnapKit/SnapKit",
+       "does": {
+        "en": "DSL for Auto Layout constraints in code.",
+        "zh": "用代码写 Auto Layout 约束的 DSL。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 20344,
+       "status": "active",
+       "last_activity": "2026-05-31",
+       "latest_release": "6.0.0",
+       "released": "2026-05-31",
+       "last_commit": "2026-07-13",
+       "spm": true,
+       "spm_version": "6.0.0",
+       "products": [
+        "SnapKit",
+        "SnapKit-Dynamic"
+       ],
+       "min_ios": 14.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "6.0.0",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "swiftui-components",
+     "title": {
+      "en": "SwiftUI component collections",
+      "zh": "SwiftUI 组件合集"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "SwiftUIX/SwiftUIX",
+       "name": "SwiftUIX",
+       "url": "https://github.com/SwiftUIX/SwiftUIX",
+       "does": {
+        "en": "Collection of additional SwiftUI views and modifiers.",
+        "zh": "额外的 SwiftUI 视图和修饰符合集。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 8198,
+       "status": "active",
+       "last_activity": "2026-09-18",
+       "latest_release": "0.3.2",
+       "released": "2026-09-18",
+       "last_commit": "2026-08-20",
+       "spm": true,
+       "spm_version": "0.3.2",
+       "products": [
+        "SwiftUIX"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "5.10",
+       "package_swift_at": "0.3.2",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "view-introspection",
+     "title": {
+      "en": "SwiftUI introspection",
+      "zh": "SwiftUI 底层视图访问"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "siteline/swiftui-introspect",
+       "name": "swiftui-introspect",
+       "url": "https://github.com/siteline/swiftui-introspect",
+       "does": {
+        "en": "Access the UIKit/AppKit view underneath a SwiftUI view.",
+        "zh": "获取 SwiftUI 视图底层对应的 UIKit/AppKit 视图。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 6573,
+       "status": "active",
+       "last_activity": "2026-10-07",
+       "latest_release": "27.1.0",
+       "released": "2026-10-07",
+       "last_commit": "2026-10-03",
+       "spm": true,
+       "spm_version": "27.1.0",
+       "products": [
+        "SwiftUIIntrospect"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "6.2",
+       "package_swift_at": "27.1.0",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "popups",
+     "title": {
+      "en": "Popups & toasts",
+      "zh": "弹窗与 Toast"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "sheet / fullScreenCover / alert",
+       "ios": 13.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "exyte/PopupView",
+       "name": "PopupView",
+       "url": "https://github.com/exyte/PopupView",
+       "does": {
+        "en": "Toasts, popups and floating sheets for SwiftUI.",
+        "zh": "SwiftUI 的 Toast、弹窗和浮动面板。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 4063,
+       "status": "active",
+       "last_activity": "2026-11-02",
+       "latest_release": null,
+       "released": null,
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "5.0.9",
+       "products": [
+        "PopupView"
+       ],
+       "min_ios": 17.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "5.0.9",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "animation",
+     "title": {
+      "en": "Animation playback",
+      "zh": "动画播放"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "PhaseAnimator / KeyframeAnimator",
+       "ios": 17.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "airbnb/lottie-ios",
+       "name": "lottie-ios",
+       "url": "https://github.com/airbnb/lottie-ios",
+       "does": {
+        "en": "Plays Lottie (After Effects) animations.",
+        "zh": "播放 Lottie（After Effects 导出）动画。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 26927,
+       "status": "active",
+       "last_activity": "2026-06-13",
+       "latest_release": "4.6.1",
+       "released": "2026-06-13",
+       "last_commit": "2026-10-06",
+       "spm": true,
+       "spm_version": "4.6.1",
+       "products": [
+        "Lottie",
+        "Lottie-Dynamic"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "4.6.1",
+       "license": "Apache-2.0",
+       "rank": 1
+      },
+      {
+       "repo": "rive-app/rive-ios",
+       "name": "rive-ios",
+       "url": "https://github.com/rive-app/rive-ios",
+       "does": {
+        "en": "Plays Rive animations with state machines.",
+        "zh": "播放带状态机的 Rive 动画。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 857,
+       "status": "active",
+       "last_activity": "2026-10-30",
+       "latest_release": "6.29.0",
+       "released": "2026-10-30",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "6.29.0",
+       "products": [
+        "RiveRuntime"
+       ],
+       "min_ios": 14.0,
+       "swift_tools": "5.10",
+       "package_swift_at": "6.29.0",
+       "license": "MIT",
+       "rank": 2
+      }
+     ]
+    },
+    {
+     "id": "charts",
+     "title": {
+      "en": "Charts",
+      "zh": "图表"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "Swift Charts",
+       "ios": 16.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "ChartsOrg/Charts",
+       "name": "Charts",
+       "url": "https://github.com/ChartsOrg/Charts",
+       "does": {
+        "en": "Chart library for UIKit (DGCharts).",
+        "zh": "UIKit 图表库（DGCharts）。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 27972,
+       "status": "inactive",
+       "last_activity": "2024-02-16",
+       "latest_release": "5.1.0",
+       "released": "2024-02-16",
+       "last_commit": "2026-03-04",
+       "spm": true,
+       "spm_version": "5.1.0",
+       "products": [
+        "DGCharts",
+        "DGChartsDynamic"
+       ],
+       "min_ios": 12.0,
+       "swift_tools": "5.3",
+       "package_swift_at": "5.1.0",
+       "license": "Apache-2.0",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "markdown-rendering",
+     "title": {
+      "en": "Markdown rendering",
+      "zh": "Markdown 渲染"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "AttributedString(markdown:)",
+       "ios": 15.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "gonzalezreal/textual",
+       "name": "textual",
+       "url": "https://github.com/gonzalezreal/textual",
+       "does": {
+        "en": "Renders Markdown and rich text in SwiftUI.",
+        "zh": "在 SwiftUI 中渲染 Markdown 和富文本。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 916,
+       "status": "active",
+       "last_activity": "2026-06-15",
+       "latest_release": "0.5.0",
+       "released": "2026-06-15",
+       "last_commit": "2026-06-15",
+       "spm": true,
+       "spm_version": "0.5.0",
+       "products": [
+        "Textual"
+       ],
+       "min_ios": 18.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "0.5.0",
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "gonzalezreal/swift-markdown-ui",
+       "name": "swift-markdown-ui",
+       "url": "https://github.com/gonzalezreal/swift-markdown-ui",
+       "does": {
+        "en": "Renders Markdown in SwiftUI.",
+        "zh": "在 SwiftUI 中渲染 Markdown。"
+       },
+       "note": {
+        "en": "README: \"MarkdownUI is in maintenance mode. New development is happening in Textual.\"",
+        "zh": "README 原文：MarkdownUI 已进入维护模式，新开发在 Textual 中进行。",
+        "source": "https://github.com/gonzalezreal/swift-markdown-ui#readme"
+       },
+       "addon_of": null,
+       "stars": 3936,
+       "status": "inactive",
+       "last_activity": "2024-10-13",
+       "latest_release": "2.4.1",
+       "released": "2024-10-13",
+       "last_commit": "2025-12-28",
+       "spm": true,
+       "spm_version": "2.4.1",
+       "products": [
+        "MarkdownUI"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "5.6",
+       "package_swift_at": "2.4.1",
+       "license": "MIT",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "html-parsing",
+     "title": {
+      "en": "HTML parsing",
+      "zh": "HTML 解析"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "scinfu/SwiftSoup",
+       "name": "SwiftSoup",
+       "url": "https://github.com/scinfu/SwiftSoup",
+       "does": {
+        "en": "Parses and cleans HTML.",
+        "zh": "解析和清洗 HTML。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 5133,
+       "status": "active",
+       "last_activity": "2026-10-16",
+       "latest_release": "2.14.3",
+       "released": "2026-10-16",
+       "last_commit": "2026-10-16",
+       "spm": true,
+       "spm_version": "2.14.3",
+       "products": [
+        "SwiftSoup"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "2.14.3",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "markdown-parsing",
+     "title": {
+      "en": "Markdown parsing",
+      "zh": "Markdown 解析"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "swiftlang/swift-markdown",
+       "name": "swift-markdown",
+       "url": "https://github.com/swiftlang/swift-markdown",
+       "does": {
+        "en": "Parses Markdown into a syntax tree.",
+        "zh": "把 Markdown 解析成语法树。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 3451,
+       "status": "active",
+       "last_activity": "2026-09-21",
+       "latest_release": "0.9.0",
+       "released": "2026-09-21",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "0.9.0",
+       "products": [
+        "Markdown"
+       ],
+       "min_ios": null,
+       "swift_tools": "6.2",
+       "package_swift_at": "0.9.0",
+       "license": "Apache-2.0",
+       "rank": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "swift",
+   "title": {
+    "en": "Swift language & data",
+    "zh": "Swift 语言与数据"
+   },
+   "categories": [
+    {
+     "id": "reactive",
+     "title": {
+      "en": "Reactive frameworks",
+      "zh": "响应式框架"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "Combine",
+       "ios": 13.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "ReactiveX/RxSwift",
+       "name": "RxSwift",
+       "url": "https://github.com/ReactiveX/RxSwift",
+       "does": {
+        "en": "Reactive programming with observables.",
+        "zh": "基于 Observable 的响应式编程。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 24632,
+       "status": "active",
+       "last_activity": "2026-03-02",
+       "latest_release": "6.10.2",
+       "released": "2026-03-02",
+       "last_commit": "2026-09-04",
+       "spm": true,
+       "spm_version": "6.10.2",
+       "products": [
+        "RxBlocking",
+        "RxBlocking-Dynamic",
+        "RxCocoa",
+        "RxCocoa-Dynamic",
+        "RxRelay",
+        "RxRelay-Dynamic",
+        "RxSwift",
+        "RxSwift-Dynamic",
+        "RxTest",
+        "RxTest-Dynamic"
+       ],
+       "min_ios": 9.0,
+       "swift_tools": "5.5",
+       "package_swift_at": "6.10.2",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "async-operators",
+     "title": {
+      "en": "AsyncSequence operators",
+      "zh": "AsyncSequence 操作符"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "AsyncSequence / AsyncStream (back-deployed to iOS 13 with Xcode 13.2+)",
+       "ios": 13.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "apple/swift-async-algorithms",
+       "name": "swift-async-algorithms",
+       "url": "https://github.com/apple/swift-async-algorithms",
+       "does": {
+        "en": "Operators for AsyncSequence: debounce, throttle, merge, zip and more.",
+        "zh": "AsyncSequence 操作符：debounce、throttle、merge、zip 等。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 3713,
+       "status": "active",
+       "last_activity": "2026-09-30",
+       "latest_release": "1.1.7",
+       "released": "2026-09-30",
+       "last_commit": "2026-10-05",
+       "spm": true,
+       "spm_version": "1.1.7",
+       "products": [
+        "AsyncAlgorithms",
+        "AsyncStreaming"
+       ],
+       "min_ios": null,
+       "swift_tools": "6.2",
+       "package_swift_at": "1.1.7",
+       "license": "Apache-2.0",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "collections",
+     "title": {
+      "en": "Data structures",
+      "zh": "数据结构"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "apple/swift-collections",
+       "name": "swift-collections",
+       "url": "https://github.com/apple/swift-collections",
+       "does": {
+        "en": "Deque, OrderedSet, OrderedDictionary, Heap and more.",
+        "zh": "Deque、OrderedSet、OrderedDictionary、Heap 等数据结构。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 4530,
+       "status": "active",
+       "last_activity": "2026-10-27",
+       "latest_release": "1.7.5",
+       "released": "2026-10-27",
+       "last_commit": "2026-10-27",
+       "spm": true,
+       "spm_version": "1.7.5",
+       "products": [],
+       "min_ios": null,
+       "swift_tools": "6.4",
+       "package_swift_at": "1.7.5",
+       "license": "Apache-2.0",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "algorithms",
+     "title": {
+      "en": "Sequence algorithms",
+      "zh": "序列算法"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "apple/swift-algorithms",
+       "name": "swift-algorithms",
+       "url": "https://github.com/apple/swift-algorithms",
+       "does": {
+        "en": "Sequence and collection algorithms (chunks, windows, uniqued, ...).",
+        "zh": "序列与集合算法（chunks、windows、uniqued 等）。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 6340,
+       "status": "slowing",
+       "last_activity": "2025-02-10",
+       "latest_release": "1.2.1",
+       "released": "2025-02-10",
+       "last_commit": "2026-07-22",
+       "spm": true,
+       "spm_version": "1.2.1",
+       "products": [
+        "Algorithms"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.7",
+       "package_swift_at": "1.2.1",
+       "license": "Apache-2.0",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "json",
+     "title": {
+      "en": "JSON",
+      "zh": "JSON"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "Codable + JSONDecoder (Swift 4)",
+       "ios": null,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "SwiftyJSON/SwiftyJSON",
+       "name": "SwiftyJSON",
+       "url": "https://github.com/SwiftyJSON/SwiftyJSON",
+       "does": {
+        "en": "JSON access with subscripts.",
+        "zh": "用下标访问 JSON。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 22924,
+       "status": "inactive",
+       "last_activity": "2024-03-27",
+       "latest_release": "5.0.2",
+       "released": "2024-03-27",
+       "last_commit": "2026-08-18",
+       "spm": true,
+       "spm_version": "5.0.2",
+       "products": [
+        "SwiftyJSON"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.3",
+       "package_swift_at": "5.0.2",
+       "license": "MIT",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "crypto",
+     "title": {
+      "en": "Cryptography",
+      "zh": "加密"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "CryptoKit",
+       "ios": 13.0,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "krzyzanowskim/CryptoSwift",
+       "name": "CryptoSwift",
+       "url": "https://github.com/krzyzanowskim/CryptoSwift",
+       "does": {
+        "en": "Crypto algorithms implemented in Swift.",
+        "zh": "用 Swift 实现的加密算法。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 10578,
+       "status": "active",
+       "last_activity": "2026-04-22",
+       "latest_release": "1.10.0",
+       "released": "2026-04-22",
+       "last_commit": "2026-08-19",
+       "spm": true,
+       "spm_version": "1.10.0",
+       "products": [
+        "CryptoSwift"
+       ],
+       "min_ios": 11.0,
+       "swift_tools": "5.6",
+       "package_swift_at": "1.10.0",
+       "license": "NOASSERTION",
+       "rank": 1
+      },
+      {
+       "repo": "apple/swift-crypto",
+       "name": "swift-crypto",
+       "url": "https://github.com/apple/swift-crypto",
+       "does": {
+        "en": "Open-source implementation of the CryptoKit API, including Linux.",
+        "zh": "CryptoKit 接口的开源实现，也支持 Linux。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1739,
+       "status": "active",
+       "last_activity": "2026-11-02",
+       "latest_release": "5.1.0",
+       "released": "2026-11-02",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "5.1.0",
+       "products": [
+        "CCryptoBoringSSL",
+        "Crypto",
+        "CryptoExtras",
+        "_CryptoExtras"
+       ],
+       "min_ios": null,
+       "swift_tools": "6.2",
+       "package_swift_at": "5.1.0",
+       "license": "Apache-2.0",
+       "rank": 2
+      }
+     ]
+    },
+    {
+     "id": "protobuf",
+     "title": {
+      "en": "Protocol Buffers",
+      "zh": "Protocol Buffers"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "apple/swift-protobuf",
+       "name": "swift-protobuf",
+       "url": "https://github.com/apple/swift-protobuf",
+       "does": {
+        "en": "Protocol Buffers runtime and code generator for Swift.",
+        "zh": "Swift 的 Protocol Buffers 运行时和代码生成器。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 4970,
+       "status": "active",
+       "last_activity": "2026-10-12",
+       "latest_release": "1.39.0",
+       "released": "2026-10-12",
+       "last_commit": "2026-11-02",
+       "spm": true,
+       "spm_version": "1.39.0",
+       "products": [
+        "SwiftProtobuf",
+        "SwiftProtobufPluginLibrary"
+       ],
+       "min_ios": null,
+       "swift_tools": "6.2",
+       "package_swift_at": "1.39.0",
+       "license": "Apache-2.0",
+       "rank": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "testing",
+   "title": {
+    "en": "Testing",
+    "zh": "测试"
+   },
+   "categories": [
+    {
+     "id": "bdd",
+     "title": {
+      "en": "BDD test frameworks",
+      "zh": "BDD 测试框架"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "Swift Testing",
+       "ios": null,
+       "xcode": "16",
+       "source": null
+      },
+      {
+       "api": "XCTest",
+       "ios": null,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "Quick/Quick",
+       "name": "Quick",
+       "url": "https://github.com/Quick/Quick",
+       "does": {
+        "en": "BDD-style test framework.",
+        "zh": "BDD 风格的测试框架。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 9819,
+       "status": "inactive",
+       "last_activity": "2024-07-23",
+       "latest_release": "v7.6.2",
+       "released": "2024-07-23",
+       "last_commit": "2026-03-17",
+       "spm": true,
+       "spm_version": "7.6.2",
+       "products": [
+        "Quick"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "5.7",
+       "package_swift_at": "v7.6.2",
+       "license": "Apache-2.0",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "matchers",
+     "title": {
+      "en": "Test matchers",
+      "zh": "测试断言库"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "Swift Testing #expect / #require",
+       "ios": null,
+       "xcode": "16",
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "Quick/Nimble",
+       "name": "Nimble",
+       "url": "https://github.com/Quick/Nimble",
+       "does": {
+        "en": "Matcher library for tests.",
+        "zh": "测试断言匹配库。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 4833,
+       "status": "active",
+       "last_activity": "2025-11-28",
+       "latest_release": "v14.0.0",
+       "released": "2025-11-28",
+       "last_commit": "2026-05-04",
+       "spm": true,
+       "spm_version": "14.0.0",
+       "products": [
+        "Nimble"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "v14.0.0",
+       "license": "Apache-2.0",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "snapshot-testing",
+     "title": {
+      "en": "Snapshot testing",
+      "zh": "快照测试"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "pointfreeco/swift-snapshot-testing",
+       "name": "swift-snapshot-testing",
+       "url": "https://github.com/pointfreeco/swift-snapshot-testing",
+       "does": {
+        "en": "Snapshot testing for views and values.",
+        "zh": "对视图和数据做快照测试。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 4388,
+       "status": "active",
+       "last_activity": "2026-10-21",
+       "latest_release": "1.19.7",
+       "released": "2026-10-21",
+       "last_commit": "2026-10-21",
+       "spm": true,
+       "spm_version": "1.19.7",
+       "products": [
+        "InlineSnapshotTesting",
+        "SnapshotTesting",
+        "SnapshotTestingCustomDump"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "1.19.7",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "value-diff",
+     "title": {
+      "en": "Value dumps & diffs",
+      "zh": "数据输出与差异对比"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "pointfreeco/swift-custom-dump",
+       "name": "swift-custom-dump",
+       "url": "https://github.com/pointfreeco/swift-custom-dump",
+       "does": {
+        "en": "Dumps and diffs Swift values, for test failure messages.",
+        "zh": "输出 Swift 数据并对比差异，用于测试失败信息。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 894,
+       "status": "active",
+       "last_activity": "2026-08-28",
+       "latest_release": "1.7.3",
+       "released": "2026-08-28",
+       "last_commit": "2026-08-28",
+       "spm": true,
+       "spm_version": "1.7.3",
+       "products": [
+        "CustomDump"
+       ],
+       "min_ios": 15.0,
+       "swift_tools": "6.4",
+       "package_swift_at": "1.7.3",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "async-testing",
+     "title": {
+      "en": "Concurrency testing",
+      "zh": "并发代码测试"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "pointfreeco/swift-concurrency-extras",
+       "name": "swift-concurrency-extras",
+       "url": "https://github.com/pointfreeco/swift-concurrency-extras",
+       "does": {
+        "en": "Utilities for testing Swift concurrency code.",
+        "zh": "测试 Swift 并发代码的工具。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 490,
+       "status": "active",
+       "last_activity": "2026-10-14",
+       "latest_release": "1.4.3",
+       "released": "2026-10-14",
+       "last_commit": "2026-10-14",
+       "spm": true,
+       "spm_version": "1.4.3",
+       "products": [
+        "ConcurrencyExtras",
+        "ConcurrencyExtrasTestSupport"
+       ],
+       "min_ios": 13.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "1.4.3",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tooling",
+   "title": {
+    "en": "Tooling",
+    "zh": "工具链"
+   },
+   "categories": [
+    {
+     "id": "lint",
+     "title": {
+      "en": "Linting",
+      "zh": "代码检查"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "realm/SwiftLint",
+       "name": "SwiftLint",
+       "url": "https://github.com/realm/SwiftLint",
+       "does": {
+        "en": "Enforces Swift style and conventions.",
+        "zh": "检查 Swift 代码风格和约定。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 19779,
+       "status": "active",
+       "last_activity": "2026-08-21",
+       "latest_release": "0.65.1",
+       "released": "2026-08-21",
+       "last_commit": "2026-09-28",
+       "spm": true,
+       "spm_version": "0.65.1",
+       "products": [
+        "SwiftLintFramework"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.9",
+       "package_swift_at": "0.65.1",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "format",
+     "title": {
+      "en": "Formatting",
+      "zh": "代码格式化"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "xcrun swift-format (bundled with Xcode)",
+       "ios": null,
+       "xcode": "16",
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "nicklockwood/SwiftFormat",
+       "name": "SwiftFormat",
+       "url": "https://github.com/nicklockwood/SwiftFormat",
+       "does": {
+        "en": "Swift code formatter.",
+        "zh": "Swift 代码格式化工具。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 8954,
+       "status": "active",
+       "last_activity": "2026-10-31",
+       "latest_release": "0.64.5",
+       "released": "2026-10-31",
+       "last_commit": "2026-10-31",
+       "spm": true,
+       "spm_version": "0.64.5",
+       "products": [
+        "SwiftFormat"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.7",
+       "package_swift_at": "0.64.5",
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "swiftlang/swift-format",
+       "name": "swift-format",
+       "url": "https://github.com/swiftlang/swift-format",
+       "does": {
+        "en": "Swift code formatter from the Swift project.",
+        "zh": "Swift 项目维护的代码格式化工具。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 2966,
+       "status": "active",
+       "last_activity": "2026-09-16",
+       "latest_release": "604.0.0",
+       "released": "2026-09-16",
+       "last_commit": "2026-10-28",
+       "spm": true,
+       "spm_version": "604.0.0",
+       "products": [
+        "SwiftFormat"
+       ],
+       "min_ios": 16.0,
+       "swift_tools": "6.0",
+       "package_swift_at": "604.0.0",
+       "license": "Apache-2.0",
+       "rank": 2
+      }
+     ]
+    },
+    {
+     "id": "project-generation",
+     "title": {
+      "en": "Project generation",
+      "zh": "工程生成"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "yonaskolb/XcodeGen",
+       "name": "XcodeGen",
+       "url": "https://github.com/yonaskolb/XcodeGen",
+       "does": {
+        "en": "Generates an Xcode project from project.yml.",
+        "zh": "根据 project.yml 生成 Xcode 工程。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 8921,
+       "status": "active",
+       "last_activity": "2026-07-16",
+       "latest_release": "2.46.0",
+       "released": "2026-07-16",
+       "last_commit": "2026-10-13",
+       "spm": true,
+       "spm_version": "2.46.0",
+       "products": [
+        "ProjectSpec",
+        "XcodeGenKit"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.9",
+       "package_swift_at": "2.46.0",
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "tuist/tuist",
+       "name": "tuist",
+       "url": "https://github.com/tuist/tuist",
+       "does": {
+        "en": "Generates Xcode projects from Project.swift; also caching and build insights.",
+        "zh": "根据 Project.swift 生成 Xcode 工程，另有缓存和构建分析。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 5860,
+       "status": "active",
+       "last_activity": "2026-11-02",
+       "latest_release": "runner-image@0.51.0",
+       "released": "2026-11-02",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": null,
+       "products": [
+        "ProjectAutomation",
+        "ProjectAutomation-auto",
+        "ProjectDescription",
+        "Rosalind",
+        "TuistAcceptanceTesting",
+        "TuistAutomation",
+        "TuistCache",
+        "TuistCore",
+        "TuistDependencies",
+        "TuistGenerator",
+        "TuistHasher",
+        "TuistKit",
+        "TuistLoader",
+        "TuistOIDC",
+        "TuistProcess",
+        "TuistServer",
+        "TuistSupport",
+        "TuistTesting",
+        "TuistXCActivityLog"
+       ],
+       "min_ios": null,
+       "swift_tools": "6.1",
+       "package_swift_at": "HEAD",
+       "license": "NOASSERTION",
+       "rank": 2
+      }
+     ]
+    },
+    {
+     "id": "build-output",
+     "title": {
+      "en": "Build log formatting",
+      "zh": "构建日志格式化"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "cpisciotta/xcbeautify",
+       "name": "xcbeautify",
+       "url": "https://github.com/cpisciotta/xcbeautify",
+       "does": {
+        "en": "Formatter for xcodebuild output.",
+        "zh": "xcodebuild 输出格式化工具。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1554,
+       "status": "active",
+       "last_activity": "2026-04-04",
+       "latest_release": "3.2.1",
+       "released": "2026-04-04",
+       "last_commit": "2026-08-10",
+       "spm": true,
+       "spm_version": "3.2.1",
+       "products": [
+        "XcbeautifyLib"
+       ],
+       "min_ios": null,
+       "swift_tools": "6.1",
+       "package_swift_at": "3.2.1",
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "resource-codegen",
+     "title": {
+      "en": "Resource code generation",
+      "zh": "资源代码生成"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "Generated asset symbols (ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS)",
+       "ios": null,
+       "xcode": "15",
+       "source": null
+      },
+      {
+       "api": "String Catalog symbols (STRING_CATALOG_GENERATE_SYMBOLS)",
+       "ios": null,
+       "xcode": "26",
+       "source": "https://wwdcnotes.com/documentation/wwdc25-225-codealong-explore-localization-with-xcode/"
+      }
+     ],
+     "libs": [
+      {
+       "repo": "mac-cain13/R.swift",
+       "name": "R.swift",
+       "url": "https://github.com/mac-cain13/R.swift",
+       "does": {
+        "en": "Generates typed resource accessors.",
+        "zh": "生成强类型资源访问代码。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 9548,
+       "status": "slowing",
+       "last_activity": "2024-11-05",
+       "latest_release": "7.8.0",
+       "released": "2024-11-05",
+       "last_commit": "2025-03-16",
+       "spm": true,
+       "spm_version": "7.8.0",
+       "products": [
+        "RswiftLibrary"
+       ],
+       "min_ios": 11.0,
+       "swift_tools": "5.6",
+       "package_swift_at": "7.8.0",
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "SwiftGen/SwiftGen",
+       "name": "SwiftGen",
+       "url": "https://github.com/SwiftGen/SwiftGen",
+       "does": {
+        "en": "Generates Swift code for strings, images, fonts and other resources.",
+        "zh": "为字符串、图片、字体等资源生成 Swift 代码。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 9540,
+       "status": "inactive",
+       "last_activity": "2024-03-02",
+       "latest_release": "6.6.3",
+       "released": "2024-03-02",
+       "last_commit": "2022-02-04",
+       "spm": true,
+       "spm_version": "6.6.3",
+       "products": [
+        "SwiftGenCLI",
+        "SwiftGenKit"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.6",
+       "package_swift_at": "6.6.3",
+       "license": "MIT",
+       "rank": null
+      }
+     ]
+    },
+    {
+     "id": "release",
+     "title": {
+      "en": "Release & App Store Connect",
+      "zh": "发布与 App Store Connect"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "xcodebuild archive / -exportArchive",
+       "ios": null,
+       "xcode": null,
+       "source": null
+      },
+      {
+       "api": "Xcode Cloud",
+       "ios": null,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "fastlane/fastlane",
+       "name": "fastlane",
+       "url": "https://github.com/fastlane/fastlane",
+       "does": {
+        "en": "Automates signing, screenshots, builds and releases.",
+        "zh": "自动化签名、截图、构建和发布。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 42346,
+       "status": "active",
+       "last_activity": "2026-10-26",
+       "latest_release": "2.241.2",
+       "released": "2026-10-26",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "2.241.2",
+       "products": [
+        "Fastlane"
+       ],
+       "min_ios": null,
+       "swift_tools": "4.0",
+       "package_swift_at": "2.241.2",
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "rorkai/App-Store-Connect-CLI",
+       "name": "App-Store-Connect-CLI",
+       "url": "https://github.com/rorkai/App-Store-Connect-CLI",
+       "does": {
+        "en": "CLI for App Store Connect: builds, TestFlight, metadata, submissions.",
+        "zh": "App Store Connect 命令行：构建、TestFlight、元数据、提交审核。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 8225,
+       "status": "active",
+       "last_activity": "2026-10-31",
+       "latest_release": "6.3.0",
+       "released": "2026-10-31",
+       "last_commit": "2026-11-03",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "agents",
+   "title": {
+    "en": "AI agent tooling",
+    "zh": "AI agent 工具"
+   },
+   "categories": [
+    {
+     "id": "build-mcp",
+     "title": {
+      "en": "Build & run MCP servers",
+      "zh": "编译运行 MCP"
+     },
+     "ranked": true,
+     "native": [
+      {
+       "api": "xcrun mcpbridge (Xcode MCP server)",
+       "ios": null,
+       "xcode": "26.3",
+       "source": "https://infoq.com/news/2026/02/xcode-26-3-agentic-coding"
+      }
+     ],
+     "libs": [
+      {
+       "repo": "getsentry/MobileBuildMCP",
+       "name": "MobileBuildMCP",
+       "url": "https://github.com/getsentry/MobileBuildMCP",
+       "does": {
+        "en": "MCP server and CLI to build, run, test, debug and scaffold iOS/macOS projects (formerly XcodeBuildMCP).",
+        "zh": "MCP 服务和命令行：编译、运行、测试、调试、创建 iOS/macOS 项目（原名 XcodeBuildMCP）。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 6534,
+       "status": "active",
+       "last_activity": "2026-09-23",
+       "latest_release": "v2.7.1",
+       "released": "2026-09-23",
+       "last_commit": "2026-10-22",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "ui-automation",
+     "title": {
+      "en": "Simulator & device UI automation",
+      "zh": "模拟器与真机界面自动化"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "mobile-next/mobile-mcp",
+       "name": "mobile-mcp",
+       "url": "https://github.com/mobile-next/mobile-mcp",
+       "does": {
+        "en": "MCP server to drive iOS and Android simulators and devices.",
+        "zh": "操作 iOS 和 Android 模拟器及真机的 MCP 服务。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 10253,
+       "status": "active",
+       "last_activity": "2026-11-02",
+       "latest_release": "1.0.16",
+       "released": "2026-11-02",
+       "last_commit": "2026-11-02",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "Apache-2.0",
+       "rank": 1
+      },
+      {
+       "repo": "cameroncooke/AXe",
+       "name": "AXe",
+       "url": "https://github.com/cameroncooke/AXe",
+       "does": {
+        "en": "CLI for Simulator UI automation through accessibility APIs.",
+        "zh": "通过辅助功能接口自动操作模拟器的命令行工具。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 2310,
+       "status": "active",
+       "last_activity": "2026-07-20",
+       "latest_release": "v1.8.0",
+       "released": "2026-07-20",
+       "last_commit": "2026-07-20",
+       "spm": true,
+       "spm_version": "1.8.0",
+       "products": [
+        "AXeCore"
+       ],
+       "min_ios": null,
+       "swift_tools": "5.10",
+       "package_swift_at": "v1.8.0",
+       "license": "MIT",
+       "rank": 2
+      },
+      {
+       "repo": "joshuayoes/ios-simulator-mcp",
+       "name": "ios-simulator-mcp",
+       "url": "https://github.com/joshuayoes/ios-simulator-mcp",
+       "does": {
+        "en": "MCP server to tap, type and inspect UI in the iOS Simulator.",
+        "zh": "在 iOS 模拟器里点击、输入、查看界面的 MCP 服务。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 2206,
+       "status": "active",
+       "last_activity": "2026-10-27",
+       "latest_release": "v2.2.0",
+       "released": "2026-10-27",
+       "last_commit": "2026-10-27",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 3
+      }
+     ]
+    },
+    {
+     "id": "apple-docs",
+     "title": {
+      "en": "Apple docs for agents",
+      "zh": "给 agent 读的 Apple 文档"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "kimsungwhee/apple-docs-mcp",
+       "name": "apple-docs-mcp",
+       "url": "https://github.com/kimsungwhee/apple-docs-mcp",
+       "does": {
+        "en": "MCP server to search Apple developer documentation.",
+        "zh": "搜索 Apple 开发者文档的 MCP 服务。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1382,
+       "status": "slowing",
+       "last_activity": "2025-09-15",
+       "latest_release": "v1.0.26",
+       "released": "2025-09-15",
+       "last_commit": "2026-03-17",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "NSHipster/sosumi.ai",
+       "name": "sosumi.ai",
+       "url": "https://github.com/NSHipster/sosumi.ai",
+       "does": {
+        "en": "Serves Apple developer docs as Markdown for AI tools.",
+        "zh": "把 Apple 开发者文档转成 Markdown 供 AI 读取。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 482,
+       "status": "active",
+       "last_activity": "2026-09-10",
+       "latest_release": "v1.0.9",
+       "released": "2026-09-10",
+       "last_commit": "2026-10-21",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 2
+      }
+     ]
+    },
+    {
+     "id": "swiftui-skills",
+     "title": {
+      "en": "SwiftUI skills",
+      "zh": "SwiftUI skills"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "twostraws/SwiftUI-Agent-Skill",
+       "name": "twostraws/SwiftUI-Agent-Skill",
+       "url": "https://github.com/twostraws/SwiftUI-Agent-Skill",
+       "does": {
+        "en": "SwiftUI agent skill.",
+        "zh": "SwiftUI agent skill。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 6448,
+       "status": "active",
+       "last_activity": "2026-10-09",
+       "latest_release": "2.0.0",
+       "released": "2026-10-09",
+       "last_commit": "2026-10-26",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 1
+      },
+      {
+       "repo": "AvdLee/SwiftUI-Agent-Skill",
+       "name": "AvdLee/SwiftUI-Agent-Skill",
+       "url": "https://github.com/AvdLee/SwiftUI-Agent-Skill",
+       "does": {
+        "en": "SwiftUI agent skill.",
+        "zh": "SwiftUI agent skill。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 3817,
+       "status": "active",
+       "last_activity": "2026-10-02",
+       "latest_release": "5.2.1",
+       "released": "2026-10-02",
+       "last_commit": "2026-10-06",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 2
+      }
+     ]
+    },
+    {
+     "id": "concurrency-skills",
+     "title": {
+      "en": "Swift Concurrency skills",
+      "zh": "Swift Concurrency skills"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "AvdLee/Swift-Concurrency-Agent-Skill",
+       "name": "Swift-Concurrency-Agent-Skill",
+       "url": "https://github.com/AvdLee/Swift-Concurrency-Agent-Skill",
+       "does": {
+        "en": "Swift Concurrency agent skill.",
+        "zh": "Swift Concurrency agent skill。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1702,
+       "status": "active",
+       "last_activity": "2026-08-12",
+       "latest_release": "2.3.0",
+       "released": "2026-08-12",
+       "last_commit": "2026-09-14",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "simulator-skills",
+     "title": {
+      "en": "Simulator skills",
+      "zh": "模拟器 skills"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "conorluddy/ios-simulator-skill",
+       "name": "ios-simulator-skill",
+       "url": "https://github.com/conorluddy/ios-simulator-skill",
+       "does": {
+        "en": "Agent skill for building, running and inspecting apps in the Simulator.",
+        "zh": "在模拟器里编译、运行、检查 App 的 agent skill。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1311,
+       "status": "active",
+       "last_activity": "2026-10-19",
+       "latest_release": "v1.7.0",
+       "released": "2026-10-19",
+       "last_commit": "2026-10-19",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "release-skills",
+     "title": {
+      "en": "Release skills",
+      "zh": "发布 skills"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "rorkai/app-store-connect-cli-skills",
+       "name": "app-store-connect-cli-skills",
+       "url": "https://github.com/rorkai/app-store-connect-cli-skills",
+       "does": {
+        "en": "Agent skills for releasing with the asc CLI.",
+        "zh": "配合 asc 命令行发布的 agent skills。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1122,
+       "status": "active",
+       "last_activity": "2026-10-26",
+       "latest_release": null,
+       "released": null,
+       "last_commit": "2026-10-26",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "skill-indexes",
+     "title": {
+      "en": "Skill indexes",
+      "zh": "Skill 索引"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "twostraws/Swift-Agent-Skills",
+       "name": "Swift-Agent-Skills",
+       "url": "https://github.com/twostraws/Swift-Agent-Skills",
+       "does": {
+        "en": "Index of Swift agent skills, grouped by framework.",
+        "zh": "按框架整理的 Swift agent skills 索引。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 2974,
+       "status": "active",
+       "last_activity": "2026-09-04",
+       "latest_release": null,
+       "released": null,
+       "last_commit": "2026-09-04",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 1
+      }
+     ]
+    },
+    {
+     "id": "agents-md",
+     "title": {
+      "en": "AGENTS.md templates",
+      "zh": "AGENTS.md 模板"
+     },
+     "ranked": true,
+     "native": [],
+     "libs": [
+      {
+       "repo": "twostraws/SwiftAgents",
+       "name": "SwiftAgents",
+       "url": "https://github.com/twostraws/SwiftAgents",
+       "does": {
+        "en": "AGENTS.md file for Swift and SwiftUI projects.",
+        "zh": "Swift / SwiftUI 项目的 AGENTS.md 文件。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1478,
+       "status": "active",
+       "last_activity": "2026-03-05",
+       "latest_release": null,
+       "released": null,
+       "last_commit": "2026-03-05",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "min_ios": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": null,
+       "rank": 1
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
