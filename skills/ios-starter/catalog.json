@@ -2970,6 +2970,117 @@
      ]
     },
     {
+     "id": "view-debugging",
+     "title": {
+      "en": "View debugging",
+      "zh": "界面调试"
+     },
+     "ranked": true,
+     "kind": "tool",
+     "native": [
+      {
+       "api": "Xcode View Debugger (Debug View Hierarchy)",
+       "ios": null,
+       "xcode": null,
+       "source": null
+      }
+     ],
+     "libs": [
+      {
+       "repo": "LookInsideApp/LookInside",
+       "name": "LookInside",
+       "url": "https://github.com/LookInsideApp/LookInside",
+       "does": {
+        "en": "Mac app to inspect views, layers, frames and properties of a running iOS or macOS app.",
+        "zh": "Mac 应用，查看运行中 iOS 或 macOS App 的视图、图层、frame 和属性。"
+       },
+       "note": {
+        "en": "README: LookInside continues the work of Lookin; version 2.3.11 and later include a local MCP server for AI agents. The iOS side is integrated with the LookInside-Release package.",
+        "zh": "README：LookInside 延续 Lookin 的工作；2.3.11 及以后的版本自带本地 MCP 服务，供 AI agent 使用。iOS 端通过 LookInside-Release 包接入。",
+        "source": "https://github.com/LookInsideApp/LookInside#readme"
+       },
+       "addon_of": null,
+       "stars": 395,
+       "status": "active",
+       "last_activity": "2026-10-29",
+       "latest_release": "3.1.2",
+       "released": "2026-10-29",
+       "last_commit": "2026-11-03",
+       "spm": true,
+       "spm_version": "3.1.2",
+       "products": [
+        "LookinCore",
+        "LookinShared"
+       ],
+       "products_source": null,
+       "min_ios": 15.0,
+       "ios_platform": "declared",
+       "swift_tools": "5.10",
+       "package_swift_at": "3.1.2",
+       "license": "GPL-3.0",
+       "rank": 1
+      },
+      {
+       "repo": "QMUI/LookinServer",
+       "name": "LookinServer",
+       "url": "https://github.com/QMUI/LookinServer",
+       "does": {
+        "en": "iOS framework for the Lookin macOS app: inspect and modify views in a running app.",
+        "zh": "配合 Lookin macOS 应用的 iOS 框架：查看和修改运行中 App 的视图。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 2868,
+       "status": "inactive",
+       "last_activity": "2024-04-06",
+       "latest_release": "1.2.8",
+       "released": "2024-04-06",
+       "last_commit": "2024-06-26",
+       "spm": true,
+       "spm_version": "1.2.8",
+       "products": [
+        "LookinServer"
+       ],
+       "products_source": null,
+       "min_ios": 9.0,
+       "ios_platform": "declared",
+       "swift_tools": "5.3",
+       "package_swift_at": "1.2.8",
+       "license": "MIT",
+       "rank": null
+      },
+      {
+       "repo": "LookInsideApp/LookInside-Release",
+       "name": "LookInside-Release",
+       "url": "https://github.com/LookInsideApp/LookInside-Release",
+       "does": {
+        "en": "LookInside server package for iOS apps (Swift Package Manager or CocoaPods).",
+        "zh": "LookInside 的 iOS 端 server 包（支持 Swift Package Manager 和 CocoaPods）。"
+       },
+       "note": null,
+       "addon_of": "LookInsideApp/LookInside",
+       "stars": 9,
+       "status": "active",
+       "last_activity": "2026-10-29",
+       "latest_release": "1.1.2",
+       "released": "2026-10-29",
+       "last_commit": "2026-10-29",
+       "spm": true,
+       "spm_version": "1.1.2",
+       "products": [
+        "LookInsideServer"
+       ],
+       "products_source": null,
+       "min_ios": 15.0,
+       "ios_platform": "declared",
+       "swift_tools": "5.9",
+       "package_swift_at": "1.1.2",
+       "license": null,
+       "rank": null
+      }
+     ]
+    },
+    {
      "id": "resource-codegen",
      "title": {
       "en": "Resource code generation",
@@ -3209,7 +3320,7 @@
        },
        "note": null,
        "addon_of": null,
-       "stars": 10254,
+       "stars": 10255,
        "status": "active",
        "last_activity": "2026-11-02",
        "latest_release": "1.0.16",
@@ -3225,6 +3336,33 @@
        "package_swift_at": null,
        "license": "Apache-2.0",
        "rank": 1
+      },
+      {
+       "repo": "callstack/agent-device",
+       "name": "agent-device",
+       "url": "https://github.com/callstack/agent-device",
+       "does": {
+        "en": "CLI, MCP server and Node.js API to control mobile, web, TV and desktop apps on devices and simulators.",
+        "zh": "命令行、MCP 服务和 Node.js API，用于在真机和模拟器上操作移动、Web、电视和桌面应用。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 5248,
+       "status": "active",
+       "last_activity": "2026-11-02",
+       "latest_release": "v0.21.36",
+       "released": "2026-11-02",
+       "last_commit": "2026-11-03",
+       "spm": false,
+       "spm_version": null,
+       "products": [],
+       "products_source": null,
+       "min_ios": null,
+       "ios_platform": null,
+       "swift_tools": null,
+       "package_swift_at": null,
+       "license": "MIT",
+       "rank": 2
       },
       {
        "repo": "cameroncooke/AXe",
@@ -3253,7 +3391,7 @@
        "swift_tools": "5.10",
        "package_swift_at": "v1.8.0",
        "license": "MIT",
-       "rank": 2
+       "rank": 3
       },
       {
        "repo": "joshuayoes/ios-simulator-mcp",
@@ -3280,7 +3418,40 @@
        "swift_tools": null,
        "package_swift_at": null,
        "license": "MIT",
-       "rank": 3
+       "rank": 4
+      },
+      {
+       "repo": "lycorp-jp/sim-use",
+       "name": "sim-use",
+       "url": "https://github.com/lycorp-jp/sim-use",
+       "does": {
+        "en": "CLI for AI agents to read and act on iOS Simulator, Android emulator/device and physical iPhone screens.",
+        "zh": "供 AI agent 读取和操作 iOS 模拟器、Android 模拟器/真机和 iPhone 真机屏幕的命令行工具。"
+       },
+       "note": null,
+       "addon_of": null,
+       "stars": 1526,
+       "status": "active",
+       "last_activity": "2026-10-21",
+       "latest_release": "v0.16.0",
+       "released": "2026-10-21",
+       "last_commit": "2026-10-21",
+       "spm": true,
+       "spm_version": "0.16.0",
+       "products": [
+        "AndroidBackend",
+        "SimUseCore",
+        "SimUseVideo",
+        "iOSDeviceBackend",
+        "iOSSimBackend"
+       ],
+       "products_source": null,
+       "min_ios": null,
+       "ios_platform": "ios-not-listed",
+       "swift_tools": "5.10",
+       "package_swift_at": "v0.16.0",
+       "license": "Apache-2.0",
+       "rank": 5
       }
      ]
     },

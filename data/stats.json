@@ -91,6 +91,43 @@
    "swift_tools": "6.4",
    "url": "https://github.com/CocoaLumberjack/CocoaLumberjack"
   },
+  "LookInsideApp/LookInside": {
+   "archived": false,
+   "ios_platform": "declared",
+   "last_commit": "2026-11-03",
+   "license": "GPL-3.0",
+   "min_ios": "15",
+   "package_swift_at": "3.1.2",
+   "products": [
+    "LookinCore",
+    "LookinShared"
+   ],
+   "release_tag": "3.1.2",
+   "released": "2026-10-29",
+   "spm": true,
+   "spm_version": "3.1.2",
+   "stars": 395,
+   "swift_tools": "5.10",
+   "url": "https://github.com/LookInsideApp/LookInside"
+  },
+  "LookInsideApp/LookInside-Release": {
+   "archived": false,
+   "ios_platform": "declared",
+   "last_commit": "2026-10-29",
+   "license": null,
+   "min_ios": "15.0",
+   "package_swift_at": "1.1.2",
+   "products": [
+    "LookInsideServer"
+   ],
+   "release_tag": "1.1.2",
+   "released": "2026-10-29",
+   "spm": true,
+   "spm_version": "1.1.2",
+   "stars": 9,
+   "swift_tools": "5.9",
+   "url": "https://github.com/LookInsideApp/LookInside-Release"
+  },
   "Moya/Moya": {
    "archived": false,
    "ios_platform": "declared",
@@ -145,6 +182,24 @@
    "stars": 120,
    "swift_tools": "5.3",
    "url": "https://github.com/PostHog/posthog-ios"
+  },
+  "QMUI/LookinServer": {
+   "archived": false,
+   "ios_platform": "declared",
+   "last_commit": "2024-06-26",
+   "license": "MIT",
+   "min_ios": "9",
+   "package_swift_at": "1.2.8",
+   "products": [
+    "LookinServer"
+   ],
+   "release_tag": "1.2.8",
+   "released": "2024-04-06",
+   "spm": true,
+   "spm_version": "1.2.8",
+   "stars": 2868,
+   "swift_tools": "5.3",
+   "url": "https://github.com/QMUI/LookinServer"
   },
   "Quick/Nimble": {
    "archived": false,
@@ -620,6 +675,22 @@
    "swift_tools": "5.9",
    "url": "https://github.com/auth0/SimpleKeychain"
   },
+  "callstack/agent-device": {
+   "archived": false,
+   "ios_platform": null,
+   "last_commit": "2026-11-03",
+   "license": "MIT",
+   "min_ios": null,
+   "package_swift_at": null,
+   "products": [],
+   "release_tag": "v0.21.36",
+   "released": "2026-11-02",
+   "spm": false,
+   "spm_version": null,
+   "stars": 5248,
+   "swift_tools": null,
+   "url": "https://github.com/callstack/agent-device"
+  },
   "cameroncooke/AXe": {
    "archived": false,
    "ios_platform": "ios-not-listed",
@@ -1049,6 +1120,28 @@
    "swift_tools": "5.6",
    "url": "https://github.com/krzyzanowskim/CryptoSwift"
   },
+  "lycorp-jp/sim-use": {
+   "archived": false,
+   "ios_platform": "ios-not-listed",
+   "last_commit": "2026-10-21",
+   "license": "Apache-2.0",
+   "min_ios": null,
+   "package_swift_at": "v0.16.0",
+   "products": [
+    "AndroidBackend",
+    "SimUseCore",
+    "SimUseVideo",
+    "iOSDeviceBackend",
+    "iOSSimBackend"
+   ],
+   "release_tag": "v0.16.0",
+   "released": "2026-10-21",
+   "spm": true,
+   "spm_version": "0.16.0",
+   "stars": 1526,
+   "swift_tools": "5.10",
+   "url": "https://github.com/lycorp-jp/sim-use"
+  },
   "mac-cain13/R.swift": {
    "archived": false,
    "ios_platform": "declared",
@@ -1079,7 +1172,7 @@
    "released": "2026-11-02",
    "spm": false,
    "spm_version": null,
-   "stars": 10254,
+   "stars": 10255,
    "swift_tools": null,
    "url": "https://github.com/mobile-next/mobile-mcp"
   },

@@ -45,7 +45,7 @@ Four ways an agent can create an iOS app from nothing. Each was run end to end o
 - **User interface**: [UIKit Auto Layout DSL](#uikit-auto-layout-dsl) · [SwiftUI component collections](#swiftui-component-collections) · [SwiftUI introspection](#swiftui-introspection) · [Popups & toasts](#popups--toasts) · [Animation playback](#animation-playback) · [Charts](#charts) · [Markdown rendering](#markdown-rendering) · [HTML parsing](#html-parsing) · [Markdown parsing](#markdown-parsing)
 - **Swift language & data**: [Reactive frameworks](#reactive-frameworks) · [AsyncSequence operators](#asyncsequence-operators) · [Data structures](#data-structures) · [Sequence algorithms](#sequence-algorithms) · [JSON](#json) · [Cryptography](#cryptography) · [Protocol Buffers](#protocol-buffers)
 - **Testing**: [BDD test frameworks](#bdd-test-frameworks) · [Test matchers](#test-matchers) · [Snapshot testing](#snapshot-testing) · [Value dumps & diffs](#value-dumps--diffs) · [Concurrency testing](#concurrency-testing)
-- **Tooling**: [Linting](#linting) · [Formatting](#formatting) · [Project generation](#project-generation) · [Build log formatting](#build-log-formatting) · [Resource code generation](#resource-code-generation) · [Release & App Store Connect](#release--app-store-connect)
+- **Tooling**: [Linting](#linting) · [Formatting](#formatting) · [Project generation](#project-generation) · [Build log formatting](#build-log-formatting) · [View debugging](#view-debugging) · [Resource code generation](#resource-code-generation) · [Release & App Store Connect](#release--app-store-connect)
 - **AI agent tooling**: [Build & run MCP servers](#build--run-mcp-servers) · [Simulator & device UI automation](#simulator--device-ui-automation) · [Apple docs for agents](#apple-docs-for-agents) · [SwiftUI skills](#swiftui-skills) · [Swift Concurrency skills](#swift-concurrency-skills) · [Simulator skills](#simulator-skills) · [Release skills](#release-skills) · [Skill indexes](#skill-indexes) · [AGENTS.md templates](#agentsmd-templates)
 
 ## Foundation
@@ -414,6 +414,18 @@ Apple native: `xcrun swift-format (bundled with Xcode)` (Xcode 16)
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[xcbeautify](https://github.com/cpisciotta/xcbeautify)** | 1.6k | 2026-04 | 2026-08 | — | 6.1 | Formatter for xcodebuild output. |
 
+### View debugging
+
+Apple native: `Xcode View Debugger (Debug View Hierarchy)`
+
+| | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
+|:-:|---|--:|---|---|---|---|---|
+| 🏆 | **[LookInside](https://github.com/LookInsideApp/LookInside)** | 395 | 2026-10 | 2026-11 | 15 | 5.10 | Mac app to inspect views, layers, frames and properties of a running iOS or macOS app. |
+| ⚪ | [LookinServer](https://github.com/QMUI/LookinServer) | 2.9k | 2024-04 | 2024-06 | 9 | 5.3 | iOS framework for the Lookin macOS app: inspect and modify views in a running app. |
+| 🟢 | [LookInside-Release](https://github.com/LookInsideApp/LookInside-Release) | 9 | 2026-10 | 2026-10 | 15 | 5.9 | LookInside server package for iOS apps (Swift Package Manager or CocoaPods). |
+
+> **Note** · LookInside: README: LookInside continues the work of Lookin; version 2.3.11 and later include a local MCP server for AI agents. The iOS side is integrated with the LookInside-Release package. ([source](https://github.com/LookInsideApp/LookInside#readme))
+
 ### Resource code generation
 
 Apple native: `Generated asset symbols (ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS)` (Xcode 15) · `String Catalog symbols (STRING_CATALOG_GENERATE_SYMBOLS)` (Xcode 26) [source](https://wwdcnotes.com/documentation/wwdc25-225-codealong-explore-localization-with-xcode/)
@@ -447,8 +459,10 @@ Apple native: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [source](https:/
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[mobile-mcp](https://github.com/mobile-next/mobile-mcp)** | 10.3k | 2026-11 | 2026-11 | — | — | MCP server to drive iOS and Android simulators and devices. |
+| 🟢 | [agent-device](https://github.com/callstack/agent-device) | 5.2k | 2026-11 | 2026-11 | — | — | CLI, MCP server and Node.js API to control mobile, web, TV and desktop apps on devices and simulators. |
 | 🟢 | [AXe](https://github.com/cameroncooke/AXe) | 2.3k | 2026-07 | 2026-07 | — | 5.10 | CLI for Simulator UI automation through accessibility APIs. |
 | 🟢 | [ios-simulator-mcp](https://github.com/joshuayoes/ios-simulator-mcp) | 2.2k | 2026-10 | 2026-10 | — | — | MCP server to tap, type and inspect UI in the iOS Simulator. |
+| 🟢 | [sim-use](https://github.com/lycorp-jp/sim-use) | 1.5k | 2026-10 | 2026-10 | — | 5.10 | CLI for AI agents to read and act on iOS Simulator, Android emulator/device and physical iPhone screens. |
 
 ### Apple docs for agents
 

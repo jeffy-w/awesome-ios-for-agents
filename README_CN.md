@@ -45,7 +45,7 @@ agent 从零创建 iOS 应用的四种方案。每种都于 2026-11-03 在 Xcode
 - **界面**: [UIKit 自动布局 DSL](#uikit-自动布局-dsl) · [SwiftUI 组件合集](#swiftui-组件合集) · [SwiftUI 底层视图访问](#swiftui-底层视图访问) · [弹窗与 Toast](#弹窗与-toast) · [动画播放](#动画播放) · [图表](#图表) · [Markdown 渲染](#markdown-渲染) · [HTML 解析](#html-解析) · [Markdown 解析](#markdown-解析)
 - **Swift 语言与数据**: [响应式框架](#响应式框架) · [AsyncSequence 操作符](#asyncsequence-操作符) · [数据结构](#数据结构) · [序列算法](#序列算法) · [JSON](#json) · [加密](#加密) · [Protocol Buffers](#protocol-buffers)
 - **测试**: [BDD 测试框架](#bdd-测试框架) · [测试断言库](#测试断言库) · [快照测试](#快照测试) · [数据输出与差异对比](#数据输出与差异对比) · [并发代码测试](#并发代码测试)
-- **工具链**: [代码检查](#代码检查) · [代码格式化](#代码格式化) · [工程生成](#工程生成) · [构建日志格式化](#构建日志格式化) · [资源代码生成](#资源代码生成) · [发布与 App Store Connect](#发布与-app-store-connect)
+- **工具链**: [代码检查](#代码检查) · [代码格式化](#代码格式化) · [工程生成](#工程生成) · [构建日志格式化](#构建日志格式化) · [界面调试](#界面调试) · [资源代码生成](#资源代码生成) · [发布与 App Store Connect](#发布与-app-store-connect)
 - **AI agent 工具**: [编译运行 MCP](#编译运行-mcp) · [模拟器与真机界面自动化](#模拟器与真机界面自动化) · [给 agent 读的 Apple 文档](#给-agent-读的-apple-文档) · [SwiftUI skills](#swiftui-skills) · [Swift Concurrency skills](#swift-concurrency-skills) · [模拟器 skills](#模拟器-skills) · [发布 skills](#发布-skills) · [Skill 索引](#skill-索引) · [AGENTS.md 模板](#agentsmd-模板)
 
 ## 基础能力
@@ -414,6 +414,18 @@ Apple 原生: `xcrun swift-format (bundled with Xcode)` (Xcode 16)
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[xcbeautify](https://github.com/cpisciotta/xcbeautify)** | 1.6k | 2026-04 | 2026-08 | — | 6.1 | xcodebuild 输出格式化工具。 |
 
+### 界面调试
+
+Apple 原生: `Xcode View Debugger (Debug View Hierarchy)`
+
+| | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
+|:-:|---|--:|---|---|---|---|---|
+| 🏆 | **[LookInside](https://github.com/LookInsideApp/LookInside)** | 395 | 2026-10 | 2026-11 | 15 | 5.10 | Mac 应用，查看运行中 iOS 或 macOS App 的视图、图层、frame 和属性。 |
+| ⚪ | [LookinServer](https://github.com/QMUI/LookinServer) | 2.9k | 2024-04 | 2024-06 | 9 | 5.3 | 配合 Lookin macOS 应用的 iOS 框架：查看和修改运行中 App 的视图。 |
+| 🟢 | [LookInside-Release](https://github.com/LookInsideApp/LookInside-Release) | 9 | 2026-10 | 2026-10 | 15 | 5.9 | LookInside 的 iOS 端 server 包（支持 Swift Package Manager 和 CocoaPods）。 |
+
+> **备注** · LookInside: README：LookInside 延续 Lookin 的工作；2.3.11 及以后的版本自带本地 MCP 服务，供 AI agent 使用。iOS 端通过 LookInside-Release 包接入。 ([来源](https://github.com/LookInsideApp/LookInside#readme))
+
 ### 资源代码生成
 
 Apple 原生: `Generated asset symbols (ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS)` (Xcode 15) · `String Catalog symbols (STRING_CATALOG_GENERATE_SYMBOLS)` (Xcode 26) [来源](https://wwdcnotes.com/documentation/wwdc25-225-codealong-explore-localization-with-xcode/)
@@ -447,8 +459,10 @@ Apple 原生: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [来源](https:/
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[mobile-mcp](https://github.com/mobile-next/mobile-mcp)** | 10.3k | 2026-11 | 2026-11 | — | — | 操作 iOS 和 Android 模拟器及真机的 MCP 服务。 |
+| 🟢 | [agent-device](https://github.com/callstack/agent-device) | 5.2k | 2026-11 | 2026-11 | — | — | 命令行、MCP 服务和 Node.js API，用于在真机和模拟器上操作移动、Web、电视和桌面应用。 |
 | 🟢 | [AXe](https://github.com/cameroncooke/AXe) | 2.3k | 2026-07 | 2026-07 | — | 5.10 | 通过辅助功能接口自动操作模拟器的命令行工具。 |
 | 🟢 | [ios-simulator-mcp](https://github.com/joshuayoes/ios-simulator-mcp) | 2.2k | 2026-10 | 2026-10 | — | — | 在 iOS 模拟器里点击、输入、查看界面的 MCP 服务。 |
+| 🟢 | [sim-use](https://github.com/lycorp-jp/sim-use) | 1.5k | 2026-10 | 2026-10 | — | 5.10 | 供 AI agent 读取和操作 iOS 模拟器、Android 模拟器/真机和 iPhone 真机屏幕的命令行工具。 |
 
 ### 给 agent 读的 Apple 文档
 
