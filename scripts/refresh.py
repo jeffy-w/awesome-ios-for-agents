@@ -12,6 +12,7 @@ import json
 import re
 import subprocess
 import sys
+import time
 from datetime import date
 from pathlib import Path
 
@@ -43,6 +44,7 @@ def gql(query: str) -> dict:
         if data:  # partial results (one repo renamed) still carry data
             return data
         print(f"gh api graphql failed (attempt {attempt + 1}): {res.stderr.strip()[:300]}", file=sys.stderr)
+        time.sleep(2 ** attempt * 5)
     raise SystemExit("GitHub API unavailable; stats.json left unchanged")
 
 
@@ -60,14 +62,34 @@ def best_tag(release_tag, tags):
 
 
 def parse_package(text):
+    """Return (tools, min_ios, ios_platform, products).
+
+    ios_platform: "declared" (minimum iOS found), "not-declared" (no platforms list),
+    "ios-not-listed" (platforms list names other OSes but not iOS),
+    "unparsed" (a platforms list exists but no literal .iOS(...) or other OS was found).
+    Products are literal `.library(name: "...")` names, skipping internal ones that start with "_".
+    """
     if not text:
-        return None, None, []
+        return None, None, None, []
     tools = re.search(r"swift-tools-version\s*:\s*([0-9.]+)", text)
     ios = re.search(r"\.iOS\(\s*(?:\.v|\")([0-9_.]+)", text)
-    products = sorted(set(re.findall(r"\.library\(\s*name:\s*\"([^\"]+)\"", text)))
+    if ios:
+        platform = "declared"
+    else:
+        # a Package-level `platforms:` argument, not `.when(platforms: ...)` in conditions
+        top_level = any(not re.search(r"when\(\s*$", text[:m.start()])
+                        for m in re.finditer(r"\bplatforms\s*:", text))
+        if not top_level:
+            platform = "not-declared"
+        elif re.search(r"\.(macOS|tvOS|watchOS|visionOS|macCatalyst)\(", text):
+            platform = "ios-not-listed"
+        else:
+            platform = "unparsed"
+    products = sorted({p for p in re.findall(r"\.library\(\s*name:\s*\"([^\"]+)\"", text)
+                       if not p.startswith("_")})
     return (tools.group(1) if tools else None,
             ios.group(1).replace("_", ".") if ios else None,
-            products)
+            platform, products)
 
 
 def batched(items, n=20):
@@ -110,7 +132,7 @@ def main():
     stats = {}
     for repo, d in raw.items():
         text = pkg_at_tag.get(repo) or (d.get("head") or {}).get("text")
-        tools, min_ios, products = parse_package(text)
+        tools, min_ios, ios_platform, products = parse_package(text)
         release = d.get("latestRelease") or {}
         commit = ((d.get("defaultBranchRef") or {}).get("target") or {}).get("committedDate")
         stats[repo] = {
@@ -126,6 +148,7 @@ def main():
             "package_swift_at": (tags[repo] if repo in pkg_at_tag else "HEAD") if tools else None,
             "swift_tools": tools,
             "min_ios": min_ios,
+            "ios_platform": ios_platform if tools else None,
             "products": products,
         }
 

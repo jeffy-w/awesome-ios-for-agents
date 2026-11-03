@@ -3,6 +3,7 @@
  "repos": {
   "Alamofire/Alamofire": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-30",
    "license": "MIT",
    "min_ios": "15",
@@ -21,6 +22,7 @@
   },
   "AvdLee/Swift-Concurrency-Agent-Skill": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-09-14",
    "license": "MIT",
    "min_ios": null,
@@ -36,6 +38,7 @@
   },
   "AvdLee/SwiftUI-Agent-Skill": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-10-06",
    "license": "MIT",
    "min_ios": null,
@@ -51,6 +54,7 @@
   },
   "ChartsOrg/Charts": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-03-04",
    "license": "Apache-2.0",
    "min_ios": "12",
@@ -69,6 +73,7 @@
   },
   "CocoaLumberjack/CocoaLumberjack": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-28",
    "license": "BSD-3-Clause",
    "min_ios": "15",
@@ -88,6 +93,7 @@
   },
   "Moya/Moya": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-07-14",
    "license": "MIT",
    "min_ios": "10",
@@ -108,6 +114,7 @@
   },
   "NSHipster/sosumi.ai": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-10-21",
    "license": "MIT",
    "min_ios": null,
@@ -123,6 +130,7 @@
   },
   "PostHog/posthog-ios": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-03",
    "license": "NOASSERTION",
    "min_ios": "13",
@@ -140,6 +148,7 @@
   },
   "Quick/Nimble": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-05-04",
    "license": "Apache-2.0",
    "min_ios": "13",
@@ -157,6 +166,7 @@
   },
   "Quick/Quick": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-03-17",
    "license": "Apache-2.0",
    "min_ios": "13",
@@ -174,6 +184,7 @@
   },
   "ReactiveX/RxSwift": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-09-04",
    "license": "MIT",
    "min_ios": "9",
@@ -200,6 +211,7 @@
   },
   "RevenueCat/purchases-ios": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "13",
@@ -220,6 +232,7 @@
   },
   "SDWebImage/SDWebImage": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-04-15",
    "license": "MIT",
    "min_ios": "9",
@@ -238,6 +251,7 @@
   },
   "SDWebImage/SDWebImageSwiftUI": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-02-25",
    "license": "MIT",
    "min_ios": "14",
@@ -255,6 +269,7 @@
   },
   "SnapKit/SnapKit": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-07-13",
    "license": "MIT",
    "min_ios": "14",
@@ -273,6 +288,7 @@
   },
   "SwiftGen/SwiftGen": {
    "archived": false,
+   "ios_platform": "ios-not-listed",
    "last_commit": "2022-02-04",
    "license": "MIT",
    "min_ios": null,
@@ -291,6 +307,7 @@
   },
   "SwiftUIX/SwiftUIX": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-08-20",
    "license": "MIT",
    "min_ios": "13",
@@ -308,6 +325,7 @@
   },
   "SwiftyBeaver/SwiftyBeaver": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2024-11-26",
    "license": "MIT",
    "min_ios": null,
@@ -325,6 +343,7 @@
   },
   "SwiftyJSON/SwiftyJSON": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-08-18",
    "license": "MIT",
    "min_ios": null,
@@ -342,6 +361,7 @@
   },
   "Swinject/Swinject": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2025-09-01",
    "license": "MIT",
    "min_ios": "12",
@@ -359,6 +379,7 @@
   },
   "TelemetryDeck/SwiftSDK": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-08-01",
    "license": "NOASSERTION",
    "min_ios": "12",
@@ -377,10 +398,11 @@
   },
   "adaptyteam/AdaptySDK-iOS": {
    "archived": false,
-   "last_commit": "2026-10-23",
+   "ios_platform": "declared",
+   "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "15",
-   "package_swift_at": "4.3.1",
+   "package_swift_at": "4.3.2",
    "products": [
     "Adapty",
     "AdaptyCodable",
@@ -390,16 +412,17 @@
     "AdaptyUI",
     "AdaptyUIBuilder"
    ],
-   "release_tag": "4.3.1",
-   "released": "2026-10-23",
+   "release_tag": "4.3.2",
+   "released": "2026-11-03",
    "spm": true,
-   "spm_version": "4.3.1",
+   "spm_version": "4.3.2",
    "stars": 490,
    "swift_tools": "6.2",
    "url": "https://github.com/adaptyteam/AdaptySDK-iOS"
   },
   "airbnb/lottie-ios": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-06",
    "license": "Apache-2.0",
    "min_ios": "13.0",
@@ -418,6 +441,7 @@
   },
   "apple/swift-algorithms": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-07-22",
    "license": "Apache-2.0",
    "min_ios": null,
@@ -435,6 +459,7 @@
   },
   "apple/swift-async-algorithms": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-10-05",
    "license": "Apache-2.0",
    "min_ios": null,
@@ -453,6 +478,7 @@
   },
   "apple/swift-collections": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-10-27",
    "license": "Apache-2.0",
    "min_ios": null,
@@ -468,6 +494,7 @@
   },
   "apple/swift-crypto": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-11-02",
    "license": "Apache-2.0",
    "min_ios": null,
@@ -475,8 +502,7 @@
    "products": [
     "CCryptoBoringSSL",
     "Crypto",
-    "CryptoExtras",
-    "_CryptoExtras"
+    "CryptoExtras"
    ],
    "release_tag": "5.1.0",
    "released": "2026-11-02",
@@ -488,6 +514,7 @@
   },
   "apple/swift-log": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-11-03",
    "license": "Apache-2.0",
    "min_ios": null,
@@ -506,13 +533,12 @@
   },
   "apple/swift-openapi-generator": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-26",
    "license": "Apache-2.0",
    "min_ios": "13",
    "package_swift_at": "1.14.3",
-   "products": [
-    "_OpenAPIGeneratorCore"
-   ],
+   "products": [],
    "release_tag": "1.14.3",
    "released": "2026-10-26",
    "spm": true,
@@ -523,6 +549,7 @@
   },
   "apple/swift-protobuf": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-11-02",
    "license": "Apache-2.0",
    "min_ios": null,
@@ -541,6 +568,7 @@
   },
   "ashleymills/Reachability.swift": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2024-10-03",
    "license": "MIT",
    "min_ios": null,
@@ -558,6 +586,7 @@
   },
   "auth0/Auth0.swift": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-22",
    "license": "MIT",
    "min_ios": "15",
@@ -575,6 +604,7 @@
   },
   "auth0/SimpleKeychain": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-02",
    "license": "MIT",
    "min_ios": "14",
@@ -592,6 +622,7 @@
   },
   "cameroncooke/AXe": {
    "archived": false,
+   "ios_platform": "ios-not-listed",
    "last_commit": "2026-07-20",
    "license": "MIT",
    "min_ios": null,
@@ -609,6 +640,7 @@
   },
   "conorluddy/ios-simulator-skill": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-10-19",
    "license": "MIT",
    "min_ios": null,
@@ -624,6 +656,7 @@
   },
   "cpisciotta/xcbeautify": {
    "archived": false,
+   "ios_platform": "ios-not-listed",
    "last_commit": "2026-08-10",
    "license": "MIT",
    "min_ios": null,
@@ -641,6 +674,7 @@
   },
   "daltoniam/Starscream": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2024-03-07",
    "license": "Apache-2.0",
    "min_ios": null,
@@ -658,6 +692,7 @@
   },
   "evgenyneu/keychain-swift": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2024-04-26",
    "license": "MIT",
    "min_ios": null,
@@ -675,6 +710,7 @@
   },
   "exyte/PopupView": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-02",
    "license": "MIT",
    "min_ios": "17",
@@ -692,6 +728,7 @@
   },
   "fastlane/fastlane": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": null,
@@ -709,6 +746,7 @@
   },
   "firebase/firebase-ios-sdk": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-02",
    "license": "Apache-2.0",
    "min_ios": "15",
@@ -747,6 +785,7 @@
   },
   "getsentry/MobileBuildMCP": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-10-22",
    "license": "MIT",
    "min_ios": null,
@@ -762,6 +801,7 @@
   },
   "getsentry/sentry-cocoa": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "15",
@@ -789,6 +829,7 @@
   },
   "gonzalezreal/swift-markdown-ui": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2025-12-28",
    "license": "MIT",
    "min_ios": "15",
@@ -806,6 +847,7 @@
   },
   "gonzalezreal/textual": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-06-15",
    "license": "MIT",
    "min_ios": "18",
@@ -823,6 +865,7 @@
   },
   "google/GoogleSignIn-iOS": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-02",
    "license": "Apache-2.0",
    "min_ios": "15",
@@ -841,6 +884,7 @@
   },
   "groue/GRDB.swift": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-02",
    "license": "MIT",
    "min_ios": "13",
@@ -860,6 +904,7 @@
   },
   "hmlongco/Factory": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-28",
    "license": "MIT",
    "min_ios": "15",
@@ -879,6 +924,7 @@
   },
   "joshuayoes/ios-simulator-mcp": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-10-27",
    "license": "MIT",
    "min_ios": null,
@@ -894,6 +940,7 @@
   },
   "kean/Get": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2024-10-15",
    "license": "MIT",
    "min_ios": "13",
@@ -911,6 +958,7 @@
   },
   "kean/Nuke": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "15",
@@ -931,6 +979,7 @@
   },
   "kean/Pulse": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-11",
    "license": "MIT",
    "min_ios": "15",
@@ -950,6 +999,7 @@
   },
   "kimsungwhee/apple-docs-mcp": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-03-17",
    "license": "MIT",
    "min_ios": null,
@@ -965,6 +1015,7 @@
   },
   "kishikawakatsumi/KeychainAccess": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2023-11-12",
    "license": "MIT",
    "min_ios": "8",
@@ -982,6 +1033,7 @@
   },
   "krzyzanowskim/CryptoSwift": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-08-19",
    "license": "NOASSERTION",
    "min_ios": "11",
@@ -999,6 +1051,7 @@
   },
   "mac-cain13/R.swift": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2025-03-16",
    "license": "MIT",
    "min_ios": "11",
@@ -1016,6 +1069,7 @@
   },
   "mobile-next/mobile-mcp": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-11-02",
    "license": "Apache-2.0",
    "min_ios": null,
@@ -1025,12 +1079,13 @@
    "released": "2026-11-02",
    "spm": false,
    "spm_version": null,
-   "stars": 10253,
+   "stars": 10254,
    "swift_tools": null,
    "url": "https://github.com/mobile-next/mobile-mcp"
   },
   "nicklockwood/SwiftFormat": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-10-31",
    "license": "MIT",
    "min_ios": null,
@@ -1048,6 +1103,7 @@
   },
   "onevcat/Kingfisher": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "15",
@@ -1065,6 +1121,7 @@
   },
   "pointfreeco/sqlite-data": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-02",
    "license": "MIT",
    "min_ios": "16",
@@ -1083,6 +1140,7 @@
   },
   "pointfreeco/swift-composable-architecture": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-27",
    "license": "MIT",
    "min_ios": "16",
@@ -1100,6 +1158,7 @@
   },
   "pointfreeco/swift-concurrency-extras": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-14",
    "license": "MIT",
    "min_ios": "13",
@@ -1118,6 +1177,7 @@
   },
   "pointfreeco/swift-custom-dump": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-08-28",
    "license": "MIT",
    "min_ios": "15",
@@ -1135,6 +1195,7 @@
   },
   "pointfreeco/swift-dependencies": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-30",
    "license": "MIT",
    "min_ios": "15",
@@ -1155,6 +1216,7 @@
   },
   "pointfreeco/swift-navigation": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-08-31",
    "license": "MIT",
    "min_ios": "15",
@@ -1175,6 +1237,7 @@
   },
   "pointfreeco/swift-snapshot-testing": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-21",
    "license": "MIT",
    "min_ios": "13",
@@ -1194,6 +1257,7 @@
   },
   "realm/SwiftLint": {
    "archived": false,
+   "ios_platform": "ios-not-listed",
    "last_commit": "2026-09-28",
    "license": "MIT",
    "min_ios": null,
@@ -1211,6 +1275,7 @@
   },
   "realm/realm-swift": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-09-26",
    "license": "Apache-2.0",
    "min_ios": "12",
@@ -1229,6 +1294,7 @@
   },
   "rive-app/rive-ios": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "14.0",
@@ -1246,13 +1312,14 @@
   },
   "rorkai/App-Store-Connect-CLI": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": null,
    "package_swift_at": null,
    "products": [],
-   "release_tag": "6.3.0",
-   "released": "2026-10-31",
+   "release_tag": "6.4.0",
+   "released": "2026-11-03",
    "spm": false,
    "spm_version": null,
    "stars": 8225,
@@ -1261,6 +1328,7 @@
   },
   "rorkai/app-store-connect-cli-skills": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-10-26",
    "license": "MIT",
    "min_ios": null,
@@ -1276,6 +1344,7 @@
   },
   "scinfu/SwiftSoup": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-16",
    "license": "MIT",
    "min_ios": "13",
@@ -1293,6 +1362,7 @@
   },
   "sindresorhus/Defaults": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-06-23",
    "license": "MIT",
    "min_ios": "14",
@@ -1311,6 +1381,7 @@
   },
   "siteline/swiftui-introspect": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-03",
    "license": "MIT",
    "min_ios": "13",
@@ -1328,6 +1399,7 @@
   },
   "square/Valet": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-07-12",
    "license": "Apache-2.0",
    "min_ios": "12",
@@ -1345,6 +1417,7 @@
   },
   "stephencelis/SQLite.swift": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-25",
    "license": "MIT",
    "min_ios": "15",
@@ -1357,12 +1430,13 @@
    "released": "2026-10-20",
    "spm": true,
    "spm_version": "0.17.0",
-   "stars": 10186,
+   "stars": 10187,
    "swift_tools": "6.1",
    "url": "https://github.com/stephencelis/SQLite.swift"
   },
   "supabase/supabase-swift": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "16",
@@ -1385,6 +1459,7 @@
   },
   "swiftlang/swift-format": {
    "archived": false,
+   "ios_platform": "declared",
    "last_commit": "2026-10-28",
    "license": "Apache-2.0",
    "min_ios": "16.0",
@@ -1402,6 +1477,7 @@
   },
   "swiftlang/swift-markdown": {
    "archived": false,
+   "ios_platform": "not-declared",
    "last_commit": "2026-11-02",
    "license": "Apache-2.0",
    "min_ios": null,
@@ -1419,6 +1495,7 @@
   },
   "tuist/tuist": {
    "archived": false,
+   "ios_platform": "ios-not-listed",
    "last_commit": "2026-11-03",
    "license": "NOASSERTION",
    "min_ios": null,
@@ -1454,6 +1531,7 @@
   },
   "twostraws/Swift-Agent-Skills": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-09-04",
    "license": "MIT",
    "min_ios": null,
@@ -1469,6 +1547,7 @@
   },
   "twostraws/SwiftAgents": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-03-05",
    "license": null,
    "min_ios": null,
@@ -1484,6 +1563,7 @@
   },
   "twostraws/SwiftUI-Agent-Skill": {
    "archived": false,
+   "ios_platform": null,
    "last_commit": "2026-10-26",
    "license": "MIT",
    "min_ios": null,
@@ -1499,6 +1579,7 @@
   },
   "yonaskolb/XcodeGen": {
    "archived": false,
+   "ios_platform": "ios-not-listed",
    "last_commit": "2026-10-13",
    "license": "MIT",
    "min_ios": null,
