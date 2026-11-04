@@ -131,6 +131,12 @@ sections:
             does: { en: "Container-based dependency injection.", zh: "基于容器的依赖注入。" }
           - repo: pointfreeco/swift-dependencies
             does: { en: "Dependency management modelled on SwiftUI's environment.", zh: "参照 SwiftUI Environment 设计的依赖管理。" }
+          - repo: uber/needle
+            does: { en: "Compile-time checked dependency injection with a hierarchical component tree.", zh: "编译期校验的依赖注入，按组件树分层组织依赖。" }
+            note:
+              en: "README: needs both the NeedleFoundation framework and the needle code generator executable (installable with Homebrew)."
+              zh: "README：需要同时集成 NeedleFoundation 框架和 needle 代码生成器可执行文件（可用 Homebrew 安装）。"
+              source: https://github.com/uber/needle#installation
 
       - id: app-architecture
         title: { en: App architecture frameworks, zh: 应用架构框架 }
@@ -139,6 +145,12 @@ sections:
         libs:
           - repo: pointfreeco/swift-composable-architecture
             does: { en: "Unidirectional architecture for state, actions, effects and testing.", zh: "单向数据流架构，管理状态、动作、副作用和测试。" }
+          - repo: uber/RIBs-iOS
+            does: { en: "Router-Interactor-Builder architecture that composes an app from a tree of modules (RIBs).", zh: "Router-Interactor-Builder 架构，把应用组织成一棵模块（RIB）树。" }
+            note:
+              en: "Package.swift: the RIBs library depends on RxSwift and RxRelay. The Android implementation lives in uber/RIBs."
+              zh: "Package.swift：RIBs 库依赖 RxSwift 和 RxRelay。Android 版本在 uber/RIBs 仓库。"
+              source: https://github.com/uber/RIBs-iOS/blob/main/Package.swift
 
       - id: navigation
         title: { en: Navigation, zh: 导航 }
@@ -147,6 +159,19 @@ sections:
         libs:
           - repo: pointfreeco/swift-navigation
             does: { en: "State-driven navigation tools for SwiftUI, UIKit and AppKit.", zh: "由状态驱动的导航工具，支持 SwiftUI、UIKit、AppKit。" }
+          - repo: QuickBirdEng/XCoordinator
+            does: { en: "Coordinator-pattern navigation for UIKit, with typed routes per coordinator.", zh: "基于 Coordinator 模式的 UIKit 导航，每个 Coordinator 使用强类型路由。" }
+          - repo: johnpatrickmorgan/FlowStacks
+            does: { en: "Coordinator-style SwiftUI navigation: push and present state hoisted into a routes array.", zh: "Coordinator 风格的 SwiftUI 导航，把 push 和 present 状态提升到一个路由数组中。" }
+
+      - id: url-routing
+        title: { en: URL routing, zh: URL 路由 }
+        native:
+          - { api: "onOpenURL (SwiftUI)", ios: "14" }
+          - { api: "UISceneDelegate scene(_:openURLContexts:)", ios: "13" }
+        libs:
+          - repo: devxoul/URLNavigator
+            does: { en: "Maps URL patterns to view controllers or handlers, for deep links and in-app navigation.", zh: "把 URL 模式映射到视图控制器或处理闭包，用于 deeplink 和应用内跳转。" }
 
   - id: observability
     title: { en: Observability, zh: 日志与监控 }

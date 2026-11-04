@@ -39,7 +39,7 @@ agent 从零创建 iOS 应用的四种方案。每种都于 2026-11-03 在 Xcode
 ## 目录
 
 - **基础能力**: [HTTP 客户端](#http-客户端) · [OpenAPI 客户端生成](#openapi-客户端生成) · [WebSocket](#websocket) · [网络状态监测](#网络状态监测) · [图片加载与缓存](#图片加载与缓存) · [本地数据库](#本地数据库) · [钥匙串](#钥匙串) · [偏好设置（UserDefaults）](#偏好设置userdefaults)
-- **架构**: [依赖注入](#依赖注入) · [应用架构框架](#应用架构框架) · [导航](#导航)
+- **架构**: [依赖注入](#依赖注入) · [应用架构框架](#应用架构框架) · [导航](#导航) · [URL 路由](#url-路由)
 - **日志与监控**: [日志](#日志) · [网络与日志查看器](#网络与日志查看器) · [崩溃监控](#崩溃监控) · [产品数据分析](#产品数据分析)
 - **账号与付费**: [应用内购买与订阅](#应用内购买与订阅) · [第三方登录](#第三方登录) · [后端即服务](#后端即服务)
 - **界面**: [UIKit 自动布局 DSL](#uikit-自动布局-dsl) · [SwiftUI 组件合集](#swiftui-组件合集) · [SwiftUI 底层视图访问](#swiftui-底层视图访问) · [弹窗与 Toast](#弹窗与-toast) · [动画播放](#动画播放) · [图表](#图表) · [Markdown 渲染](#markdown-渲染) · [HTML 解析](#html-解析) · [Markdown 解析](#markdown-解析)
@@ -136,6 +136,9 @@ Apple 原生: `UserDefaults` (iOS 2) · `@AppStorage` (iOS 14)
 | 🏆 | **[Swinject](https://github.com/Swinject/Swinject)** | 6.7k | 2025-09 | 2025-09 | 12 | 6.0.0 | 依赖注入容器。 |
 | 🟢 | [Factory](https://github.com/hmlongco/Factory) | 2.9k | 2026-10 | 2026-10 | 15 | 6.1 | 基于容器的依赖注入。 |
 | 🟢 | [swift-dependencies](https://github.com/pointfreeco/swift-dependencies) | 2.2k | 2026-10 | 2026-10 | 15 | 6.4 | 参照 SwiftUI Environment 设计的依赖管理。 |
+| ⚪ | [needle](https://github.com/uber/needle) | 2.0k | 2024-09 | 2026-04 | — | 5.10 | 编译期校验的依赖注入，按组件树分层组织依赖。 |
+
+> **备注** · needle: README：需要同时集成 NeedleFoundation 框架和 needle 代码生成器可执行文件（可用 Homebrew 安装）。 ([来源](https://github.com/uber/needle#installation))
 
 ### 应用架构框架
 
@@ -144,6 +147,9 @@ Apple 原生: `Observation (@Observable)` (iOS 17)
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[swift-composable-architecture](https://github.com/pointfreeco/swift-composable-architecture)** | 15.0k | 2026-08 | 2026-10 | 16 | 6.4 | 单向数据流架构，管理状态、动作、副作用和测试。 |
+| 🟢 | [RIBs-iOS](https://github.com/uber/RIBs-iOS) | 193 | 2026-07 | 2026-07 | 15 | 5.5 | Router-Interactor-Builder 架构，把应用组织成一棵模块（RIB）树。 |
+
+> **备注** · RIBs-iOS: Package.swift：RIBs 库依赖 RxSwift 和 RxRelay。Android 版本在 uber/RIBs 仓库。 ([来源](https://github.com/uber/RIBs-iOS/blob/main/Package.swift))
 
 ### 导航
 
@@ -152,6 +158,16 @@ Apple 原生: `NavigationStack` (iOS 16)
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[swift-navigation](https://github.com/pointfreeco/swift-navigation)** | 2.3k | 2026-08 | 2026-08 | 15 | 6.4 | 由状态驱动的导航工具，支持 SwiftUI、UIKit、AppKit。 |
+| 🟡 | [FlowStacks](https://github.com/johnpatrickmorgan/FlowStacks) | 971 | 2025-08 | 2025-10 | 14 | 5.10 | Coordinator 风格的 SwiftUI 导航，把 push 和 present 状态提升到一个路由数组中。 |
+| ⚪ | [XCoordinator](https://github.com/QuickBirdEng/XCoordinator) | 2.4k | 2023-02 | 2023-02 | 9 | 5.1 | 基于 Coordinator 模式的 UIKit 导航，每个 Coordinator 使用强类型路由。 |
+
+### URL 路由
+
+Apple 原生: `onOpenURL (SwiftUI)` (iOS 14) · `UISceneDelegate scene(_:openURLContexts:)` (iOS 13)
+
+| | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
+|:-:|---|--:|---|---|---|---|---|
+| ⚪ | [URLNavigator](https://github.com/devxoul/URLNavigator) | 3.3k | 2023-07 | 2023-07 | 11 | 5.8 | 把 URL 模式映射到视图控制器或处理闭包，用于 deeplink 和应用内跳转。 |
 
 ## 日志与监控
 
@@ -213,8 +229,8 @@ Apple 原生: `Sign in with Apple (AuthenticationServices)` (iOS 13) · `Passkey
 
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🟢 | [GoogleSignIn-iOS](https://github.com/google/GoogleSignIn-iOS) | 758 | 2026-10 | 2026-11 | 15 | 6.0 | Google 账号登录。 |
-| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 468 | 2026-10 | 2026-10 | 15 | 6.0 | Auth0 身份认证 SDK。 |
+| 🟢 | [GoogleSignIn-iOS](https://github.com/google/GoogleSignIn-iOS) | 759 | 2026-10 | 2026-11 | 15 | 6.0 | Google 账号登录。 |
+| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 468 | 2026-10 | 2026-11 | 15 | 6.0 | Auth0 身份认证 SDK。 |
 
 ### 后端即服务
 
@@ -317,7 +333,7 @@ Apple 原生: `AsyncSequence / AsyncStream (back-deployed to iOS 13 with Xcode 1
 
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[swift-collections](https://github.com/apple/swift-collections)** | 4.5k | 2026-10 | 2026-10 | — | 6.4 | Deque、OrderedSet、OrderedDictionary、Heap 等数据结构。 |
+| 🏆 | **[swift-collections](https://github.com/apple/swift-collections)** | 4.5k | 2026-10 | 2026-11 | — | 6.4 | Deque、OrderedSet、OrderedDictionary、Heap 等数据结构。 |
 
 ### 序列算法
 
@@ -382,7 +398,7 @@ Apple 原生: `Swift Testing #expect / #require` (Xcode 16)
 
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[swift-concurrency-extras](https://github.com/pointfreeco/swift-concurrency-extras)** | 490 | 2026-10 | 2026-10 | 13 | 6.0 | 测试 Swift 并发代码的工具。 |
+| 🏆 | **[swift-concurrency-extras](https://github.com/pointfreeco/swift-concurrency-extras)** | 491 | 2026-10 | 2026-10 | 13 | 6.0 | 测试 Swift 并发代码的工具。 |
 
 ## 工具链
 
@@ -390,7 +406,7 @@ Apple 原生: `Swift Testing #expect / #require` (Xcode 16)
 
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[SwiftLint](https://github.com/realm/SwiftLint)** | 19.8k | 2026-08 | 2026-09 | — | 5.9 | 检查 Swift 代码风格和约定。 |
+| 🏆 | **[SwiftLint](https://github.com/realm/SwiftLint)** | 19.8k | 2026-08 | 2026-11 | — | 5.9 | 检查 Swift 代码风格和约定。 |
 
 ### 代码格式化
 
@@ -441,7 +457,7 @@ Apple 原生: `xcodebuild archive / -exportArchive` · `Xcode Cloud`
 
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[fastlane](https://github.com/fastlane/fastlane)** | 42.3k | 2026-10 | 2026-11 | — | 4.0 | 自动化签名、截图、构建和发布。 |
+| 🏆 | **[fastlane](https://github.com/fastlane/fastlane)** | 42.4k | 2026-10 | 2026-11 | — | 4.0 | 自动化签名、截图、构建和发布。 |
 | 🟢 | [App-Store-Connect-CLI](https://github.com/rorkai/App-Store-Connect-CLI) | 8.2k | 2026-11 | 2026-11 | — | — | App Store Connect 命令行：构建、TestFlight、元数据、提交审核。 |
 
 ## AI agent 工具
@@ -459,7 +475,7 @@ Apple 原生: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [来源](https:/
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[mobile-mcp](https://github.com/mobile-next/mobile-mcp)** | 10.3k | 2026-11 | 2026-11 | — | — | 操作 iOS 和 Android 模拟器及真机的 MCP 服务。 |
-| 🟢 | [agent-device](https://github.com/callstack/agent-device) | 5.2k | 2026-11 | 2026-11 | — | — | 命令行、MCP 服务和 Node.js API，用于在真机和模拟器上操作移动、Web、电视和桌面应用。 |
+| 🟢 | [agent-device](https://github.com/callstack/agent-device) | 5.3k | 2026-11 | 2026-11 | — | — | 命令行、MCP 服务和 Node.js API，用于在真机和模拟器上操作移动、Web、电视和桌面应用。 |
 | 🟢 | [AXe](https://github.com/cameroncooke/AXe) | 2.3k | 2026-07 | 2026-07 | — | 5.10 | 通过辅助功能接口自动操作模拟器的命令行工具。 |
 | 🟢 | [ios-simulator-mcp](https://github.com/joshuayoes/ios-simulator-mcp) | 2.2k | 2026-10 | 2026-10 | — | — | 在 iOS 模拟器里点击、输入、查看界面的 MCP 服务。 |
 | 🟢 | [sim-use](https://github.com/lycorp-jp/sim-use) | 1.5k | 2026-10 | 2026-10 | — | 5.10 | 供 AI agent 读取和操作 iOS 模拟器、Android 模拟器/真机和 iPhone 真机屏幕的命令行工具。 |
@@ -475,7 +491,7 @@ Apple 原生: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [来源](https:/
 
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill)** | 6.4k | 2026-10 | 2026-10 | — | — | SwiftUI agent skill。 |
+| 🏆 | **[twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill)** | 6.5k | 2026-10 | 2026-10 | — | — | SwiftUI agent skill。 |
 | 🟢 | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | 3.8k | 2026-10 | 2026-10 | — | — | SwiftUI agent skill。 |
 
 ### Swift Concurrency skills

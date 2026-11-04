@@ -39,7 +39,7 @@ Four ways an agent can create an iOS app from nothing. Each was run end to end o
 ## Contents
 
 - **Foundation**: [HTTP client](#http-client) · [OpenAPI client generation](#openapi-client-generation) · [WebSocket](#websocket) · [Network reachability](#network-reachability) · [Image loading & caching](#image-loading--caching) · [Local database](#local-database) · [Keychain](#keychain) · [Preferences (UserDefaults)](#preferences-userdefaults)
-- **Architecture**: [Dependency injection](#dependency-injection) · [App architecture frameworks](#app-architecture-frameworks) · [Navigation](#navigation)
+- **Architecture**: [Dependency injection](#dependency-injection) · [App architecture frameworks](#app-architecture-frameworks) · [Navigation](#navigation) · [URL routing](#url-routing)
 - **Observability**: [Logging](#logging) · [Network & log inspector](#network--log-inspector) · [Crash reporting](#crash-reporting) · [Product analytics](#product-analytics)
 - **Accounts & payments**: [In-app purchases & subscriptions](#in-app-purchases--subscriptions) · [Third-party sign-in](#third-party-sign-in) · [Backend as a service](#backend-as-a-service)
 - **User interface**: [UIKit Auto Layout DSL](#uikit-auto-layout-dsl) · [SwiftUI component collections](#swiftui-component-collections) · [SwiftUI introspection](#swiftui-introspection) · [Popups & toasts](#popups--toasts) · [Animation playback](#animation-playback) · [Charts](#charts) · [Markdown rendering](#markdown-rendering) · [HTML parsing](#html-parsing) · [Markdown parsing](#markdown-parsing)
@@ -136,6 +136,9 @@ Apple native: `UserDefaults` (iOS 2) · `@AppStorage` (iOS 14)
 | 🏆 | **[Swinject](https://github.com/Swinject/Swinject)** | 6.7k | 2025-09 | 2025-09 | 12 | 6.0.0 | Dependency injection container. |
 | 🟢 | [Factory](https://github.com/hmlongco/Factory) | 2.9k | 2026-10 | 2026-10 | 15 | 6.1 | Container-based dependency injection. |
 | 🟢 | [swift-dependencies](https://github.com/pointfreeco/swift-dependencies) | 2.2k | 2026-10 | 2026-10 | 15 | 6.4 | Dependency management modelled on SwiftUI's environment. |
+| ⚪ | [needle](https://github.com/uber/needle) | 2.0k | 2024-09 | 2026-04 | — | 5.10 | Compile-time checked dependency injection with a hierarchical component tree. |
+
+> **Note** · needle: README: needs both the NeedleFoundation framework and the needle code generator executable (installable with Homebrew). ([source](https://github.com/uber/needle#installation))
 
 ### App architecture frameworks
 
@@ -144,6 +147,9 @@ Apple native: `Observation (@Observable)` (iOS 17)
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[swift-composable-architecture](https://github.com/pointfreeco/swift-composable-architecture)** | 15.0k | 2026-08 | 2026-10 | 16 | 6.4 | Unidirectional architecture for state, actions, effects and testing. |
+| 🟢 | [RIBs-iOS](https://github.com/uber/RIBs-iOS) | 193 | 2026-07 | 2026-07 | 15 | 5.5 | Router-Interactor-Builder architecture that composes an app from a tree of modules (RIBs). |
+
+> **Note** · RIBs-iOS: Package.swift: the RIBs library depends on RxSwift and RxRelay. The Android implementation lives in uber/RIBs. ([source](https://github.com/uber/RIBs-iOS/blob/main/Package.swift))
 
 ### Navigation
 
@@ -152,6 +158,16 @@ Apple native: `NavigationStack` (iOS 16)
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[swift-navigation](https://github.com/pointfreeco/swift-navigation)** | 2.3k | 2026-08 | 2026-08 | 15 | 6.4 | State-driven navigation tools for SwiftUI, UIKit and AppKit. |
+| 🟡 | [FlowStacks](https://github.com/johnpatrickmorgan/FlowStacks) | 971 | 2025-08 | 2025-10 | 14 | 5.10 | Coordinator-style SwiftUI navigation: push and present state hoisted into a routes array. |
+| ⚪ | [XCoordinator](https://github.com/QuickBirdEng/XCoordinator) | 2.4k | 2023-02 | 2023-02 | 9 | 5.1 | Coordinator-pattern navigation for UIKit, with typed routes per coordinator. |
+
+### URL routing
+
+Apple native: `onOpenURL (SwiftUI)` (iOS 14) · `UISceneDelegate scene(_:openURLContexts:)` (iOS 13)
+
+| | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
+|:-:|---|--:|---|---|---|---|---|
+| ⚪ | [URLNavigator](https://github.com/devxoul/URLNavigator) | 3.3k | 2023-07 | 2023-07 | 11 | 5.8 | Maps URL patterns to view controllers or handlers, for deep links and in-app navigation. |
 
 ## Observability
 
@@ -213,8 +229,8 @@ Apple native: `Sign in with Apple (AuthenticationServices)` (iOS 13) · `Passkey
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🟢 | [GoogleSignIn-iOS](https://github.com/google/GoogleSignIn-iOS) | 758 | 2026-10 | 2026-11 | 15 | 6.0 | Sign in with Google. |
-| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 468 | 2026-10 | 2026-10 | 15 | 6.0 | Auth0 authentication SDK. |
+| 🟢 | [GoogleSignIn-iOS](https://github.com/google/GoogleSignIn-iOS) | 759 | 2026-10 | 2026-11 | 15 | 6.0 | Sign in with Google. |
+| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 468 | 2026-10 | 2026-11 | 15 | 6.0 | Auth0 authentication SDK. |
 
 ### Backend as a service
 
@@ -317,7 +333,7 @@ Apple native: `AsyncSequence / AsyncStream (back-deployed to iOS 13 with Xcode 1
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[swift-collections](https://github.com/apple/swift-collections)** | 4.5k | 2026-10 | 2026-10 | — | 6.4 | Deque, OrderedSet, OrderedDictionary, Heap and more. |
+| 🏆 | **[swift-collections](https://github.com/apple/swift-collections)** | 4.5k | 2026-10 | 2026-11 | — | 6.4 | Deque, OrderedSet, OrderedDictionary, Heap and more. |
 
 ### Sequence algorithms
 
@@ -382,7 +398,7 @@ Apple native: `Swift Testing #expect / #require` (Xcode 16)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[swift-concurrency-extras](https://github.com/pointfreeco/swift-concurrency-extras)** | 490 | 2026-10 | 2026-10 | 13 | 6.0 | Utilities for testing Swift concurrency code. |
+| 🏆 | **[swift-concurrency-extras](https://github.com/pointfreeco/swift-concurrency-extras)** | 491 | 2026-10 | 2026-10 | 13 | 6.0 | Utilities for testing Swift concurrency code. |
 
 ## Tooling
 
@@ -390,7 +406,7 @@ Apple native: `Swift Testing #expect / #require` (Xcode 16)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[SwiftLint](https://github.com/realm/SwiftLint)** | 19.8k | 2026-08 | 2026-09 | — | 5.9 | Enforces Swift style and conventions. |
+| 🏆 | **[SwiftLint](https://github.com/realm/SwiftLint)** | 19.8k | 2026-08 | 2026-11 | — | 5.9 | Enforces Swift style and conventions. |
 
 ### Formatting
 
@@ -441,7 +457,7 @@ Apple native: `xcodebuild archive / -exportArchive` · `Xcode Cloud`
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[fastlane](https://github.com/fastlane/fastlane)** | 42.3k | 2026-10 | 2026-11 | — | 4.0 | Automates signing, screenshots, builds and releases. |
+| 🏆 | **[fastlane](https://github.com/fastlane/fastlane)** | 42.4k | 2026-10 | 2026-11 | — | 4.0 | Automates signing, screenshots, builds and releases. |
 | 🟢 | [App-Store-Connect-CLI](https://github.com/rorkai/App-Store-Connect-CLI) | 8.2k | 2026-11 | 2026-11 | — | — | CLI for App Store Connect: builds, TestFlight, metadata, submissions. |
 
 ## AI agent tooling
@@ -459,7 +475,7 @@ Apple native: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [source](https:/
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
 | 🏆 | **[mobile-mcp](https://github.com/mobile-next/mobile-mcp)** | 10.3k | 2026-11 | 2026-11 | — | — | MCP server to drive iOS and Android simulators and devices. |
-| 🟢 | [agent-device](https://github.com/callstack/agent-device) | 5.2k | 2026-11 | 2026-11 | — | — | CLI, MCP server and Node.js API to control mobile, web, TV and desktop apps on devices and simulators. |
+| 🟢 | [agent-device](https://github.com/callstack/agent-device) | 5.3k | 2026-11 | 2026-11 | — | — | CLI, MCP server and Node.js API to control mobile, web, TV and desktop apps on devices and simulators. |
 | 🟢 | [AXe](https://github.com/cameroncooke/AXe) | 2.3k | 2026-07 | 2026-07 | — | 5.10 | CLI for Simulator UI automation through accessibility APIs. |
 | 🟢 | [ios-simulator-mcp](https://github.com/joshuayoes/ios-simulator-mcp) | 2.2k | 2026-10 | 2026-10 | — | — | MCP server to tap, type and inspect UI in the iOS Simulator. |
 | 🟢 | [sim-use](https://github.com/lycorp-jp/sim-use) | 1.5k | 2026-10 | 2026-10 | — | 5.10 | CLI for AI agents to read and act on iOS Simulator, Android emulator/device and physical iPhone screens. |
@@ -475,7 +491,7 @@ Apple native: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [source](https:/
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |
 |:-:|---|--:|---|---|---|---|---|
-| 🏆 | **[twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill)** | 6.4k | 2026-10 | 2026-10 | — | — | SwiftUI agent skill. |
+| 🏆 | **[twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill)** | 6.5k | 2026-10 | 2026-10 | — | — | SwiftUI agent skill. |
 | 🟢 | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | 3.8k | 2026-10 | 2026-10 | — | — | SwiftUI agent skill. |
 
 ### Swift Concurrency skills

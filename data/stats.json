@@ -16,7 +16,7 @@
    "released": "2026-09-10",
    "spm": true,
    "spm_version": "5.12.2",
-   "stars": 42396,
+   "stars": 42395,
    "swift_tools": "6.4",
    "url": "https://github.com/Alamofire/Alamofire"
   },
@@ -48,7 +48,7 @@
    "released": "2026-10-02",
    "spm": false,
    "spm_version": null,
-   "stars": 3817,
+   "stars": 3821,
    "swift_tools": null,
    "url": "https://github.com/AvdLee/SwiftUI-Agent-Skill"
   },
@@ -67,7 +67,7 @@
    "released": "2024-02-16",
    "spm": true,
    "spm_version": "5.1.0",
-   "stars": 27972,
+   "stars": 27971,
    "swift_tools": "5.3",
    "url": "https://github.com/ChartsOrg/Charts"
   },
@@ -145,7 +145,7 @@
    "released": "2022-08-12",
    "spm": true,
    "spm_version": "15.0.3",
-   "stars": 15354,
+   "stars": 15353,
    "swift_tools": "5.3",
    "url": "https://github.com/Moya/Moya"
   },
@@ -171,14 +171,14 @@
    "last_commit": "2026-11-03",
    "license": "NOASSERTION",
    "min_ios": "13",
-   "package_swift_at": "3.93.3",
+   "package_swift_at": "3.93.4",
    "products": [
     "PostHog"
    ],
-   "release_tag": "3.93.3",
-   "released": "2026-11-02",
+   "release_tag": "3.93.4",
+   "released": "2026-11-03",
    "spm": true,
-   "spm_version": "3.93.3",
+   "spm_version": "3.93.4",
    "stars": 120,
    "swift_tools": "5.3",
    "url": "https://github.com/PostHog/posthog-ios"
@@ -237,6 +237,26 @@
    "swift_tools": "5.7",
    "url": "https://github.com/Quick/Quick"
   },
+  "QuickBirdEng/XCoordinator": {
+   "archived": false,
+   "ios_platform": "declared",
+   "last_commit": "2023-02-28",
+   "license": "MIT",
+   "min_ios": "9",
+   "package_swift_at": "2.2.1",
+   "products": [
+    "XCoordinator",
+    "XCoordinatorCombine",
+    "XCoordinatorRx"
+   ],
+   "release_tag": "2.2.1",
+   "released": "2023-02-28",
+   "spm": true,
+   "spm_version": "2.2.1",
+   "stars": 2392,
+   "swift_tools": "5.1",
+   "url": "https://github.com/QuickBirdEng/XCoordinator"
+  },
   "ReactiveX/RxSwift": {
    "archived": false,
    "ios_platform": "declared",
@@ -260,7 +280,7 @@
    "released": "2026-03-02",
    "spm": true,
    "spm_version": "6.10.2",
-   "stars": 24632,
+   "stars": 24628,
    "swift_tools": "5.5",
    "url": "https://github.com/ReactiveX/RxSwift"
   },
@@ -270,17 +290,17 @@
    "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "13",
-   "package_swift_at": "5.101.0",
+   "package_swift_at": "5.102.0",
    "products": [
     "ReceiptParser",
     "RevenueCat",
     "RevenueCatUI",
     "RevenueCat_CustomEntitlementComputation"
    ],
-   "release_tag": "5.101.0",
-   "released": "2026-11-02",
+   "release_tag": "5.102.0",
+   "released": "2026-11-03",
    "spm": true,
-   "spm_version": "5.101.0",
+   "spm_version": "5.102.0",
    "stars": 3091,
    "swift_tools": "5.9",
    "url": "https://github.com/RevenueCat/purchases-ios"
@@ -300,7 +320,7 @@
    "released": "2026-02-26",
    "spm": true,
    "spm_version": "5.21.7",
-   "stars": 25611,
+   "stars": 25609,
    "swift_tools": "5.3",
    "url": "https://github.com/SDWebImage/SDWebImage"
   },
@@ -337,7 +357,7 @@
    "released": "2026-05-31",
    "spm": true,
    "spm_version": "6.0.0",
-   "stars": 20344,
+   "stars": 20341,
    "swift_tools": "6.0",
    "url": "https://github.com/SnapKit/SnapKit"
   },
@@ -410,7 +430,7 @@
    "released": "2024-03-27",
    "spm": true,
    "spm_version": "5.0.2",
-   "stars": 22924,
+   "stars": 22922,
    "swift_tools": "5.3",
    "url": "https://github.com/SwiftyJSON/SwiftyJSON"
   },
@@ -490,7 +510,7 @@
    "released": "2026-06-13",
    "spm": true,
    "spm_version": "4.6.1",
-   "stars": 26927,
+   "stars": 26926,
    "swift_tools": "6.0",
    "url": "https://github.com/airbnb/lottie-ios"
   },
@@ -508,7 +528,7 @@
    "released": "2025-02-10",
    "spm": true,
    "spm_version": "1.2.1",
-   "stars": 6340,
+   "stars": 6341,
    "swift_tools": "5.7",
    "url": "https://github.com/apple/swift-algorithms"
   },
@@ -527,14 +547,14 @@
    "released": "2026-09-30",
    "spm": true,
    "spm_version": "1.1.7",
-   "stars": 3713,
+   "stars": 3714,
    "swift_tools": "6.2",
    "url": "https://github.com/apple/swift-async-algorithms"
   },
   "apple/swift-collections": {
    "archived": false,
    "ios_platform": "not-declared",
-   "last_commit": "2026-10-27",
+   "last_commit": "2026-11-03",
    "license": "Apache-2.0",
    "min_ios": null,
    "package_swift_at": "1.7.5",
@@ -543,27 +563,27 @@
    "released": "2026-10-27",
    "spm": true,
    "spm_version": "1.7.5",
-   "stars": 4530,
+   "stars": 4531,
    "swift_tools": "6.4",
    "url": "https://github.com/apple/swift-collections"
   },
   "apple/swift-crypto": {
    "archived": false,
    "ios_platform": "not-declared",
-   "last_commit": "2026-11-02",
+   "last_commit": "2026-11-03",
    "license": "Apache-2.0",
    "min_ios": null,
-   "package_swift_at": "5.1.0",
+   "package_swift_at": "5.1.1",
    "products": [
     "CCryptoBoringSSL",
     "Crypto",
     "CryptoExtras"
    ],
-   "release_tag": "5.1.0",
-   "released": "2026-11-02",
+   "release_tag": "5.1.1",
+   "released": "2026-11-03",
    "spm": true,
-   "spm_version": "5.1.0",
-   "stars": 1739,
+   "spm_version": "5.1.1",
+   "stars": 1740,
    "swift_tools": "6.2",
    "url": "https://github.com/apple/swift-crypto"
   },
@@ -582,7 +602,7 @@
    "released": "2026-10-22",
    "spm": true,
    "spm_version": "1.16.2",
-   "stars": 4056,
+   "stars": 4057,
    "swift_tools": "6.2",
    "url": "https://github.com/apple/swift-log"
   },
@@ -598,14 +618,14 @@
    "released": "2026-10-26",
    "spm": true,
    "spm_version": "1.14.3",
-   "stars": 1994,
+   "stars": 1995,
    "swift_tools": "6.2",
    "url": "https://github.com/apple/swift-openapi-generator"
   },
   "apple/swift-protobuf": {
    "archived": false,
    "ios_platform": "not-declared",
-   "last_commit": "2026-11-02",
+   "last_commit": "2026-11-03",
    "license": "Apache-2.0",
    "min_ios": null,
    "package_swift_at": "1.39.0",
@@ -642,7 +662,7 @@
   "auth0/Auth0.swift": {
    "archived": false,
    "ios_platform": "declared",
-   "last_commit": "2026-10-22",
+   "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "15",
    "package_swift_at": "3.2.0",
@@ -687,7 +707,7 @@
    "released": "2026-11-02",
    "spm": false,
    "spm_version": null,
-   "stars": 5248,
+   "stars": 5257,
    "swift_tools": null,
    "url": "https://github.com/callstack/agent-device"
   },
@@ -705,7 +725,7 @@
    "released": "2026-07-20",
    "spm": true,
    "spm_version": "1.8.0",
-   "stars": 2310,
+   "stars": 2312,
    "swift_tools": "5.10",
    "url": "https://github.com/cameroncooke/AXe"
   },
@@ -739,7 +759,7 @@
    "released": "2026-04-04",
    "spm": true,
    "spm_version": "3.2.1",
-   "stars": 1554,
+   "stars": 1555,
    "swift_tools": "6.1",
    "url": "https://github.com/cpisciotta/xcbeautify"
   },
@@ -760,6 +780,25 @@
    "stars": 8638,
    "swift_tools": "5.3",
    "url": "https://github.com/daltoniam/Starscream"
+  },
+  "devxoul/URLNavigator": {
+   "archived": false,
+   "ios_platform": "declared",
+   "last_commit": "2023-07-09",
+   "license": "MIT",
+   "min_ios": "11",
+   "package_swift_at": "2.5.1",
+   "products": [
+    "URLMatcher",
+    "URLNavigator"
+   ],
+   "release_tag": "2.5.1",
+   "released": "2023-07-09",
+   "spm": true,
+   "spm_version": "2.5.1",
+   "stars": 3340,
+   "swift_tools": "5.8",
+   "url": "https://github.com/devxoul/URLNavigator"
   },
   "evgenyneu/keychain-swift": {
    "archived": false,
@@ -793,7 +832,7 @@
    "released": null,
    "spm": true,
    "spm_version": "5.0.9",
-   "stars": 4063,
+   "stars": 4062,
    "swift_tools": "6.0",
    "url": "https://github.com/exyte/PopupView"
   },
@@ -811,14 +850,14 @@
    "released": "2026-10-26",
    "spm": true,
    "spm_version": "2.241.2",
-   "stars": 42346,
+   "stars": 42352,
    "swift_tools": "4.0",
    "url": "https://github.com/fastlane/fastlane"
   },
   "firebase/firebase-ios-sdk": {
    "archived": false,
    "ios_platform": "declared",
-   "last_commit": "2026-11-02",
+   "last_commit": "2026-11-04",
    "license": "Apache-2.0",
    "min_ios": "15",
    "package_swift_at": "13.1.1",
@@ -866,7 +905,7 @@
    "released": "2026-09-23",
    "spm": false,
    "spm_version": null,
-   "stars": 6534,
+   "stars": 6536,
    "swift_tools": null,
    "url": "https://github.com/getsentry/MobileBuildMCP"
   },
@@ -949,7 +988,7 @@
    "released": "2026-10-23",
    "spm": true,
    "spm_version": "10.1.0",
-   "stars": 758,
+   "stars": 759,
    "swift_tools": "6.0",
    "url": "https://github.com/google/GoogleSignIn-iOS"
   },
@@ -969,7 +1008,7 @@
    "released": "2026-11-01",
    "spm": true,
    "spm_version": "7.12.0",
-   "stars": 8721,
+   "stars": 8723,
    "swift_tools": "6.1",
    "url": "https://github.com/groue/GRDB.swift"
   },
@@ -989,9 +1028,27 @@
    "released": "2026-10-28",
    "spm": true,
    "spm_version": "3.5.2",
-   "stars": 2926,
+   "stars": 2927,
    "swift_tools": "6.1",
    "url": "https://github.com/hmlongco/Factory"
+  },
+  "johnpatrickmorgan/FlowStacks": {
+   "archived": false,
+   "ios_platform": "declared",
+   "last_commit": "2025-10-10",
+   "license": "MIT",
+   "min_ios": "14",
+   "package_swift_at": "0.9.0",
+   "products": [
+    "FlowStacks"
+   ],
+   "release_tag": "0.9.0",
+   "released": "2025-08-29",
+   "spm": true,
+   "spm_version": "0.9.0",
+   "stars": 971,
+   "swift_tools": "5.10",
+   "url": "https://github.com/johnpatrickmorgan/FlowStacks"
   },
   "joshuayoes/ios-simulator-mcp": {
    "archived": false,
@@ -1064,7 +1121,7 @@
    "released": "2026-06-10",
    "spm": true,
    "spm_version": "5.2.3",
-   "stars": 7252,
+   "stars": 7253,
    "swift_tools": "5.10",
    "url": "https://github.com/kean/Pulse"
   },
@@ -1138,7 +1195,7 @@
    "released": "2026-10-21",
    "spm": true,
    "spm_version": "0.16.0",
-   "stars": 1526,
+   "stars": 1529,
    "swift_tools": "5.10",
    "url": "https://github.com/lycorp-jp/sim-use"
   },
@@ -1156,7 +1213,7 @@
    "released": "2024-11-05",
    "spm": true,
    "spm_version": "7.8.0",
-   "stars": 9548,
+   "stars": 9547,
    "swift_tools": "5.6",
    "url": "https://github.com/mac-cain13/R.swift"
   },
@@ -1172,7 +1229,7 @@
    "released": "2026-11-02",
    "spm": false,
    "spm_version": null,
-   "stars": 10255,
+   "stars": 10275,
    "swift_tools": null,
    "url": "https://github.com/mobile-next/mobile-mcp"
   },
@@ -1190,7 +1247,7 @@
    "released": "2026-10-31",
    "spm": true,
    "spm_version": "0.64.5",
-   "stars": 8954,
+   "stars": 8955,
    "swift_tools": "5.7",
    "url": "https://github.com/nicklockwood/SwiftFormat"
   },
@@ -1208,14 +1265,14 @@
    "released": "2026-11-03",
    "spm": true,
    "spm_version": "8.15.0",
-   "stars": 24406,
+   "stars": 24404,
    "swift_tools": "6.2",
    "url": "https://github.com/onevcat/Kingfisher"
   },
   "pointfreeco/sqlite-data": {
    "archived": false,
    "ios_platform": "declared",
-   "last_commit": "2026-11-02",
+   "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": "16",
    "package_swift_at": "1.12.1",
@@ -1264,7 +1321,7 @@
    "released": "2026-10-14",
    "spm": true,
    "spm_version": "1.4.3",
-   "stars": 490,
+   "stars": 491,
    "swift_tools": "6.0",
    "url": "https://github.com/pointfreeco/swift-concurrency-extras"
   },
@@ -1324,7 +1381,7 @@
    "released": "2026-08-31",
    "spm": true,
    "spm_version": "2.11.2",
-   "stars": 2294,
+   "stars": 2295,
    "swift_tools": "6.4",
    "url": "https://github.com/pointfreeco/swift-navigation"
   },
@@ -1344,14 +1401,14 @@
    "released": "2026-10-21",
    "spm": true,
    "spm_version": "1.19.7",
-   "stars": 4388,
+   "stars": 4389,
    "swift_tools": "6.0",
    "url": "https://github.com/pointfreeco/swift-snapshot-testing"
   },
   "realm/SwiftLint": {
    "archived": false,
    "ios_platform": "ios-not-listed",
-   "last_commit": "2026-09-28",
+   "last_commit": "2026-11-03",
    "license": "MIT",
    "min_ios": null,
    "package_swift_at": "0.65.1",
@@ -1362,7 +1419,7 @@
    "released": "2026-08-21",
    "spm": true,
    "spm_version": "0.65.1",
-   "stars": 19779,
+   "stars": 19778,
    "swift_tools": "5.9",
    "url": "https://github.com/realm/SwiftLint"
   },
@@ -1381,14 +1438,14 @@
    "released": "2026-09-27",
    "spm": true,
    "spm_version": "20.0.6",
-   "stars": 16600,
+   "stars": 16598,
    "swift_tools": "6.2.1",
    "url": "https://github.com/realm/realm-swift"
   },
   "rive-app/rive-ios": {
    "archived": false,
    "ios_platform": "declared",
-   "last_commit": "2026-11-03",
+   "last_commit": "2026-11-04",
    "license": "MIT",
    "min_ios": "14.0",
    "package_swift_at": "6.29.0",
@@ -1415,7 +1472,7 @@
    "released": "2026-11-03",
    "spm": false,
    "spm_version": null,
-   "stars": 8225,
+   "stars": 8236,
    "swift_tools": null,
    "url": "https://github.com/rorkai/App-Store-Connect-CLI"
   },
@@ -1431,7 +1488,7 @@
    "released": null,
    "spm": false,
    "spm_version": null,
-   "stars": 1122,
+   "stars": 1123,
    "swift_tools": null,
    "url": "https://github.com/rorkai/app-store-connect-cli-skills"
   },
@@ -1564,7 +1621,7 @@
    "released": "2026-09-16",
    "spm": true,
    "spm_version": "604.0.0",
-   "stars": 2966,
+   "stars": 2967,
    "swift_tools": "6.0",
    "url": "https://github.com/swiftlang/swift-format"
   },
@@ -1582,14 +1639,14 @@
    "released": "2026-09-21",
    "spm": true,
    "spm_version": "0.9.0",
-   "stars": 3451,
+   "stars": 3454,
    "swift_tools": "6.2",
    "url": "https://github.com/swiftlang/swift-markdown"
   },
   "tuist/tuist": {
    "archived": false,
    "ios_platform": "ios-not-listed",
-   "last_commit": "2026-11-03",
+   "last_commit": "2026-11-04",
    "license": "NOASSERTION",
    "min_ios": null,
    "package_swift_at": "HEAD",
@@ -1614,11 +1671,11 @@
     "TuistTesting",
     "TuistXCActivityLog"
    ],
-   "release_tag": "runner-image@0.51.0",
-   "released": "2026-11-02",
+   "release_tag": "helm@0.265.0",
+   "released": "2026-11-03",
    "spm": true,
    "spm_version": null,
-   "stars": 5860,
+   "stars": 5857,
    "swift_tools": "6.1",
    "url": "https://github.com/tuist/tuist"
   },
@@ -1634,7 +1691,7 @@
    "released": null,
    "spm": false,
    "spm_version": null,
-   "stars": 2974,
+   "stars": 2976,
    "swift_tools": null,
    "url": "https://github.com/twostraws/Swift-Agent-Skills"
   },
@@ -1666,9 +1723,46 @@
    "released": "2026-10-09",
    "spm": false,
    "spm_version": null,
-   "stars": 6448,
+   "stars": 6458,
    "swift_tools": null,
    "url": "https://github.com/twostraws/SwiftUI-Agent-Skill"
+  },
+  "uber/RIBs-iOS": {
+   "archived": false,
+   "ios_platform": "declared",
+   "last_commit": "2026-07-12",
+   "license": "Apache-2.0",
+   "min_ios": "15.0",
+   "package_swift_at": "1.1.0",
+   "products": [
+    "RIBs"
+   ],
+   "release_tag": "1.1.0",
+   "released": "2026-07-12",
+   "spm": true,
+   "spm_version": "1.1.0",
+   "stars": 193,
+   "swift_tools": "5.5",
+   "url": "https://github.com/uber/RIBs-iOS"
+  },
+  "uber/needle": {
+   "archived": false,
+   "ios_platform": "not-declared",
+   "last_commit": "2026-04-29",
+   "license": "Apache-2.0",
+   "min_ios": null,
+   "package_swift_at": "v0.25.1",
+   "products": [
+    "NeedleFoundation",
+    "NeedleFoundationTest"
+   ],
+   "release_tag": "v0.25.1",
+   "released": "2024-09-06",
+   "spm": true,
+   "spm_version": "0.25.1",
+   "stars": 2018,
+   "swift_tools": "5.10",
+   "url": "https://github.com/uber/needle"
   },
   "yonaskolb/XcodeGen": {
    "archived": false,
@@ -1685,7 +1779,7 @@
    "released": "2026-07-16",
    "spm": true,
    "spm_version": "2.46.0",
-   "stars": 8921,
+   "stars": 8923,
    "swift_tools": "5.9",
    "url": "https://github.com/yonaskolb/XcodeGen"
   }
