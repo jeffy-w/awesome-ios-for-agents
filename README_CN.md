@@ -4,7 +4,7 @@
 
 **用数据挑选 iOS 开源库，给人看，也给 AI 编程 agent 用。**
 
-每个库都列出同样的数据：star 数、最近一次 Release、最近一次提交、最低 iOS 版本、Swift tools 版本。每个分类的首选按固定规则算出。数据更新于 **2026-11-03**，之后由 GitHub Actions 每周刷新。
+每个库都列出同样的数据：star 数、最近一次 Release、最近一次提交、最低 iOS 版本、Swift tools 版本。每个分类的首选按固定规则算出。数据更新于 **2026-11-04**，之后由 GitHub Actions 每周刷新。
 
 ## 给 agent 用
 

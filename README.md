@@ -4,7 +4,7 @@
 
 **Pick iOS open-source libraries by data, for people and for AI coding agents.**
 
-Every library shows the same facts: stars, latest release, last commit, minimum iOS and Swift tools version. The top pick in each category comes from a fixed rule. Data refreshed **2026-11-03** and every week by GitHub Actions.
+Every library shows the same facts: stars, latest release, last commit, minimum iOS and Swift tools version. The top pick in each category comes from a fixed rule. Data refreshed **2026-11-04** and every week by GitHub Actions.
 
 ## For agents
 

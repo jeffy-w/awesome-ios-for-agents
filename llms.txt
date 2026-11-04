@@ -2,7 +2,7 @@
 
 > Catalog of iOS open-source libraries with objective data (stars, release, last commit, min iOS, Swift tools version) and a computed top pick per category.
 
-Data date: 2026-11-03. Machine-readable data: https://github.com/jeffy-w/awesome-ios-for-agents/raw/main/catalog.json
+Data date: 2026-11-04. Machine-readable data: https://github.com/jeffy-w/awesome-ios-for-agents/raw/main/catalog.json
 
 Rules: last activity = latest GitHub release date; for repos with no GitHub release, the last commit date on the default branch. Status: active < 365 days, slowing < 730 days, inactive otherwise, or archived. Rank: within a category, entries with status active or slowing that are not add-ons (addon_of) are sorted by stars, highest first; rank 1 is the top pick. Categories with ranked=false (provider-specific SDKs) are not ranked. Package.swift: min_ios, swift_tools and products are read from Package.swift at the latest release tag; if that tag is not a version number, at the highest version tag among the latest 100 tags; otherwise at the default branch. package_swift_at names the ref used. Kind: library = can be added as an app dependency; tool = developer tool or build plugin, never an app library dependency
 
