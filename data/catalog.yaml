@@ -11,8 +11,8 @@
 #             (set on a section, or on a category to override)
 #   products  override the SPM library products when Package.swift builds them dynamically;
 #             products_source must link to where the names are documented
-# Stars, release, last commit, min iOS, swift-tools-version and products are fetched by
-# scripts/refresh.py. Status and rank are computed by scripts/build.py.
+# Stars, release, last commit, min iOS, swift-tools-version, products, Swift language mode and issue
+# replies are fetched by scripts/refresh.py. Status and rank are computed by scripts/build.py.
 # One category = one purpose, so star counts inside a category are comparable.
 
 sections:

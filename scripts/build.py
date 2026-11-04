@@ -32,6 +32,21 @@ RULES = {
     "package_swift": ("min_ios, swift_tools and products are read from Package.swift at the latest release tag; "
                       "if that tag is not a version number, at the highest version tag among the latest 100 tags; "
                       "otherwise at the default branch. package_swift_at names the ref used."),
+    "swift_language_mode": ("language mode of the targets an app links (targets of library products and the package "
+                            "targets they depend on; every regular and executable target when there is no library product), from `swift package dump-package` "
+                            "with the Swift version in swift_version, so the version-specific manifest that Swift picks is used. "
+                            "Only targets with .swift files count; \"none\" = no such target (ObjC/C library); null = no Package.swift or it could not be read. "
+                            "Settings limited to a build configuration or trait do not count toward strict_concurrency. "
+                            "\"6\" = all in Swift 6 mode, \"5\" = none, \"6/5\" = mixed. strict_concurrency = true when every "
+                            "target left in Swift 5 mode enables complete strict concurrency checking. A package's own mode "
+                            "does not change your app's mode; it shows whether the library's API was checked for data races."),
+    "issue_response": ("share of issues answered by maintainers: issues (not pull requests) opened in issue_window "
+                       "(12 months ending 30 days before the data date) by people outside the project, latest 100 "
+                       "per repo (issues_sampled counts those by outside people). Answered = a maintainer other than the author commented, or a person other than "
+                       "the author closed it; bots do not count. Maintainers = OWNER, MEMBER or COLLABORATOR, plus "
+                       "anyone who closed, labeled or assigned someone else's issue. issue_response is null when "
+                       "fewer than 5 issues were sampled (see issues_sampled and issues_answered) or issues are "
+                       "disabled (issues_enabled=false). Shown for information; not used for rank."),
     "kind": "library = can be added as an app dependency; tool = developer tool or build plugin, never an app library dependency",
 }
 
@@ -67,7 +82,9 @@ def load():
     catalog = yaml.safe_load((ROOT / "data" / "catalog.yaml").read_text())
     stats = json.loads((ROOT / "data" / "stats.json").read_text())
     today = stats["refreshed"]
-    out = {"generated": today, "source": REPO_URL, "rules": RULES, "sections": []}
+    out = {"generated": today, "source": REPO_URL, "swift_version": stats.get("swift_version"),
+           "issue_window": stats.get("issue_window"),
+           "rules": RULES, "sections": []}
     for sec in catalog["sections"]:
         s = {"id": sec["id"], "title": sec["title"], "categories": []}
         for cat in sec["categories"]:
@@ -90,6 +107,10 @@ def load():
                     "products_source": lib.get("products_source"),
                     "min_ios": version_number(st["min_ios"]), "ios_platform": st.get("ios_platform"),
                     "swift_tools": st["swift_tools"],
+                    "swift_language_mode": st.get("swift_language_mode"),
+                    "strict_concurrency": st.get("strict_concurrency"),
+                    "issues_enabled": st.get("issues_enabled"), "issues_sampled": st.get("issues_sampled"),
+                    "issues_answered": st.get("issues_answered"), "issue_response": st.get("issue_response"),
                     "package_swift_at": st.get("package_swift_at"),
                     "license": st["license"], "rank": None,
                 })
@@ -117,7 +138,7 @@ T = {
     "en": dict(
         file="README.md", other="[中文](README_CN.md)",
         tagline="Pick iOS open-source libraries by data, for people and for AI coding agents.",
-        intro=("Every library shows the same facts: stars, latest release, last commit, minimum iOS and Swift tools version. "
+        intro=("Every library shows the same facts: stars, latest release, last commit, minimum iOS, Swift tools version, Swift language mode and issue reply rate. "
                "The top pick in each category comes from a fixed rule. Data refreshed **{date}** and every week by GitHub Actions."),
         agents_h="For agents",
         agents=("Install the `ios-starter` skill, then ask your agent to start a new iOS app. It asks what the app needs, "
@@ -130,6 +151,8 @@ T = {
             "**Status**: 🟢 active (< 1 year) · 🟡 slowing (1–2 years) · ⚪ inactive (≥ 2 years) · 🗄 archived.",
             "**🏆 Top pick** = the most-starred 🟢/🟡 entry in its category. Add-ons of another entry are not ranked. Categories of provider SDKs (backend, payments, analytics, crash reporting, sign-in) are *not ranked*: pick by service.",
             "**Min iOS** and **Swift tools** come from `Package.swift` at the latest release tag (or the highest version tag when the release tag is not a version number; otherwise the default branch).",
+            "**Swift mode** is the language mode the library's own targets build in, read with `swift package dump-package` (Swift {swift}): `6` · `5` · `6/5` (some targets each) · `strict` = Swift 5 mode with complete concurrency checking. Only targets with Swift sources count, so ObjC/C-only libraries show `ObjC/C`; `—` = not a Swift package or not readable. It does not change your app's mode; `6` means the library's API was checked for data races, so Swift 6 code that uses it needs fewer `@preconcurrency` workarounds.",
+            "**Issue replies** = share of issues from outside the project, opened {since} to {until}, that a maintainer answered or closed (latest 100 per repo; bots do not count). Fewer than 5 issues shows the raw count, e.g. `0/2`; `off` = issues disabled. Shown for information, not used for the top pick.",
             "**Apple native** lists the system API for the same job and its minimum OS.",
             "Categories and descriptions are written by hand and only say what a project does. Notes quote a source. Status and rank are computed by [`scripts/build.py`](scripts/build.py).",
         ],
@@ -145,7 +168,7 @@ T = {
         contents_h="Contents",
         native="Apple native",
         not_ranked="*Not ranked: provider SDKs, pick by service.*",
-        cols="| | Library | Stars | Release | Last commit | Min iOS | Swift tools | What it does |",
+        cols="| | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |",
         note="Note", source="source",
         contrib_h="Contributing",
         contrib=("Add an entry to [`data/catalog.yaml`](data/catalog.yaml): the `repo` and a `does` line that says what it does. "
@@ -155,7 +178,7 @@ T = {
     "zh": dict(
         file="README_CN.md", other="[English](README.md)",
         tagline="用数据挑选 iOS 开源库，给人看，也给 AI 编程 agent 用。",
-        intro=("每个库都列出同样的数据：star 数、最近一次 Release、最近一次提交、最低 iOS 版本、Swift tools 版本。"
+        intro=("每个库都列出同样的数据：star 数、最近一次 Release、最近一次提交、最低 iOS 版本、Swift tools 版本、Swift 语言模式和 issue 回复率。"
                "每个分类的首选按固定规则算出。数据更新于 **{date}**，之后由 GitHub Actions 每周刷新。"),
         agents_h="给 agent 用",
         agents=("安装 `ios-starter` skill，然后让 agent 新建一个 iOS 应用。它会先问清楚应用需要什么，"
@@ -167,6 +190,8 @@ T = {
             "**状态**：🟢 活跃（< 1 年）· 🟡 放缓（1–2 年）· ⚪ 不活跃（≥ 2 年）· 🗄 已归档。",
             "**🏆 首选** = 分类中 star 最多的 🟢/🟡 条目。依附于其他库的扩展不参与排名。服务商 SDK 的分类（后端、付费、数据分析、崩溃监控、第三方登录）*不排名*，按服务本身选择。",
             "**最低 iOS** 和 **Swift tools** 读取自最新 Release 标签下的 `Package.swift`（Release 标签不是版本号时，用最高的版本号标签；都没有时用默认分支）。",
+            "**Swift 模式** 是库自己的 target 用哪种语言模式编译，用 `swift package dump-package`（Swift {swift}）读取：`6` · `5` · `6/5`（各有一部分 target）· `strict` = Swift 5 模式但开了完整并发检查。只统计含 Swift 源码的 target，纯 ObjC/C 库显示 `ObjC/C`；`—` = 不是 Swift 包或读取失败。它不会改变你的 App 的语言模式；`6` 表示库的 API 做过数据竞争检查，你的 Swift 6 代码用它时较少需要 `@preconcurrency` 之类的绕行。",
+            "**Issue 回复** = {since} 至 {until} 期间项目外部人员提的 issue 中，被维护者回复或关闭的比例（每个仓库取最近 100 个；bot 不算）。不足 5 个时显示原始数量，如 `0/2`；`off` = 仓库关闭了 issue。仅供参考，不参与首选计算。",
             "**Apple 原生** 列出能完成同样工作的系统 API 及其最低系统版本。",
             "分类和描述是人工编写的，只说明项目做什么；备注引用来源原文。状态和排名由 [`scripts/build.py`](scripts/build.py) 计算。",
         ],
@@ -182,7 +207,7 @@ T = {
         contents_h="目录",
         native="Apple 原生",
         not_ranked="*不排名：服务商 SDK，按服务本身选择。*",
-        cols="| | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | 用途 |",
+        cols="| | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | Swift 模式 | Issue 回复 | 用途 |",
         note="备注", source="来源",
         contrib_h="参与贡献",
         contrib=("在 [`data/catalog.yaml`](data/catalog.yaml) 里添加条目：写上 `repo` 和一句说明用途的 `does`。"
@@ -210,6 +235,25 @@ def anchor(text):
     return "".join(out)
 
 
+def mode_text(l):
+    mode = l["swift_language_mode"]
+    if not mode:
+        return DASH
+    if mode == "none":
+        return "ObjC/C"
+    return f"{mode} strict" if l["strict_concurrency"] else mode
+
+
+def issue_text(l):
+    if l["issues_enabled"] is False:
+        return "off"
+    if l["issue_response"] is not None:
+        return f"{round(l['issue_response'] * 100)}%"
+    if l["issues_sampled"] is not None:
+        return f"{l['issues_answered']}/{l['issues_sampled']}"
+    return DASH
+
+
 def native_text(n, lang):
     ver = f"iOS {n['ios']:g}" if n["ios"] is not None else (f"Xcode {n['xcode']}" if n["xcode"] else "")
     s = f"`{n['api']}`" + (f" ({ver})" if ver else "")
@@ -225,7 +269,9 @@ def readme(data, lang):
          f"## {t['agents_h']}", "", t["agents"], "", "```bash",
          f"npx skills add {REPO}@ios-starter -g -y", "```", "", t["agents_raw"], "",
          f"## {t['rules_h']}", ""]
-    L += [f"- {r}" for r in t["rules"]]
+    since, until = data["issue_window"] or ("?", "?")
+    L += [f"- {r.replace('{swift}', data['swift_version'] or '?').replace('{since}', since).replace('{until}', until)}"
+          for r in t["rules"]]
     L += ["", f"## {t['recipes_h']}", "", t["recipes_intro"], "", t["recipes_cols"], "|---|---|---|---|"]
     for name, slug, defined, pkg, ok in t["recipes"]:
         L.append(f"| [{name}](skills/ios-starter/recipes/{slug}.md) | {defined} | {pkg} | {ok} |")
@@ -241,7 +287,7 @@ def readme(data, lang):
                 L += [f"{t['native']}: " + " · ".join(native_text(n, lang) for n in c["native"]), ""]
             if not c["ranked"]:
                 L += [t["not_ranked"], ""]
-            L += [t["cols"], "|:-:|---|--:|---|---|---|---|---|"]
+            L += [t["cols"], "|:-:|---|--:|---|---|---|---|---|--:|---|"]
             notes = []
             for l in c["libs"]:
                 mark = "🏆" if l["rank"] == 1 else ICON[l["status"]]
@@ -250,7 +296,7 @@ def readme(data, lang):
                 com = (l["last_commit"] or "")[:7] or DASH
                 ios = f"{l['min_ios']:g}" if l["min_ios"] is not None else DASH
                 L.append(f"| {mark} | {name} | {stars(l['stars'])} | {rel} | {com} | {ios} | "
-                         f"{l['swift_tools'] or DASH} | {l['does'][lang]} |")
+                         f"{l['swift_tools'] or DASH} | {mode_text(l)} | {issue_text(l)} | {l['does'][lang]} |")
                 if l["note"]:
                     notes.append(f"> **{t['note']}** · {l['name']}: {l['note'][lang]} ([{t['source']}]({l['note']['source']}))")
             if notes:
@@ -264,11 +310,13 @@ def llms(data):
         return "unknown" if x is None else (f"{x:g}" if isinstance(x, float) else x)
     L = ["# Awesome iOS for Agents", "",
          "> Catalog of iOS open-source libraries with objective data (stars, release, last commit, min iOS, "
-         "Swift tools version) and a computed top pick per category.", "",
+         "Swift tools version, Swift language mode) and a computed top pick per category.", "",
          f"Data date: {data['generated']}. Machine-readable data: {REPO_URL}/raw/main/catalog.json", "",
          f"Rules: last activity = {RULES['last_activity']}. Status: active < {ACTIVE_DAYS} days, "
          f"slowing < {INACTIVE_DAYS} days, inactive otherwise, or archived. Rank: {RULES['rank']} "
-         f"Package.swift: {RULES['package_swift']} Kind: {RULES['kind']}", "",
+         f"Package.swift: {RULES['package_swift']} Swift language mode (swift_mode, Swift {data['swift_version'] or 'unknown'}): "
+         f"{RULES['swift_language_mode']} Issue replies (issues): {RULES['issue_response']} "
+         f"issue_window: {' to '.join(data['issue_window'] or ['unknown'])}. Kind: {RULES['kind']}", "",
          "## Recipes", ""]
     for slug in ("xcodegen", "tuist", "mobilebuildmcp", "xcode-mcp", "verify"):
         L.append(f"- [{slug}]({REPO_URL}/blob/main/skills/ios-starter/recipes/{slug}.md)")
@@ -282,7 +330,9 @@ def llms(data):
             for l in c["libs"]:
                 top = " TOP" if l["rank"] == 1 else ""
                 L.append(f"- {l['repo']} [{l['status']}{top}] stars={l['stars']} last_activity={v(l['last_activity'])} "
-                         f"min_ios={v(l['min_ios'])} spm_version={v(l['spm_version'])} — {l['does']['en']}")
+                         f"min_ios={v(l['min_ios'])} spm_version={v(l['spm_version'])} "
+                         f"swift_mode={v(mode_text(l).replace(DASH, '') or None).replace(' ', '+')} "
+                         f"issues={v(issue_text(l).replace(DASH, '') or None)} — {l['does']['en']}")
     (ROOT / "llms.txt").write_text("\n".join(L) + "\n")
 
 
