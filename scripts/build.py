@@ -47,6 +47,9 @@ RULES = {
                        "anyone who closed, labeled or assigned someone else's issue. issue_response is null when "
                        "fewer than 5 issues were sampled (see issues_sampled and issues_answered) or issues are "
                        "disabled (issues_enabled=false). Shown for information; not used for rank."),
+    "stale": ("a value that cannot be read in a refresh keeps the last value read: swift_mode_checked and "
+              "issues_checked give the date it was read, swift_mode_error and issues_error say why this refresh "
+              "failed, and stale lists the fields whose value is older than generated."),
     "kind": "library = can be added as an app dependency; tool = developer tool or build plugin, never an app library dependency",
 }
 
@@ -109,8 +112,12 @@ def load():
                     "swift_tools": st["swift_tools"],
                     "swift_language_mode": st.get("swift_language_mode"),
                     "strict_concurrency": st.get("strict_concurrency"),
+                    "swift_mode_checked": st.get("swift_mode_checked"), "swift_mode_error": st.get("swift_mode_error"),
                     "issues_enabled": st.get("issues_enabled"), "issues_sampled": st.get("issues_sampled"),
                     "issues_answered": st.get("issues_answered"), "issue_response": st.get("issue_response"),
+                    "issues_checked": st.get("issues_checked"), "issues_error": st.get("issues_error"),
+                    "stale": [k for k, c in (("swift_language_mode", st.get("swift_mode_checked")),
+                                             ("issues", st.get("issues_checked"))) if c and c < today],
                     "package_swift_at": st.get("package_swift_at"),
                     "license": st["license"], "rank": None,
                 })
@@ -153,6 +160,7 @@ T = {
             "**Min iOS** and **Swift tools** come from `Package.swift` at the latest release tag (or the highest version tag when the release tag is not a version number; otherwise the default branch).",
             "**Swift mode** is the language mode the library's own targets build in, read with `swift package dump-package` (Swift {swift}): `6` · `5` · `6/5` (some targets each) · `strict` = Swift 5 mode with complete concurrency checking. Only targets with Swift sources count, so ObjC/C-only libraries show `ObjC/C`; `—` = not a Swift package or not readable. It does not change your app's mode; `6` means the library's API was checked for data races, so Swift 6 code that uses it needs fewer `@preconcurrency` workarounds.",
             "**Issue replies** = share of issues from outside the project, opened {since} to {until}, that a maintainer answered or closed (latest 100 per repo; bots do not count). Fewer than 5 issues shows the raw count, e.g. `0/2`; `off` = issues disabled. Shown for information, not used for the top pick.",
+            "`*` after a Swift mode or issue value = it could not be read this time, so the last value read is kept; `swift_mode_checked` and `issues_checked` in catalog.json give its date.",
             "**Apple native** lists the system API for the same job and its minimum OS.",
             "Categories and descriptions are written by hand and only say what a project does. Notes quote a source. Status and rank are computed by [`scripts/build.py`](scripts/build.py).",
         ],
@@ -192,6 +200,7 @@ T = {
             "**最低 iOS** 和 **Swift tools** 读取自最新 Release 标签下的 `Package.swift`（Release 标签不是版本号时，用最高的版本号标签；都没有时用默认分支）。",
             "**Swift 模式** 是库自己的 target 用哪种语言模式编译，用 `swift package dump-package`（Swift {swift}）读取：`6` · `5` · `6/5`（各有一部分 target）· `strict` = Swift 5 模式但开了完整并发检查。只统计含 Swift 源码的 target，纯 ObjC/C 库显示 `ObjC/C`；`—` = 不是 Swift 包或读取失败。它不会改变你的 App 的语言模式；`6` 表示库的 API 做过数据竞争检查，你的 Swift 6 代码用它时较少需要 `@preconcurrency` 之类的绕行。",
             "**Issue 回复** = {since} 至 {until} 期间项目外部人员提的 issue 中，被维护者回复或关闭的比例（每个仓库取最近 100 个；bot 不算）。不足 5 个时显示原始数量，如 `0/2`；`off` = 仓库关闭了 issue。仅供参考，不参与首选计算。",
+            "Swift 模式或 issue 回复后面带 `*` = 这次没读到，沿用上次读到的值；日期见 catalog.json 的 `swift_mode_checked` 和 `issues_checked`。",
             "**Apple 原生** 列出能完成同样工作的系统 API 及其最低系统版本。",
             "分类和描述是人工编写的，只说明项目做什么；备注引用来源原文。状态和排名由 [`scripts/build.py`](scripts/build.py) 计算。",
         ],
@@ -239,18 +248,18 @@ def mode_text(l):
     mode = l["swift_language_mode"]
     if not mode:
         return DASH
-    if mode == "none":
-        return "ObjC/C"
-    return f"{mode} strict" if l["strict_concurrency"] else mode
+    text = "ObjC/C" if mode == "none" else (f"{mode} strict" if l["strict_concurrency"] else mode)
+    return text + ("*" if "swift_language_mode" in l["stale"] else "")
 
 
 def issue_text(l):
     if l["issues_enabled"] is False:
         return "off"
+    star = "*" if "issues" in l["stale"] else ""
     if l["issue_response"] is not None:
-        return f"{round(l['issue_response'] * 100)}%"
+        return f"{round(l['issue_response'] * 100)}%{star}"
     if l["issues_sampled"] is not None:
-        return f"{l['issues_answered']}/{l['issues_sampled']}"
+        return f"{l['issues_answered']}/{l['issues_sampled']}{star}"
     return DASH
 
 
@@ -316,7 +325,8 @@ def llms(data):
          f"slowing < {INACTIVE_DAYS} days, inactive otherwise, or archived. Rank: {RULES['rank']} "
          f"Package.swift: {RULES['package_swift']} Swift language mode (swift_mode, Swift {data['swift_version'] or 'unknown'}): "
          f"{RULES['swift_language_mode']} Issue replies (issues): {RULES['issue_response']} "
-         f"issue_window: {' to '.join(data['issue_window'] or ['unknown'])}. Kind: {RULES['kind']}", "",
+         f"issue_window: {' to '.join(data['issue_window'] or ['unknown'])}. Stale values (marked *): {RULES['stale']} "
+         f"Kind: {RULES['kind']}", "",
          "## Recipes", ""]
     for slug in ("xcodegen", "tuist", "mobilebuildmcp", "xcode-mcp", "verify"):
         L.append(f"- [{slug}]({REPO_URL}/blob/main/skills/ios-starter/recipes/{slug}.md)")

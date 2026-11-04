@@ -24,6 +24,7 @@ agent 也可以直接读取数据：[`catalog.json`](catalog.json) · [`llms.txt
 - **最低 iOS** 和 **Swift tools** 读取自最新 Release 标签下的 `Package.swift`（Release 标签不是版本号时，用最高的版本号标签；都没有时用默认分支）。
 - **Swift 模式** 是库自己的 target 用哪种语言模式编译，用 `swift package dump-package`（Swift 6.4.2）读取：`6` · `5` · `6/5`（各有一部分 target）· `strict` = Swift 5 模式但开了完整并发检查。只统计含 Swift 源码的 target，纯 ObjC/C 库显示 `ObjC/C`；`—` = 不是 Swift 包或读取失败。它不会改变你的 App 的语言模式；`6` 表示库的 API 做过数据竞争检查，你的 Swift 6 代码用它时较少需要 `@preconcurrency` 之类的绕行。
 - **Issue 回复** = 2025-10-05 至 2026-10-05 期间项目外部人员提的 issue 中，被维护者回复或关闭的比例（每个仓库取最近 100 个；bot 不算）。不足 5 个时显示原始数量，如 `0/2`；`off` = 仓库关闭了 issue。仅供参考，不参与首选计算。
+- Swift 模式或 issue 回复后面带 `*` = 这次没读到，沿用上次读到的值；日期见 catalog.json 的 `swift_mode_checked` 和 `issues_checked`。
 - **Apple 原生** 列出能完成同样工作的系统 API 及其最低系统版本。
 - 分类和描述是人工编写的，只说明项目做什么；备注引用来源原文。状态和排名由 [`scripts/build.py`](scripts/build.py) 计算。
 

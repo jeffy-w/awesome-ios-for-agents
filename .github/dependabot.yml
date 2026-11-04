@@ -1,0 +1,8 @@
+version: 2
+updates:
+  # The Swift image that reads Package.swift files. Merge its PRs soon after a Swift release:
+  # manifests that need a newer Swift cannot be read, and the refresh workflow fails until then.
+  - package-ecosystem: docker
+    directory: /scripts/swift
+    schedule:
+      interval: weekly

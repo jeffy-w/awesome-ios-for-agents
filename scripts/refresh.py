@@ -7,15 +7,20 @@ minimum iOS and library product names. The Swift language mode of the library ta
 `swift package dump-package`, so SwiftPM itself picks the version-specific manifest
 (Package@swift-X.Y.swift) and evaluates the settings.
 
-Manifests are Swift code from third parties. On macOS SwiftPM runs them in its sandbox; on other
-systems each runs in its own pinned Swift container: no network, no GitHub token, and only its own
-manifest folder mounted read-only.
+Manifests are Swift code from third parties. Each runs in its own container of the pinned image in
+scripts/swift/Dockerfile: no network, no GitHub token, and only its own manifest folder mounted
+read-only. On macOS without Docker the local Swift is used instead, inside SwiftPM's sandbox.
 
 Needs the GitHub CLI (`gh`) authenticated, or GH_TOKEN set (as in GitHub Actions).
-Usage: python3 scripts/refresh.py
+A value that cannot be read in a run keeps the last value read (swift_mode_checked / issues_checked
+say when). `--check` exits 1 when the data needs attention, e.g. a manifest needs a newer Swift.
+
+Usage: python3 scripts/refresh.py            # fetch and write data/stats.json
+       python3 scripts/refresh.py --check    # exit 1 if stats.json needs attention
 """
 import json
 import platform
+import shutil
 from urllib.parse import quote
 import posixpath
 import re
@@ -48,14 +53,22 @@ ISSUE_FIELDS = """
     } }
   } }
 """
-# Container used off macOS, pinned by digest (multi-arch index of swift:6.4.2).
-# Keep it close to the Swift in the latest Xcode; update tag and digest together.
-SWIFT_IMAGE = "swift:6.4.2@sha256:119ff7d833ea622851b459513333bb4bda5ebb32b7acd05dd05077d5b0383129"
+# Swift image (tag@digest) from scripts/swift/Dockerfile, which Dependabot keeps current.
+def pinned_image():
+    m = re.search(r"^FROM\s+(?:--\S+\s+)*(\S+)", (ROOT / "scripts" / "swift" / "Dockerfile").read_text(), re.M)
+    if not m or not re.fullmatch(r"[\w./-]+:[\w.-]+@sha256:[0-9a-f]{64}", m.group(1)):
+        raise SystemExit("scripts/swift/Dockerfile: FROM must be image:tag@sha256:<digest>")
+    return m.group(1)
+
+
+SWIFT_IMAGE = pinned_image()
 # No network, no host environment, unprivileged user, read-only root, bounded processes and memory.
 SANDBOX = ["--network", "none", "--user", "65534:65534", "--cap-drop", "ALL",
            "--security-opt", "no-new-privileges", "--pids-limit", "256", "--memory", "2g",
            "--read-only", "--tmpfs", "/tmp:rw,exec", "-e", "HOME=/tmp"]
-MAX_FAILURES = 0.5  # more failed dumps or issue searches than this share = abort, keep old stats.json
+MAX_FAILURES = 0.5  # `--check` fails when more repos than this share could not be read this run
+MAX_STALE_DAYS = 28  # `--check` fails when a kept value is older than this
+NEEDS_SWIFT = re.compile(r"using Swift tools version ([0-9.]+) but the installed version is ([0-9.]+)")
 
 FIELDS = """
   nameWithOwner url stargazerCount isArchived hasIssuesEnabled
@@ -275,31 +288,51 @@ def swift_files(repo, ref, dump):
     return sorted(set(files))  # nested target folders are listed more than once
 
 
-def dump_one(d: Path):
+def use_container():
+    """The pinned image everywhere Docker runs, so local and CI results match. Without Docker,
+    macOS falls back to the local Swift (SwiftPM sandbox); other systems have no safe fallback."""
+    try:
+        if shutil.which("docker") and subprocess.run(["docker", "info"], capture_output=True, timeout=30).returncode == 0:
+            return True
+    except subprocess.TimeoutExpired:
+        pass
+    if platform.system() == "Darwin" and shutil.which("swift"):
+        print("Docker not running: reading Package.swift with the local Swift, results may differ from CI",
+              file=sys.stderr)
+        return False
+    return None
+
+
+def dump_one(d: Path, container: bool):
     """Run `swift package dump-package` on one manifest folder; return (stdout, stderr).
 
-    macOS: SwiftPM's own sandbox. Elsewhere: one container per manifest, no network, no environment
-    from this process (so no GitHub token), and only this folder mounted, read-only.
+    Container: one per manifest, no network, no environment from this process (so no GitHub
+    token), unprivileged, and only this folder mounted, read-only. Native: SwiftPM's macOS sandbox.
     """
-    if platform.system() == "Darwin":
-        cmd = ["swift", "package", "dump-package", "--package-path", str(d)]
-    else:
+    if container:
         cmd = ["docker", "run", "--rm", "--name", f"dump-{d.parent.name}-{d.name}", *SANDBOX,
                "-v", f"{d}:/w:ro", SWIFT_IMAGE, "swift", "package", "dump-package", "--package-path", "/w"]
+    else:
+        cmd = ["swift", "package", "dump-package", "--package-path", str(d)]
     try:
         res = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
     except subprocess.TimeoutExpired:
-        if cmd[0] == "docker":
+        if container:
             subprocess.run(["docker", "kill", cmd[4]], capture_output=True)
         return "", "timed out after 300s"
     return res.stdout, res.stderr
 
 
 def dump_packages(manifests):
-    """{repo: {filename: text}} -> ({repo: dump-package JSON or None}, Swift version). Prints failures."""
-    out = {}
-    if platform.system() != "Darwin":
-        subprocess.run(["docker", "pull", "-q", SWIFT_IMAGE], check=True, stdout=subprocess.DEVNULL)
+    """{repo: {filename: text}} -> ({repo: JSON or None}, {repo: error}, Swift version or None).
+    Never raises: when Swift cannot run at all, every repo gets the same error. The third value is
+    the Swift version actually used, the fourth the image (or "local") it came from."""
+    container = use_container()
+    if container is None:
+        return {r: None for r in manifests}, {r: "no Docker or Swift to read manifests" for r in manifests}, None, None
+    if container and subprocess.run(["docker", "pull", "-q", SWIFT_IMAGE], capture_output=True).returncode != 0:
+        return {r: None for r in manifests}, {r: f"cannot pull {SWIFT_IMAGE}" for r in manifests}, None, None
+    out, errors = {}, {}
     with tempfile.TemporaryDirectory() as root:
         dirs = {}
         for i, (repo, files) in enumerate(sorted(manifests.items())):
@@ -309,19 +342,21 @@ def dump_packages(manifests):
                 (d / name).write_text(text)
             dirs[repo] = d
         with ThreadPoolExecutor(max_workers=4) as pool:
-            results = dict(zip(dirs, pool.map(dump_one, dirs.values())))
+            results = dict(zip(dirs, pool.map(lambda d: dump_one(d, container), dirs.values())))
     for repo, (stdout, stderr) in results.items():
         try:
             out[repo] = json.loads(stdout)
         except json.JSONDecodeError:
-            err = stderr.strip().splitlines() or ["no output"]
-            print(f"dump-package failed for {repo}: {err[-1][:200]}", file=sys.stderr)
             out[repo] = None
-    version = subprocess.run(["swift", "--version"] if platform.system() == "Darwin" else
-                             ["docker", "run", "--rm", *SANDBOX, SWIFT_IMAGE, "swift", "--version"],
-                             capture_output=True, text=True).stdout
+            m = NEEDS_SWIFT.search(stderr)
+            lines = stderr.strip().splitlines()
+            line = next((x for x in lines if "error:" in x.lower()), lines[-1] if lines else "no output")
+            errors[repo] = f"needs Swift {m.group(1)}" if m else line[:200]
+            print(f"dump-package failed for {repo}: {errors[repo]}", file=sys.stderr)
+    version = subprocess.run(["docker", "run", "--rm", *SANDBOX, SWIFT_IMAGE, "swift", "--version"] if container
+                             else ["swift", "--version"], capture_output=True, text=True).stdout
     m = re.search(r"Swift version ([0-9.]+)", version)
-    return out, (m.group(1) if m else None)
+    return out, errors, (m.group(1) if m else None), (SWIFT_IMAGE.split("@")[0] if container else "local")
 
 
 def issue_window(today: date):
@@ -425,7 +460,7 @@ def main():
     tags = {r: best_tag((d.get("latestRelease") or {}).get("tagName"),
                         [n["name"] for n in (d.get("refs") or {}).get("nodes") or []])
             for r, d in raw.items()}
-    pkg_at_tag, variants = {}, {}
+    pkg_at_tag, variants, root_files = {}, {}, {}
     for chunk in batched(repos):
         parts = [f'r{i}: repository(owner: "{r.split("/")[0]}", name: "{r.split("/")[1]}") {{ '
                  f'object(expression: "{tags[r] or "HEAD"}:Package.swift") {{ ... on Blob {{ text }} }} '
@@ -440,6 +475,7 @@ def main():
                 pkg_at_tag[r] = obj["text"]
             tree = d.get("tree") if r in pkg_at_tag else d.get("headTree")
             names = [e["name"] for e in ((tree or {}).get("entries") or [])]
+            root_files[r] = set(names) if names else None  # None = listing not fetched
             variants[r] = [n for n in names if re.fullmatch(r"Package@swift-[0-9.]+\.swift", n)]
 
     # Every manifest at the ref, so dump-package picks the one the current Swift would use.
@@ -462,20 +498,14 @@ def main():
                 obj = (data.get(f"r{i}") or {}).get(f"v{j}")
                 if obj and obj.get("text"):
                     manifests[r][n] = obj["text"]
-    dumps, swift_version = dump_packages(manifests)
-    failed = [r for r in manifests if dumps.get(r) is None]
-    if len(failed) > MAX_FAILURES * len(manifests):
-        raise SystemExit(f"dump-package failed for {len(failed)} of {len(manifests)} repos; stats.json left unchanged")
+    dumps, mode_errors, swift_version, swift_image = dump_packages(manifests)
     refs = {r: tags[r] if r in pkg_at_tag else "HEAD" for r in manifests}
     with ThreadPoolExecutor(max_workers=4) as pool:
         swift_src = dict(zip(dumps, pool.map(lambda r: swift_files(r, refs[r], dumps[r]) if dumps[r] else None,
                                              list(dumps))))
-    failed = [r for r in dumps if dumps[r] is None or swift_src[r] is None]
-    if len(failed) > MAX_FAILURES * len(manifests):
-        raise SystemExit(f"language mode unknown for {len(failed)} of {len(manifests)} repos "
-                         "(dump-package or file listing failed); stats.json left unchanged")
-    if failed:
-        print("language mode unknown (dump or file listing failed): " + ", ".join(sorted(failed)), file=sys.stderr)
+    for r in dumps:
+        if dumps[r] is not None and swift_src[r] is None:
+            mode_errors[r] = "cannot list source files"
 
     # Issue responses: the latest issues (up to 100, not PRs) in the window, per repo with issues enabled.
     since, until = issue_window(date.today())
@@ -485,9 +515,24 @@ def main():
         for r, x in zip(open_issues, pool.map(lambda r: issue_search(r, since, until), open_issues)):
             if x is not None:
                 issue_data[r] = x
-    if len(open_issues) - len(issue_data) > MAX_FAILURES * len(open_issues):
-        raise SystemExit(f"issue search failed for {len(open_issues) - len(issue_data)} of {len(open_issues)} "
-                         "repos; stats.json left unchanged")
+
+    # A value that cannot be read this run keeps the last one read; *_checked says when that was.
+    today = date.today().isoformat()
+    try:
+        old = json.loads(STATS.read_text())
+    except (OSError, json.JSONDecodeError):
+        old = {}
+    prev = old.get("repos", {})
+    lost = "Package.swift not found or not fetched"
+    for r in repos:
+        p = prev.get(r) or {}
+        gone = root_files.get(r) is not None and "Package.swift" not in root_files[r]
+        if r not in manifests and not gone and (p.get("spm") or p.get("swift_mode_error") == lost):
+            # Was a Swift package and the root listing did not load: a failed fetch, not a removed file.
+            # Keep the old Package.swift facts and report it.
+            mode_errors[r] = lost
+    old_date = old.get("refreshed")
+    checked = lambda r, key: (prev.get(r) or {}).get(key, old_date if r in prev else None)
 
     stats = {}
     for repo, d in raw.items():
@@ -497,16 +542,30 @@ def main():
         if dumps.get(repo) and files is not None:
             all_dirs = {d for t in dumps[repo]["targets"] for d in target_dirs(t)}
             mode, strict = swift_mode(dumps[repo], lambda t: has_swift(t, files, all_dirs))
-        else:
-            mode, strict = None, None
+            swift = {"swift_language_mode": mode, "strict_concurrency": strict,
+                     "swift_mode_checked": today, "swift_mode_error": None}
+        elif repo in mode_errors:
+            p = prev.get(repo) or {}
+            swift = {"swift_language_mode": p.get("swift_language_mode"),
+                     "strict_concurrency": p.get("strict_concurrency"),
+                     "swift_mode_checked": checked(repo, "swift_mode_checked") if p.get("swift_language_mode") else None,
+                     "swift_mode_error": mode_errors[repo]}
+        else:  # no Package.swift: not a Swift package, nothing to read
+            swift = {"swift_language_mode": None, "strict_concurrency": None,
+                     "swift_mode_checked": today, "swift_mode_error": None}
+        keys = ("issues_sampled", "issues_answered", "issue_response")
         if not d.get("hasIssuesEnabled"):
-            issues = {"issues_enabled": False, "issues_sampled": None, "issues_answered": None, "issue_response": None}
+            issues = {"issues_enabled": False, **dict.fromkeys(keys), "issues_checked": today, "issues_error": None}
         elif repo in issue_data:
             n, a = issue_response(issue_data[repo]["nodes"])
             issues = {"issues_enabled": True, "issues_sampled": n, "issues_answered": a,
-                      "issue_response": round(a / n, 2) if n >= ISSUE_MIN else None}
+                      "issue_response": round(a / n, 2) if n >= ISSUE_MIN else None,
+                      "issues_checked": today, "issues_error": None}
         else:
-            issues = {"issues_enabled": True, "issues_sampled": None, "issues_answered": None, "issue_response": None}
+            p = prev.get(repo) or {}
+            issues = {"issues_enabled": True, **{k: p.get(k) for k in keys},
+                      "issues_checked": checked(repo, "issues_checked") if p.get("issues_sampled") is not None else None,
+                      "issues_error": "issue search failed"}
         release = d.get("latestRelease") or {}
         commit = ((d.get("defaultBranchRef") or {}).get("target") or {}).get("committedDate")
         stats[repo] = {
@@ -524,20 +583,67 @@ def main():
             "min_ios": min_ios,
             "ios_platform": ios_platform if tools else None,
             "products": products,
-            "swift_language_mode": mode,
-            "strict_concurrency": strict,
+            **swift,
             **issues,
         }
+        if mode_errors.get(repo) == lost:
+            for key in ("spm", "spm_version", "swift_tools", "min_ios", "ios_platform", "products", "package_swift_at"):
+                stats[repo][key] = (prev.get(repo) or {}).get(key)
 
     tmp = STATS.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps({"refreshed": date.today().isoformat(), "swift_version": swift_version,
+    if not any(dumps.values()):  # Swift did not run: every mode is a kept value, so keep what produced them
+        swift_version, swift_image = old.get("swift_version"), old.get("swift_image")
+    tmp.write_text(json.dumps({"refreshed": today, "swift_version": swift_version, "swift_image": swift_image,
                                "issue_window": [since, until],
                                "repos": stats},
                               indent=1, sort_keys=True) + "\n")
     tmp.replace(STATS)
     print(f"refreshed {len(stats)} repos; Package.swift read at a release tag for {len(pkg_at_tag)}; "
-          f"language mode read for {sum(1 for v in stats.values() if v['swift_language_mode'])} with Swift {swift_version}")
+          f"language mode read for {sum(1 for r in manifests if r not in mode_errors)} of {len(manifests)} "
+          f"with Swift {swift_version}; issues read for {len(issue_data)} of {len(open_issues)}")
+
+
+def check():
+    """Exit 1 when stats.json needs attention: a manifest needs a newer Swift than the pinned image,
+    or more than MAX_FAILURES of the repos could not be read this run. Run after the data is committed."""
+    data = json.loads(STATS.read_text())
+    repos = data["repos"].values()
+    newer = sorted({v["swift_mode_error"] for v in repos if (v.get("swift_mode_error") or "").startswith("needs Swift")})
+    spm = [v for v in repos if v.get("spm") or v.get("swift_mode_error")]
+    mode_failed = sum(1 for v in spm if v.get("swift_mode_error"))
+    enabled = [v for v in repos if v.get("issues_enabled")]
+    issue_failed = sum(1 for v in enabled if v.get("issues_error"))
+    refreshed = date.fromisoformat(data["refreshed"])
+    old_values = sorted(f"{r} ({key} {v[key]})" for r, v in data["repos"].items()
+                        for key in ("swift_mode_checked", "issues_checked")
+                        if v.get(key) and (refreshed - date.fromisoformat(v[key])).days > MAX_STALE_DAYS)
+    problems = []
+    if newer:
+        problems.append(f"Package.swift files need a newer Swift than {data.get('swift_image')} "
+                        f"({', '.join(newer)}): merge the Dependabot PR for scripts/swift/Dockerfile, "
+                        "or update its FROM line (tag and digest). If no Swift image of that version is "
+                        "published yet (e.g. a beta tools version), wait for it")
+    if data.get("swift_image") == "local":
+        problems.append("language modes were read with the local Swift, not the pinned image; "
+                        "rerun scripts/refresh.py with Docker running before committing")
+    never = sorted(f"{r} ({v.get('swift_mode_error') or v.get('issues_error')})" for r, v in data["repos"].items()
+                   if (v.get("swift_mode_error") and not v.get("swift_mode_checked"))
+                   or (v.get("issues_error") and not v.get("issues_checked")))
+    if never:
+        problems.append(f"never read successfully: {', '.join(never[:20])}" + (" ..." if len(never) > 20 else ""))
+    if old_values:
+        problems.append(f"values not read for over {MAX_STALE_DAYS} days: {', '.join(old_values[:20])}"
+                        + (" ..." if len(old_values) > 20 else ""))
+    if mode_failed > MAX_FAILURES * len(spm):
+        problems.append(f"language mode could not be read for {mode_failed} of {len(spm)} repos")
+    if issue_failed > MAX_FAILURES * len(enabled):
+        problems.append(f"issue search failed for {issue_failed} of {len(enabled)} repos")
+    for p in problems:
+        print(f"::error::{p}")
+    print(f"check: Swift {data.get('swift_version')}; mode errors {mode_failed}/{len(spm)}; "
+          f"issue errors {issue_failed}/{len(enabled)}")
+    raise SystemExit(1 if problems else 0)
 
 
 if __name__ == "__main__":
-    main()
+    check() if sys.argv[1:] == ["--check"] else main()

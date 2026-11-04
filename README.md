@@ -24,6 +24,7 @@ Agents can also read the data directly: [`catalog.json`](catalog.json) · [`llms
 - **Min iOS** and **Swift tools** come from `Package.swift` at the latest release tag (or the highest version tag when the release tag is not a version number; otherwise the default branch).
 - **Swift mode** is the language mode the library's own targets build in, read with `swift package dump-package` (Swift 6.4.2): `6` · `5` · `6/5` (some targets each) · `strict` = Swift 5 mode with complete concurrency checking. Only targets with Swift sources count, so ObjC/C-only libraries show `ObjC/C`; `—` = not a Swift package or not readable. It does not change your app's mode; `6` means the library's API was checked for data races, so Swift 6 code that uses it needs fewer `@preconcurrency` workarounds.
 - **Issue replies** = share of issues from outside the project, opened 2025-10-05 to 2026-10-05, that a maintainer answered or closed (latest 100 per repo; bots do not count). Fewer than 5 issues shows the raw count, e.g. `0/2`; `off` = issues disabled. Shown for information, not used for the top pick.
+- `*` after a Swift mode or issue value = it could not be read this time, so the last value read is kept; `swift_mode_checked` and `issues_checked` in catalog.json give its date.
 - **Apple native** lists the system API for the same job and its minimum OS.
 - Categories and descriptions are written by hand and only say what a project does. Notes quote a source. Status and rank are computed by [`scripts/build.py`](scripts/build.py).
 
