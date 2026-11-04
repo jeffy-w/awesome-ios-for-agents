@@ -34,7 +34,7 @@ Native: NWPathMonitor (Network framework) (iOS 12)
 ## Image loading & caching
 Native: AsyncImage (iOS 15)
 - SDWebImage/SDWebImage [active TOP] stars=25609 last_activity=2026-02-26 min_ios=9 spm_version=5.21.7 swift_mode=ObjC/C issues=38% — Image downloader and cache, with coders for animated WebP, AVIF and HEIC.
-- onevcat/Kingfisher [active] stars=24404 last_activity=2026-11-03 min_ios=15 spm_version=8.15.0 swift_mode=5 issues=83% — Downloads and caches remote images for UIKit and SwiftUI.
+- onevcat/Kingfisher [active] stars=24403 last_activity=2026-11-03 min_ios=15 spm_version=8.15.0 swift_mode=5 issues=83% — Downloads and caches remote images for UIKit and SwiftUI.
 - kean/Nuke [active] stars=8691 last_activity=2026-11-02 min_ios=15 spm_version=13.2.1 swift_mode=6 issues=100% — Image loading pipeline with caching, prefetching and progressive decoding.
 - SDWebImage/SDWebImageSwiftUI [slowing] stars=2563 last_activity=2025-11-03 min_ios=14 spm_version=3.1.4 swift_mode=5 issues=1/3 — SwiftUI views for SDWebImage.
 
@@ -104,7 +104,7 @@ Native: StoreKit 2 (iOS 15)
 ## Third-party sign-in (not ranked)
 Native: Sign in with Apple (AuthenticationServices) (iOS 13); Passkeys (AuthenticationServices) (iOS 16)
 - google/GoogleSignIn-iOS [active] stars=759 last_activity=2026-10-23 min_ios=15 spm_version=10.1.0 swift_mode=6 issues=62% — Sign in with Google.
-- auth0/Auth0.swift [active] stars=468 last_activity=2026-10-22 min_ios=15 spm_version=3.2.0 swift_mode=6 issues=85% — Auth0 authentication SDK.
+- auth0/Auth0.swift [active] stars=468 last_activity=2026-11-04 min_ios=15 spm_version=3.3.0 swift_mode=6 issues=85% — Auth0 authentication SDK.
 
 ## Backend as a service (not ranked)
 - firebase/firebase-ios-sdk [active] stars=6979 last_activity=2026-10-22 min_ios=15 spm_version=13.1.1 swift_mode=6/5 issues=92% — Firebase SDK: Firestore, Auth, Storage, Functions and more.
@@ -131,7 +131,7 @@ Native: PhaseAnimator / KeyframeAnimator (iOS 17)
 
 ## Charts
 Native: Swift Charts (iOS 16)
-- ChartsOrg/Charts [inactive] stars=27971 last_activity=2024-02-16 min_ios=12 spm_version=5.1.0 swift_mode=5 issues=0/3 — Chart library for UIKit (DGCharts).
+- ChartsOrg/Charts [inactive] stars=27970 last_activity=2024-02-16 min_ios=12 spm_version=5.1.0 swift_mode=5 issues=0/3 — Chart library for UIKit (DGCharts).
 
 ## Markdown rendering
 Native: AttributedString(markdown:) (iOS 15)
@@ -160,7 +160,7 @@ Native: AsyncSequence / AsyncStream (back-deployed to iOS 13 with Xcode 13.2+) (
 
 ## JSON
 Native: Codable + JSONDecoder (Swift 4)
-- SwiftyJSON/SwiftyJSON [inactive] stars=22922 last_activity=2024-03-27 min_ios=unknown spm_version=5.0.2 swift_mode=5 issues=1/4 — JSON access with subscripts.
+- SwiftyJSON/SwiftyJSON [inactive] stars=22921 last_activity=2024-03-27 min_ios=unknown spm_version=5.0.2 swift_mode=5 issues=1/4 — JSON access with subscripts.
 
 ## Cryptography
 Native: CryptoKit (iOS 13)
@@ -216,7 +216,7 @@ Native: Generated asset symbols (ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMB
 ## Release & App Store Connect [tool]
 Native: xcodebuild archive / -exportArchive; Xcode Cloud
 - fastlane/fastlane [active TOP] stars=42355 last_activity=2026-10-26 min_ios=unknown spm_version=2.241.2 swift_mode=5 issues=92% — Automates signing, screenshots, builds and releases.
-- rorkai/App-Store-Connect-CLI [active] stars=8242 last_activity=2026-11-04 min_ios=unknown spm_version=unknown swift_mode=unknown issues=100% — CLI for App Store Connect: builds, TestFlight, metadata, submissions.
+- rorkai/App-Store-Connect-CLI [active] stars=8243 last_activity=2026-11-04 min_ios=unknown spm_version=unknown swift_mode=unknown issues=100% — CLI for App Store Connect: builds, TestFlight, metadata, submissions.
 
 ## Build & run MCP servers [tool]
 Native: xcrun mcpbridge (Xcode MCP server) (Xcode 26.3)
@@ -231,10 +231,10 @@ Native: xcrun mcpbridge (Xcode MCP server) (Xcode 26.3)
 
 ## Apple docs for agents [tool]
 - kimsungwhee/apple-docs-mcp [slowing TOP] stars=1382 last_activity=2025-09-15 min_ios=unknown spm_version=unknown swift_mode=unknown issues=0% — MCP server to search Apple developer documentation.
-- NSHipster/sosumi.ai [active] stars=482 last_activity=2026-09-10 min_ios=unknown spm_version=unknown swift_mode=unknown issues=96% — Serves Apple developer docs as Markdown for AI tools.
+- NSHipster/sosumi.ai [active] stars=483 last_activity=2026-09-10 min_ios=unknown spm_version=unknown swift_mode=unknown issues=96% — Serves Apple developer docs as Markdown for AI tools.
 
 ## SwiftUI skills [tool]
-- twostraws/SwiftUI-Agent-Skill [active TOP] stars=6460 last_activity=2026-10-09 min_ios=unknown spm_version=unknown swift_mode=unknown issues=54% — SwiftUI agent skill.
+- twostraws/SwiftUI-Agent-Skill [active TOP] stars=6461 last_activity=2026-10-09 min_ios=unknown spm_version=unknown swift_mode=unknown issues=54% — SwiftUI agent skill.
 - AvdLee/SwiftUI-Agent-Skill [active] stars=3822 last_activity=2026-10-02 min_ios=unknown spm_version=unknown swift_mode=unknown issues=79% — SwiftUI agent skill.
 
 ## Swift Concurrency skills [tool]

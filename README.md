@@ -233,7 +233,7 @@ Apple native: `Sign in with Apple (AuthenticationServices)` (iOS 13) · `Passkey
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🟢 | [GoogleSignIn-iOS](https://github.com/google/GoogleSignIn-iOS) | 759 | 2026-10 | 2026-11 | 15 | 6.0 | 6 | 62% | Sign in with Google. |
-| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 468 | 2026-10 | 2026-11 | 15 | 6.0 | 6 | 85% | Auth0 authentication SDK. |
+| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 468 | 2026-11 | 2026-11 | 15 | 6.0 | 6 | 85% | Auth0 authentication SDK. |
 
 ### Backend as a service
 
@@ -488,7 +488,7 @@ Apple native: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [source](https:/
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🏆 | **[apple-docs-mcp](https://github.com/kimsungwhee/apple-docs-mcp)** | 1.4k | 2025-09 | 2026-03 | — | — | — | 0% | MCP server to search Apple developer documentation. |
-| 🟢 | [sosumi.ai](https://github.com/NSHipster/sosumi.ai) | 482 | 2026-09 | 2026-10 | — | — | — | 96% | Serves Apple developer docs as Markdown for AI tools. |
+| 🟢 | [sosumi.ai](https://github.com/NSHipster/sosumi.ai) | 483 | 2026-09 | 2026-10 | — | — | — | 96% | Serves Apple developer docs as Markdown for AI tools. |
 
 ### SwiftUI skills
 

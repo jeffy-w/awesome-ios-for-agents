@@ -233,7 +233,7 @@ Apple 原生: `Sign in with Apple (AuthenticationServices)` (iOS 13) · `Passkey
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | Swift 模式 | Issue 回复 | 用途 |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🟢 | [GoogleSignIn-iOS](https://github.com/google/GoogleSignIn-iOS) | 759 | 2026-10 | 2026-11 | 15 | 6.0 | 6 | 62% | Google 账号登录。 |
-| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 468 | 2026-10 | 2026-11 | 15 | 6.0 | 6 | 85% | Auth0 身份认证 SDK。 |
+| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 468 | 2026-11 | 2026-11 | 15 | 6.0 | 6 | 85% | Auth0 身份认证 SDK。 |
 
 ### 后端即服务
 
@@ -488,7 +488,7 @@ Apple 原生: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [来源](https:/
 | | 库 | Stars | Release | 最近提交 | 最低 iOS | Swift tools | Swift 模式 | Issue 回复 | 用途 |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🏆 | **[apple-docs-mcp](https://github.com/kimsungwhee/apple-docs-mcp)** | 1.4k | 2025-09 | 2026-03 | — | — | — | 0% | 搜索 Apple 开发者文档的 MCP 服务。 |
-| 🟢 | [sosumi.ai](https://github.com/NSHipster/sosumi.ai) | 482 | 2026-09 | 2026-10 | — | — | — | 96% | 把 Apple 开发者文档转成 Markdown 供 AI 读取。 |
+| 🟢 | [sosumi.ai](https://github.com/NSHipster/sosumi.ai) | 483 | 2026-09 | 2026-10 | — | — | — | 96% | 把 Apple 开发者文档转成 Markdown 供 AI 读取。 |
 
 ### SwiftUI skills
 
