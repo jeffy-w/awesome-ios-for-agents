@@ -4,7 +4,7 @@
 
 **Pick iOS open-source libraries by data, for people and for AI coding agents.**
 
-Every library shows the same facts: stars, latest release, last commit, minimum iOS, Swift tools version, Swift language mode and issue reply rate. The top pick in each category comes from a fixed rule. Data refreshed **2026-11-04** and every week by GitHub Actions.
+Every library shows the same facts: stars, latest release, last commit, minimum iOS, Swift tools version, Swift language mode and issue reply rate. The top pick in each category comes from a fixed rule. Data refreshed **2026-11-09** and every week by GitHub Actions.
 
 ## For agents
 
@@ -23,7 +23,7 @@ Agents can also read the data directly: [`catalog.json`](catalog.json) · [`llms
 - **🏆 Top pick** = the most-starred 🟢/🟡 entry in its category. Add-ons of another entry are not ranked. Categories of provider SDKs (backend, payments, analytics, crash reporting, sign-in) are *not ranked*: pick by service.
 - **Min iOS** and **Swift tools** come from `Package.swift` at the latest release tag (or the highest version tag when the release tag is not a version number; otherwise the default branch).
 - **Swift mode** is the language mode the library's own targets build in, read with `swift package dump-package` (Swift 6.4.2): `6` · `5` · `6/5` (some targets each) · `strict` = Swift 5 mode with complete concurrency checking. Only targets with Swift sources count, so ObjC/C-only libraries show `ObjC/C`; `—` = not a Swift package or not readable. It does not change your app's mode; `6` means the library's API was checked for data races, so Swift 6 code that uses it needs fewer `@preconcurrency` workarounds.
-- **Issue replies** = share of issues from outside the project, opened 2025-10-05 to 2026-10-05, that a maintainer answered or closed (latest 100 per repo; bots do not count). Fewer than 5 issues shows the raw count, e.g. `0/2`; `off` = issues disabled. Shown for information, not used for the top pick.
+- **Issue replies** = share of issues from outside the project, opened 2025-10-10 to 2026-10-10, that a maintainer answered or closed (latest 100 per repo; bots do not count). Fewer than 5 issues shows the raw count, e.g. `0/2`; `off` = issues disabled. Shown for information, not used for the top pick.
 - `*` after a Swift mode or issue value = it could not be read this time, so the last value read is kept; `swift_mode_checked` and `issues_checked` in catalog.json give its date.
 - **Apple native** lists the system API for the same job and its minimum OS.
 - Categories and descriptions are written by hand and only say what a project does. Notes quote a source. Status and rank are computed by [`scripts/build.py`](scripts/build.py).
@@ -59,15 +59,15 @@ Apple native: `URLSession async/await` (iOS 15)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[Alamofire](https://github.com/Alamofire/Alamofire)** | 42.4k | 2026-09 | 2026-10 | 15 | 6.4 | 5 | 94% | HTTP client with request interceptors, retry, multipart upload and progress. |
+| 🏆 | **[Alamofire](https://github.com/Alamofire/Alamofire)** | 42.4k | 2026-09 | 2026-10 | 15 | 6.4 | 5 | 88% | HTTP client with request interceptors, retry, multipart upload and progress. |
 | ⚪ | [Moya](https://github.com/Moya/Moya) | 15.4k | 2022-08 | 2026-07 | 10 | 5.3 | 5 | 0/2 | Network abstraction layer built on Alamofire. |
-| ⚪ | [Get](https://github.com/kean/Get) | 989 | 2024-10 | 2024-10 | 13 | 5.5 | 5 | 0/0 | Typed API client built on URLSession. |
+| ⚪ | [Get](https://github.com/kean/Get) | 988 | 2024-10 | 2024-10 | 13 | 5.5 | 5 | 0/0 | Typed API client built on URLSession. |
 
 ### OpenAPI client generation
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[swift-openapi-generator](https://github.com/apple/swift-openapi-generator)** | 2.0k | 2026-10 | 2026-10 | 13 | 6.2 | 6 | 88% | Generates a Swift client and server from an OpenAPI document at build time. |
+| 🏆 | **[swift-openapi-generator](https://github.com/apple/swift-openapi-generator)** | 2.0k | 2026-11 | 2026-11 | 13 | 6.2 | 6 | 89% | Generates a Swift client and server from an OpenAPI document at build time. |
 
 > **Note** · swift-openapi-generator: README: a Swift package plugin and CLI. Generated code uses apple/swift-openapi-runtime and a ClientTransport such as apple/swift-openapi-urlsession. ([source](https://github.com/apple/swift-openapi-generator#package-ecosystem))
 
@@ -94,7 +94,7 @@ Apple native: `AsyncImage` (iOS 15)
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🏆 | **[SDWebImage](https://github.com/SDWebImage/SDWebImage)** | 25.6k | 2026-02 | 2026-04 | 9 | 5.3 | ObjC/C | 38% | Image downloader and cache, with coders for animated WebP, AVIF and HEIC. |
-| 🟢 | [Kingfisher](https://github.com/onevcat/Kingfisher) | 24.4k | 2026-11 | 2026-11 | 15 | 6.2 | 5 | 83% | Downloads and caches remote images for UIKit and SwiftUI. |
+| 🟢 | [Kingfisher](https://github.com/onevcat/Kingfisher) | 24.4k | 2026-11 | 2026-11 | 15 | 6.2 | 5 | 87% | Downloads and caches remote images for UIKit and SwiftUI. |
 | 🟢 | [Nuke](https://github.com/kean/Nuke) | 8.7k | 2026-11 | 2026-11 | 15 | 6.0 | 6 | 100% | Image loading pipeline with caching, prefetching and progressive decoding. |
 | 🟡 | [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI) | 2.6k | 2025-11 | 2026-02 | 14 | 5.3 | 5 | 1/3 | SwiftUI views for SDWebImage. |
 
@@ -107,7 +107,7 @@ Apple native: `SwiftData` (iOS 17) · `Core Data` (iOS 3)
 | 🏆 | **[realm-swift](https://github.com/realm/realm-swift)** | 16.6k | 2026-09 | 2026-09 | 12 | 6.2.1 | 6 | 29% | Object database for mobile. |
 | 🟢 | [SQLite.swift](https://github.com/stephencelis/SQLite.swift) | 10.2k | 2026-10 | 2026-10 | 15 | 6.1 | 6 | 89% | Swift layer over SQLite3 with typed query expressions. |
 | 🟢 | [GRDB.swift](https://github.com/groue/GRDB.swift) | 8.7k | 2026-11 | 2026-11 | 13 | 6.1 | 6 | 100% | SQLite toolkit with migrations, record types and database observation. |
-| 🟢 | [sqlite-data](https://github.com/pointfreeco/sqlite-data) | 2.0k | 2026-10 | 2026-11 | 16 | 6.4 | 6 | 74% | SwiftData-style models and queries on SQLite (GRDB), with CloudKit synchronization. |
+| 🟢 | [sqlite-data](https://github.com/pointfreeco/sqlite-data) | 2.0k | 2026-10 | 2026-11 | 16 | 6.4 | 6 | 77% | SwiftData-style models and queries on SQLite (GRDB), with CloudKit synchronization. |
 
 > **Note** · realm-swift: MongoDB: Atlas Device SDKs reached end-of-life and were removed on 2025-09-30; the on-device database continues to exist as an open source project. ([source](https://www.mongodb.com/docs/device-sdks-deprecation/))
 
@@ -137,7 +137,7 @@ Apple native: `UserDefaults` (iOS 2) · `@AppStorage` (iOS 14)
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🏆 | **[Swinject](https://github.com/Swinject/Swinject)** | 6.7k | 2025-09 | 2025-09 | 12 | 6.0.0 | 6 | 0/2 | Dependency injection container. |
-| 🟢 | [Factory](https://github.com/hmlongco/Factory) | 2.9k | 2026-10 | 2026-10 | 15 | 6.1 | 6 | 86% | Container-based dependency injection. |
+| 🟢 | [Factory](https://github.com/hmlongco/Factory) | 2.9k | 2026-11 | 2026-11 | 15 | 6.1 | 6 | 86% | Container-based dependency injection. |
 | 🟢 | [swift-dependencies](https://github.com/pointfreeco/swift-dependencies) | 2.2k | 2026-10 | 2026-10 | 15 | 6.4 | 6 | 88% | Dependency management modelled on SwiftUI's environment. |
 | ⚪ | [needle](https://github.com/uber/needle) | 2.0k | 2024-09 | 2026-04 | — | 5.10 | 5 | 0/1 | Compile-time checked dependency injection with a hierarchical component tree. |
 
@@ -149,8 +149,8 @@ Apple native: `Observation (@Observable)` (iOS 17)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[swift-composable-architecture](https://github.com/pointfreeco/swift-composable-architecture)** | 15.0k | 2026-08 | 2026-10 | 16 | 6.4 | 6 | 83% | Unidirectional architecture for state, actions, effects and testing. |
-| 🟢 | [RIBs-iOS](https://github.com/uber/RIBs-iOS) | 193 | 2026-07 | 2026-07 | 15 | 5.5 | 5 | 0/3 | Router-Interactor-Builder architecture that composes an app from a tree of modules (RIBs). |
+| 🏆 | **[swift-composable-architecture](https://github.com/pointfreeco/swift-composable-architecture)** | 15.0k | 2026-08 | 2026-11 | 16 | 6.4 | 6 | 81% | Unidirectional architecture for state, actions, effects and testing. |
+| 🟢 | [RIBs-iOS](https://github.com/uber/RIBs-iOS) | 194 | 2026-07 | 2026-07 | 15 | 5.5 | 5 | 0/3 | Router-Interactor-Builder architecture that composes an app from a tree of modules (RIBs). |
 
 > **Note** · RIBs-iOS: Package.swift: the RIBs library depends on RxSwift and RxRelay. The Android implementation lives in uber/RIBs. ([source](https://github.com/uber/RIBs-iOS/blob/main/Package.swift))
 
@@ -180,15 +180,15 @@ Apple native: `os.Logger` (iOS 14)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack)** | 13.3k | 2026-09 | 2026-10 | 15 | 6.4 | 6 | 100% | Logging framework with file logging and rotation. |
+| 🏆 | **[CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack)** | 13.3k | 2026-09 | 2026-11 | 15 | 6.4 | 6 | 100% | Logging framework with file logging and rotation. |
 | 🟡 | [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver) | 6.0k | — | 2024-11 | — | 5.0 | 5 | 2/2 | Logging with console, file and cloud destinations. |
-| 🟢 | [swift-log](https://github.com/apple/swift-log) | 4.1k | 2026-10 | 2026-11 | — | 6.2 | 6 | 87% | Logging API package for Swift on all platforms. |
+| 🟢 | [swift-log](https://github.com/apple/swift-log) | 4.1k | 2026-11 | 2026-11 | — | 6.2 | 6 | 88% | Logging API package for Swift on all platforms. |
 
 ### Network & log inspector
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[Pulse](https://github.com/kean/Pulse)** | 7.3k | 2026-06 | 2026-10 | 15 | 5.10 | 5 | 50% | In-app viewer for network requests and logs. |
+| 🏆 | **[Pulse](https://github.com/kean/Pulse)** | 7.3k | 2026-06 | 2026-10 | 15 | 5.10 | 5 | 45% | In-app viewer for network requests and logs. |
 
 ### Crash reporting
 
@@ -199,7 +199,7 @@ Apple native: `MetricKit MXCrashDiagnostic` (iOS 14) · `Xcode Organizer crash r
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🟢 | [firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk) | 7.0k | 2026-10 | 2026-11 | 15 | 6.2 | 6/5 | 92% | Firebase SDK; includes Crashlytics. |
-| 🟢 | [sentry-cocoa](https://github.com/getsentry/sentry-cocoa) | 1.1k | 2026-10 | 2026-11 | 15 | 6.0 | 5 | 88% | Sentry SDK: crash reporting, error tracking and performance tracing. |
+| 🟢 | [sentry-cocoa](https://github.com/getsentry/sentry-cocoa) | 1.1k | 2026-11 | 2026-11 | 15 | 6.0 | 5 | 92% | Sentry SDK: crash reporting, error tracking and performance tracing. |
 
 ### Product analytics
 
@@ -222,7 +222,7 @@ Apple native: `StoreKit 2` (iOS 15)
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🟢 | [purchases-ios](https://github.com/RevenueCat/purchases-ios) | 3.1k | 2026-11 | 2026-11 | 13 | 5.9 | 5 | 81% | RevenueCat SDK: purchases and subscriptions with server-side receipt validation and paywalls. |
-| 🟢 | [AdaptySDK-iOS](https://github.com/adaptyteam/AdaptySDK-iOS) | 490 | 2026-11 | 2026-11 | 15 | 6.2 | 6 | 93% | Adapty SDK: purchases and subscriptions with paywall A/B testing. |
+| 🟢 | [AdaptySDK-iOS](https://github.com/adaptyteam/AdaptySDK-iOS) | 493 | 2026-11 | 2026-11 | 15 | 6.2 | 6 | 93% | Adapty SDK: purchases and subscriptions with paywall A/B testing. |
 
 ### Third-party sign-in
 
@@ -233,7 +233,7 @@ Apple native: `Sign in with Apple (AuthenticationServices)` (iOS 13) · `Passkey
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🟢 | [GoogleSignIn-iOS](https://github.com/google/GoogleSignIn-iOS) | 759 | 2026-10 | 2026-11 | 15 | 6.0 | 6 | 62% | Sign in with Google. |
-| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 468 | 2026-11 | 2026-11 | 15 | 6.0 | 6 | 85% | Auth0 authentication SDK. |
+| 🟢 | [Auth0.swift](https://github.com/auth0/Auth0.swift) | 467 | 2026-11 | 2026-11 | 15 | 6.0 | 6 | 85% | Auth0 authentication SDK. |
 
 ### Backend as a service
 
@@ -252,7 +252,7 @@ Apple native: `NSLayoutAnchor` (iOS 9)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[SnapKit](https://github.com/SnapKit/SnapKit)** | 20.3k | 2026-05 | 2026-07 | 14 | 6.0 | 5 | 83% | DSL for Auto Layout constraints in code. |
+| 🏆 | **[SnapKit](https://github.com/SnapKit/SnapKit)** | 20.3k | 2026-05 | 2026-07 | 14 | 6.0 | 5 | 62% | DSL for Auto Layout constraints in code. |
 
 ### SwiftUI component collections
 
@@ -281,7 +281,7 @@ Apple native: `PhaseAnimator / KeyframeAnimator` (iOS 17)
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🏆 | **[lottie-ios](https://github.com/airbnb/lottie-ios)** | 26.9k | 2026-06 | 2026-10 | 13 | 6.0 | 5 | 46% | Plays Lottie (After Effects) animations. |
-| 🟢 | [rive-ios](https://github.com/rive-app/rive-ios) | 858 | 2026-10 | 2026-11 | 14 | 5.10 | ObjC/C | 81% | Plays Rive animations with state machines. |
+| 🟢 | [rive-ios](https://github.com/rive-app/rive-ios) | 860 | 2026-10 | 2026-11 | 14 | 5.10 | ObjC/C | 80% | Plays Rive animations with state machines. |
 
 ### Charts
 
@@ -297,7 +297,7 @@ Apple native: `AttributedString(markdown:)` (iOS 15)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[textual](https://github.com/gonzalezreal/textual)** | 916 | 2026-06 | 2026-06 | 18 | 6.0 | 6 | 32% | Renders Markdown and rich text in SwiftUI. |
+| 🏆 | **[textual](https://github.com/gonzalezreal/textual)** | 919 | 2026-06 | 2026-06 | 18 | 6.0 | 6 | 32% | Renders Markdown and rich text in SwiftUI. |
 | ⚪ | [swift-markdown-ui](https://github.com/gonzalezreal/swift-markdown-ui) | 3.9k | 2024-10 | 2025-12 | 15 | 5.6 | 5 | 0% | Renders Markdown in SwiftUI. |
 
 > **Note** · swift-markdown-ui: README: "MarkdownUI is in maintenance mode. New development is happening in Textual." ([source](https://github.com/gonzalezreal/swift-markdown-ui#readme))
@@ -330,7 +330,7 @@ Apple native: `AsyncSequence / AsyncStream (back-deployed to iOS 13 with Xcode 1
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[swift-async-algorithms](https://github.com/apple/swift-async-algorithms)** | 3.7k | 2026-09 | 2026-10 | — | 6.2 | 6 | 44% | Operators for AsyncSequence: debounce, throttle, merge, zip and more. |
+| 🏆 | **[swift-async-algorithms](https://github.com/apple/swift-async-algorithms)** | 3.7k | 2026-09 | 2026-10 | — | 6.2 | 6 | 43% | Operators for AsyncSequence: debounce, throttle, merge, zip and more. |
 
 ### Data structures
 
@@ -401,7 +401,7 @@ Apple native: `Swift Testing #expect / #require` (Xcode 16)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[swift-concurrency-extras](https://github.com/pointfreeco/swift-concurrency-extras)** | 491 | 2026-10 | 2026-10 | 13 | 6.0 | 6 | 0/0 | Utilities for testing Swift concurrency code. |
+| 🏆 | **[swift-concurrency-extras](https://github.com/pointfreeco/swift-concurrency-extras)** | 492 | 2026-10 | 2026-10 | 13 | 6.0 | 6 | 0/0 | Utilities for testing Swift concurrency code. |
 
 ## Tooling
 
@@ -417,15 +417,15 @@ Apple native: `xcrun swift-format (bundled with Xcode)` (Xcode 16)
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[SwiftFormat](https://github.com/nicklockwood/SwiftFormat)** | 9.0k | 2026-10 | 2026-10 | — | 5.7 | 5 | 86% | Swift code formatter. |
-| 🟢 | [swift-format](https://github.com/swiftlang/swift-format) | 3.0k | 2026-09 | 2026-10 | 16 | 6.0 | 5 | 65% | Swift code formatter from the Swift project. |
+| 🏆 | **[SwiftFormat](https://github.com/nicklockwood/SwiftFormat)** | 9.0k | 2026-11 | 2026-11 | — | 5.7 | 5 | 86% | Swift code formatter. |
+| 🟢 | [swift-format](https://github.com/swiftlang/swift-format) | 3.0k | 2026-09 | 2026-11 | 16 | 6.0 | 5 | 65% | Swift code formatter from the Swift project. |
 
 ### Project generation
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🏆 | **[XcodeGen](https://github.com/yonaskolb/XcodeGen)** | 8.9k | 2026-07 | 2026-10 | — | 5.9 | 5 | 48% | Generates an Xcode project from project.yml. |
-| 🟢 | [tuist](https://github.com/tuist/tuist) | 5.9k | 2026-11 | 2026-11 | — | 6.1 | 6/5 | 63% | Generates Xcode projects from Project.swift; also caching and build insights. |
+| 🟢 | [tuist](https://github.com/tuist/tuist) | 5.9k | 2026-11 | 2026-11 | — | 6.1 | 6/5 | 65% | Generates Xcode projects from Project.swift; also caching and build insights. |
 
 ### Build log formatting
 
@@ -439,7 +439,7 @@ Apple native: `Xcode View Debugger (Debug View Hierarchy)`
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[LookInside](https://github.com/LookInsideApp/LookInside)** | 395 | 2026-10 | 2026-11 | 15 | 5.10 | 5 | 60% | Mac app to inspect views, layers, frames and properties of a running iOS or macOS app. |
+| 🏆 | **[LookInside](https://github.com/LookInsideApp/LookInside)** | 397 | 2026-10 | 2026-11 | 15 | 5.10 | 5 | 60% | Mac app to inspect views, layers, frames and properties of a running iOS or macOS app. |
 | ⚪ | [LookinServer](https://github.com/QMUI/LookinServer) | 2.9k | 2024-04 | 2024-06 | 9 | 5.3 | 5 | 0/3 | iOS framework for the Lookin macOS app: inspect and modify views in a running app. |
 | 🟢 | [LookInside-Release](https://github.com/LookInsideApp/LookInside-Release) | 9 | 2026-10 | 2026-10 | 15 | 5.9 | ObjC/C | 0/0 | LookInside server package for iOS apps (Swift Package Manager or CocoaPods). |
 
@@ -451,7 +451,7 @@ Apple native: `Generated asset symbols (ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASS
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[R.swift](https://github.com/mac-cain13/R.swift)** | 9.5k | 2024-11 | 2025-03 | 11 | 5.6 | 5 | 0/1 | Generates typed resource accessors. |
+| ⚪ | [R.swift](https://github.com/mac-cain13/R.swift) | 9.5k | 2024-11 | 2025-03 | 11 | 5.6 | 5 | 0/1 | Generates typed resource accessors. |
 | ⚪ | [SwiftGen](https://github.com/SwiftGen/SwiftGen) | 9.5k | 2024-03 | 2022-02 | — | 5.6 | 5 | 0/3 | Generates Swift code for strings, images, fonts and other resources. |
 
 ### Release & App Store Connect
@@ -460,8 +460,8 @@ Apple native: `xcodebuild archive / -exportArchive` · `Xcode Cloud`
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[fastlane](https://github.com/fastlane/fastlane)** | 42.4k | 2026-10 | 2026-11 | — | 4.0 | 5 | 92% | Automates signing, screenshots, builds and releases. |
-| 🟢 | [App-Store-Connect-CLI](https://github.com/rorkai/App-Store-Connect-CLI) | 8.2k | 2026-11 | 2026-11 | — | — | — | 100% | CLI for App Store Connect: builds, TestFlight, metadata, submissions. |
+| 🏆 | **[fastlane](https://github.com/fastlane/fastlane)** | 42.4k | 2026-10 | 2026-11 | — | 4.0 | 5 | 90% | Automates signing, screenshots, builds and releases. |
+| 🟢 | [App-Store-Connect-CLI](https://github.com/rorkai/App-Store-Connect-CLI) | 8.3k | 2026-11 | 2026-11 | — | — | — | 100% | CLI for App Store Connect: builds, TestFlight, metadata, submissions. |
 
 ## AI agent tooling
 
@@ -471,15 +471,15 @@ Apple native: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [source](https:/
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[MobileBuildMCP](https://github.com/getsentry/MobileBuildMCP)** | 6.5k | 2026-09 | 2026-10 | — | — | — | 55% | MCP server and CLI to build, run, test, debug and scaffold iOS/macOS projects (formerly XcodeBuildMCP). |
+| 🏆 | **[MobileBuildMCP](https://github.com/getsentry/MobileBuildMCP)** | 6.6k | 2026-09 | 2026-10 | — | — | — | 53% | MCP server and CLI to build, run, test, debug and scaffold iOS/macOS projects (formerly XcodeBuildMCP). |
 
 ### Simulator & device UI automation
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[mobile-mcp](https://github.com/mobile-next/mobile-mcp)** | 10.3k | 2026-11 | 2026-11 | — | — | — | 81% | MCP server to drive iOS and Android simulators and devices. |
+| 🏆 | **[mobile-mcp](https://github.com/mobile-next/mobile-mcp)** | 10.4k | 2026-11 | 2026-11 | — | — | — | 79% | MCP server to drive iOS and Android simulators and devices. |
 | 🟢 | [agent-device](https://github.com/callstack/agent-device) | 5.3k | 2026-11 | 2026-11 | — | — | — | 100% | CLI, MCP server and Node.js API to control mobile, web, TV and desktop apps on devices and simulators. |
-| 🟢 | [AXe](https://github.com/cameroncooke/AXe) | 2.3k | 2026-07 | 2026-07 | — | 5.10 | 5 | 55% | CLI for Simulator UI automation through accessibility APIs. |
+| 🟢 | [AXe](https://github.com/cameroncooke/AXe) | 2.3k | 2026-07 | 2026-07 | — | 5.10 | 5 | 50% | CLI for Simulator UI automation through accessibility APIs. |
 | 🟢 | [ios-simulator-mcp](https://github.com/joshuayoes/ios-simulator-mcp) | 2.2k | 2026-10 | 2026-10 | — | — | — | 75% | MCP server to tap, type and inspect UI in the iOS Simulator. |
 | 🟢 | [sim-use](https://github.com/lycorp-jp/sim-use) | 1.5k | 2026-10 | 2026-10 | — | 5.10 | 5 | 77% | CLI for AI agents to read and act on iOS Simulator, Android emulator/device and physical iPhone screens. |
 
@@ -488,32 +488,32 @@ Apple native: `xcrun mcpbridge (Xcode MCP server)` (Xcode 26.3) [source](https:/
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
 | 🏆 | **[apple-docs-mcp](https://github.com/kimsungwhee/apple-docs-mcp)** | 1.4k | 2025-09 | 2026-03 | — | — | — | 0% | MCP server to search Apple developer documentation. |
-| 🟢 | [sosumi.ai](https://github.com/NSHipster/sosumi.ai) | 483 | 2026-09 | 2026-10 | — | — | — | 96% | Serves Apple developer docs as Markdown for AI tools. |
+| 🟢 | [sosumi.ai](https://github.com/NSHipster/sosumi.ai) | 483 | 2026-11 | 2026-11 | — | — | — | 96% | Serves Apple developer docs as Markdown for AI tools. |
 
 ### SwiftUI skills
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill)** | 6.5k | 2026-10 | 2026-10 | — | — | — | 54% | SwiftUI agent skill. |
-| 🟢 | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | 3.8k | 2026-10 | 2026-10 | — | — | — | 79% | SwiftUI agent skill. |
+| 🏆 | **[twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill)** | 6.5k | 2026-10 | 2026-10 | — | — | — | 50% | SwiftUI agent skill. |
+| 🟢 | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | 3.9k | 2026-11 | 2026-11 | — | — | — | 87% | SwiftUI agent skill. |
 
 ### Swift Concurrency skills
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[Swift-Concurrency-Agent-Skill](https://github.com/AvdLee/Swift-Concurrency-Agent-Skill)** | 1.7k | 2026-08 | 2026-09 | — | — | — | 50% | Swift Concurrency agent skill. |
+| 🏆 | **[Swift-Concurrency-Agent-Skill](https://github.com/AvdLee/Swift-Concurrency-Agent-Skill)** | 1.7k | 2026-11 | 2026-11 | — | — | — | 50% | Swift Concurrency agent skill. |
 
 ### Simulator skills
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[ios-simulator-skill](https://github.com/conorluddy/ios-simulator-skill)** | 1.3k | 2026-10 | 2026-10 | — | — | — | 75% | Agent skill for building, running and inspecting apps in the Simulator. |
+| 🏆 | **[ios-simulator-skill](https://github.com/conorluddy/ios-simulator-skill)** | 1.3k | 2026-11 | 2026-11 | — | — | — | 75% | Agent skill for building, running and inspecting apps in the Simulator. |
 
 ### Release skills
 
 | | Library | Stars | Release | Last commit | Min iOS | Swift tools | Swift mode | Issue replies | What it does |
 |:-:|---|--:|---|---|---|---|---|--:|---|
-| 🏆 | **[app-store-connect-cli-skills](https://github.com/rorkai/app-store-connect-cli-skills)** | 1.1k | — | 2026-10 | — | — | — | 100% | Agent skills for releasing with the asc CLI. |
+| 🏆 | **[app-store-connect-cli-skills](https://github.com/rorkai/app-store-connect-cli-skills)** | 1.1k | — | 2026-11 | — | — | — | 100% | Agent skills for releasing with the asc CLI. |
 
 ### Skill indexes
 
